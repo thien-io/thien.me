@@ -57,9 +57,7 @@ export default function Hero() {
             className="text-md mb-4 font-mono tracking-normal "
           >
             <span className="font-mono">
-              <TypewriterEffect
-                string={`Hello! You've discovered my little slice of the internet.`}
-              />
+<p>Check out my new website, <Link href="https://thientran.io">thientran.io</Link></p>
             </span>
           </motion.div>
 

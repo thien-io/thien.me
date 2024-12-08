@@ -1,4 +1,3 @@
-//from leerob.io
 import useSWR from 'swr'
 import { useEffect } from 'react'
 import { animate } from 'motion'

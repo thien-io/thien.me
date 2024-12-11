@@ -17,7 +17,7 @@ const ProjectsPage = ({ repos }) => (
 
     <p className="w-max rounded-md border-gray-500 bg-gray-200 p-2 px-4 text-sm dark:bg-gray-700">
       <a
-        href="https://github.com/thienjs?tab=repositories"
+        href="https://github.com/thien-io?tab=repositories"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     `,
     {
-      username: 'thienjs',
+      username: 'thien-io',
       limit: 12,
       sort: 'STARGAZERS',
       headers: {

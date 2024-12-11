@@ -348,7 +348,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const { data } = await client.query({
     query: gql`
       {
-        user(login: "thienjs") {
+        user(login: "thien-io") {
           pinnedItems(first: 1) {
             edges {
               node {

@@ -1,8 +1,8 @@
 export const contact = [
   {
     social: 'Email',
-    username: 'hello@thientran.io',
-    url: 'mailto:hello@thientran.io',
+    username: 'hi@thien.me',
+    url: 'mailto:hi@thien.me',
   },
   {
     social: 'LinkedIn',

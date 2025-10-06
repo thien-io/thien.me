@@ -1,5 +1,5 @@
 export const metaData = {
-  baseUrl: "https://thientran.io/",
+  baseUrl: "https://thien.me/",
   title: "Thien",
   name: "Thien",
   ogImage: "/opengraph-image.png",
@@ -13,7 +13,7 @@ export const socialLinks = {
   discord: "https://discord.gg/thien-io",
   instagram: "https://www.instagram.com/thientran.io",
   linkedin: "https://www.linkedin.com/in/thienio/",
-  email: "mailto:hello@thientran.io",
+  email: "mailto:hi@thien.me",
 };
 
 

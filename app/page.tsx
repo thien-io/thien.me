@@ -18,7 +18,7 @@ export default function Page() {
       <div className='flex flex-col mt-10 w-full'>
         <SidebarTrigger className=' ml-6 ' />
         <Link
-          href='https://thientran.io'
+          href='https://thien.me'
           className=' items-center justify-center mx-10 mt-20 text-base font-semibold'
         >
           <p className='font-serif tracking-wide text-4xl'>thien.</p>

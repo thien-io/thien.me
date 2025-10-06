@@ -1,78 +1,39 @@
-/**
- * @type {import('next').NextConfig}
- */
-module.exports = {
-  swcMinify: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
-  images: {
-    remotePatterns: [
+  swcMinify: true,
+  async rewrites() {
+    return [
       {
-        protocol: 'https',
-        hostname: 'res.cloudinary.com',
+        source: "/rss.xml",
+        destination: "/feed/rss.xml",
       },
       {
-        protocol: 'https',
-        hostname: 'i.scdn.co', //spotify
+        source: "/atom.xml",
+        destination: "/feed/atom.xml",
       },
       {
-        protocol: 'https',
-        hostname: 'media.discordapp.net',
+        source: "/feed.json",
+        destination: "/feed/feed.json",
       },
       {
-        protocol: 'https',
-        hostname: 'cdn.discordapp.com',
+        source: "/rss",
+        destination: "/feed/rss.xml",
       },
       {
-        protocol: 'https',
-        hostname: 'prod-files-secure.s3.us-west-2.amazonaws.com',
+        source: "/feed",
+        destination: "/feed/rss.xml",
       },
       {
-        protocol: 'https',
-        hostname: 'res.craft.d',
+        source: "/atom",
+        destination: "/feed/atom.xml",
       },
       {
-        protocol: 'https',
-        hostname: 'cdn.hashnode.com',
+        source: "/json",
+        destination: "/feed/feed.json",
       },
-      {
-        protocol: 'https',
-        hostname: 'dwgyu36up6iuz.cloudfront.net',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 's3.us-west-2.amazonaws.com', //notion images
-      },
-      {
-        protocol: 'https',
-        hostname: 'github.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'pbs.twimg.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'avatars.githubusercontent.com',
-      },
-    ],
+    ];
   },
-  webpack(config) {
-    config.resolve.fallback = {
-      // if you miss it, all the other options in fallback, specified
-      // by next.js will be dropped.
-      ...config.resolve.fallback,
+};
 
-      fs: false, // the solution
-    }
-
-    return config
-  },
-}
+module.exports = nextConfig;

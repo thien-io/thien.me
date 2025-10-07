@@ -41,8 +41,8 @@ const contactMethods: ContactMethod[] = [
   {
     id: 'email',
     name: 'Email',
-    username: 'hello@thientran.io',
-    url: 'mailto:hello@thientran.io',
+    username: 'hi@thien.me',
+    url: 'mailto:hi@thien.me',
     icon: <PaperPlaneIcon className='h-5 w-5' />,
     color: '#3B82F6', // Blue
     copyable: true,

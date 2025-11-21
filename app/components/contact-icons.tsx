@@ -77,8 +77,8 @@ const contactMethods: ContactMethod[] = [
   {
     id: 'instagram',
     name: 'Instagram',
-    username: '@thientran.io',
-    url: 'https://instagram.com/thientran.io',
+    username: '@thien.io',
+    url: 'https://instagram.com/thien.io',
     icon: <InstagramLogoIcon className='h-5 w-5' />,
     color: '#E4405F', // Instagram Pink
     copyable: true,

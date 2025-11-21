@@ -21,8 +21,8 @@ export const contact = [
   },
   {
     social: 'Instagram',
-    username: 'thientran.io',
-    url: 'https://instagram.com/thientran.io',
+    username: 'thien.io',
+    url: 'https://instagram.com/thien.io',
   },
   {
     social: 'Venmo',

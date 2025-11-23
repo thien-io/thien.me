@@ -3,6 +3,8 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"
+import { TbCircleLetterT } from 'react-icons/tb';
+
 import { PanelLeft, Menu, Command } from "lucide-react"
 import { PiTennisBallBold } from "react-icons/pi";
 import { CommandIcon } from "lucide-react"
@@ -269,23 +271,23 @@ const SidebarTrigger = React.forwardRef<
   return (
     <Button
       ref={ref}
-      data-sidebar="trigger"
-      variant="ghost"
+      data-sidebar='trigger'
+      variant='link'
       size="icon"
-      className={cn("h-10 w-10 ml-2", className)}
+      className={cn('w-10 min-h-10 ml-2', className)}
       onClick={(event) => {
-        onClick?.(event)
-        toggleSidebar()
+        onClick?.(event);
+        toggleSidebar();
       }}
       {...props}
     >
 
-      <CommandIcon />
+        <TbCircleLetterT />
 
 
-      <span className="sr-only">Toggle Sidebar</span>
+      <span className='sr-only'>Toggle Sidebar</span>
     </Button>
-  )
+  );
 })
 SidebarTrigger.displayName = "SidebarTrigger"
 

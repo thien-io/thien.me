@@ -68,8 +68,8 @@ const contactMethods: ContactMethod[] = [
   {
     id: 'discord',
     name: 'Discord',
-    username: 'thien.io',
-    url: 'https://discord.com/users/thien.io',
+    username: 'thien.gg',
+    url: 'https://discord.com/users/thien.gg',
     icon: <DiscordLogoIcon className='h-5 w-5' />,
     color: '#5865F2', // Discord Blurple
     copyable: true,

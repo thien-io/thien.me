@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap");
+
+:root {
+  --font-display: "Cormorant Garamond", serif;
+  --font-mono: "DM Mono", monospace;
+
+  --background: 40 20% 97%;
+  --foreground: 30 10% 12%;
+  --card: 40 20% 99%;
+  --card-foreground: 30 10% 12%;
+  --border: 35 15% 88%;
+  --input: 35 15% 88%;
+  --primary: 25 60% 35%;
+  --primary-foreground: 40 20% 97%;
+  --secondary: 35 20% 92%;
+  --secondary-foreground: 30 10% 20%;
+  --muted: 35 15% 93%;
+  --muted-foreground: 30 8% 50%;
+  --accent: 25 50% 90%;
+  --accent-foreground: 25 60% 25%;
+  --ring: 25 60% 35%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 220 15% 9%;
+  --foreground: 40 15% 90%;
+  --card: 220 15% 11%;
+  --card-foreground: 40 15% 90%;
+  --border: 220 12% 18%;
+  --input: 220 12% 18%;
+  --primary: 35 70% 60%;
+  --primary-foreground: 220 15% 9%;
+  --secondary: 220 12% 15%;
+  --secondary-foreground: 40 15% 80%;
+  --muted: 220 12% 14%;
+  --muted-foreground: 40 8% 50%;
+  --accent: 220 12% 16%;
+  --accent-foreground: 35 70% 65%;
+  --ring: 35 70% 60%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans, system-ui);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+
+/* Sidebar */
+.sidebar-link {
+  @apply flex items-center gap-3 px-3 py-2 rounded-md text-sm text-muted-foreground 
+         hover:text-foreground hover:bg-accent transition-all duration-200;
+}
+.sidebar-link.active {
+  @apply text-foreground bg-accent font-medium;
+}
+
+/* Spotify widget */
+.spotify-bar {
+  animation: spotify-eq 1.2s ease-in-out infinite;
+}
+.spotify-bar:nth-child(2) { animation-delay: 0.2s; }
+.spotify-bar:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes spotify-eq {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}

@@ -1,42 +1,42 @@
 export default function CoachingPage() {
   const packages = [
     {
-      name: "Single Session",
-      price: "$80",
-      duration: "60 min",
+      name: 'Single Session',
+      price: '$100',
+      duration: '60 min',
       description:
-        "A focused one-on-one session — great for trying things out or working on a specific part of your game.",
+        'A focused one-on-one session — great for trying things out or working on a specific part of your game.',
       includes: [
-        "Technique assessment",
-        "Drills and live play",
-        "Session notes sent after",
+        'Technique assessment',
+        'Drills and live play',
+        'Session notes sent after',
       ],
     },
     {
-      name: "Monthly Package",
-      price: "$280",
-      duration: "4 sessions / month",
+      name: 'Monthly Package',
+      price: '$360',
+      duration: '4 sessions / month',
       description:
-        "Consistent work builds real improvement. This is how most of my students see the biggest gains.",
+        'Consistent work builds real improvement. This is how most of my students see the biggest gains.',
       includes: [
-        "4 × 60 min sessions",
-        "Video analysis",
-        "Between-session check-ins",
-        "Customized practice plan",
+        '4 × 60 min sessions',
+        'Video analysis',
+        'Between-session check-ins',
+        'Customized practice plan',
       ],
       featured: true,
     },
     {
-      name: "Intensive",
-      price: "$600",
-      duration: "10 sessions",
+      name: 'Intensive',
+      price: '$800',
+      duration: '10 sessions',
       description:
-        "Ideal before a season, tournament, or if you want to fast-track your development over a few weeks.",
+        'Ideal before a season, tournament, or if you want to fast-track your development over a few weeks.',
       includes: [
-        "10 × 60 min sessions",
-        "Full video breakdown",
-        "Match strategy sessions",
-        "Priority scheduling",
+        '10 × 60 min sessions',
+        'Full video breakdown',
+        'Match strategy sessions',
+        'Priority scheduling',
       ],
     },
   ];

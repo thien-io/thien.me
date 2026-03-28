@@ -6,7 +6,7 @@ export default function Home() {
       {/* Hero */}
       <section className="mb-16 animate-fade-in">
         <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-4">
-          Tennis Coach · New York
+          Tennis Coach · Connecticut
         </p>
         <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6 text-foreground">
           Hi, I'm{" "}

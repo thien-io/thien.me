@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 
@@ -13,23 +13,40 @@ interface NowPlaying {
   songUrl?: string;
 }
 
+const POLL_INTERVAL = 30_000; // 30 seconds
+
 export function SpotifyWidget() {
   const [data, setData] = useState<NowPlaying | null>(null);
 
-  useEffect(() => {
-    const fetch_ = async () => {
-      try {
-        const res = await fetch("/api/spotify");
-        const json = await res.json();
-        setData(json);
-      } catch {
-        setData({ isPlaying: false });
-      }
-    };
-    fetch_();
-    const interval = setInterval(fetch_, 30000);
-    return () => clearInterval(interval);
+  const fetchNowPlaying = useCallback(async () => {
+    try {
+      // cache: "no-store" ensures the browser doesn't serve a cached response
+      const res = await fetch("/api/spotify", { cache: "no-store" });
+      const json = await res.json();
+      setData(json);
+    } catch {
+      setData({ isPlaying: false });
+    }
   }, []);
+
+  useEffect(() => {
+    // Fetch immediately on mount
+    fetchNowPlaying();
+
+    // Poll every 30s
+    const interval = setInterval(fetchNowPlaying, POLL_INTERVAL);
+
+    // Refetch whenever the user returns to the tab
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") fetchNowPlaying();
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [fetchNowPlaying]);
 
   if (!data) {
     return (
@@ -46,9 +63,7 @@ export function SpotifyWidget() {
           </svg>
         </div>
         <div>
-          <p className="text-xs font-mono text-muted-foreground">
-            Not playing
-          </p>
+          <p className="text-xs font-mono text-muted-foreground">Not playing</p>
           <p className="text-sm text-foreground">Spotify is quiet right now</p>
         </div>
       </div>
@@ -73,12 +88,11 @@ export function SpotifyWidget() {
       )}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-1.5 mb-0.5">
-          {/* EQ bars */}
           <div className="flex items-end gap-[2px] h-3">
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className={`w-[3px] bg-primary rounded-full spotify-bar`}
+                className="w-[3px] bg-primary rounded-full spotify-bar"
                 style={{ height: "100%", transformOrigin: "bottom" }}
               />
             ))}

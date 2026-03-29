@@ -1,66 +1,74 @@
-export default function AboutPage() {
-  const timeline = [
-    { year: "2006", event: "Started playing tennis at age 8" },
-    { year: "2012", event: "Competed in regional junior tournaments" },
-    { year: "2016", event: "Began coaching part-time during college" },
-    { year: "2018", event: "Became a certified USPTA tennis coach" },
-    { year: "2020", event: "Started thien.me — full-time coaching" },
-    { year: "Now", event: "200+ students, still learning every day" },
-  ];
+import { ScrollTimeline } from "@/components/scroll-timeline";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { ParallaxSection } from "@/components/parallax-section";
 
+export default function AboutPage() {
   return (
-    <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-      <div className="mb-12 animate-fade-in">
-        <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-4">
-          About
-        </p>
-        <h1 className="font-display text-5xl font-light mb-6">
-          The story so far
-        </h1>
-        <div className="space-y-4 text-muted-foreground leading-relaxed">
-          <p>
-            Tennis found me at 8, and I never really let it go. What started as
-            weekend lessons turned into a decade of competitive play, then
-            coaching, then a career built entirely around this sport.
-          </p>
-          <p>
-            I'm based in New York and work with players of all ages and skill
-            levels. My approach is deliberate — I'd rather help one person
-            understand <em>why</em> their forehand breaks down under pressure
-            than run 50 drills without context.
-          </p>
-          <p>
-            Off the court, I'm into good coffee, long bike rides, and reading
-            about how athletes train mentally. If that sounds like your kind of
-            person — let's play.
-          </p>
+    <div>
+      {/* Hero */}
+      <section className="relative px-8 md:px-16 pt-24 pb-28 md:pt-32 md:pb-36 overflow-hidden">
+        <ParallaxSection
+          speed={0.12}
+          className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none select-none flex items-start justify-end pt-16 pr-8 md:pr-16"
+        >
+          <span
+            className="font-display text-[18vw] font-light leading-none"
+            style={{ color: "hsl(var(--foreground) / 0.03)" }}
+          >
+            story
+          </span>
+        </ParallaxSection>
+
+        <div className="relative z-10 max-w-xl">
+          <ScrollReveal>
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">
+              About
+            </p>
+          </ScrollReveal>
+          <ScrollReveal delay={80}>
+            <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-10">
+              The story<br />
+              <em className="text-primary">so far.</em>
+            </h1>
+          </ScrollReveal>
+          <ScrollReveal delay={160}>
+            <div className="space-y-5 text-muted-foreground leading-relaxed max-w-md">
+              <p>
+                Tennis found me at 8, and I never let it go. What started as
+                weekend lessons turned into a decade of competitive play, then
+                coaching, then a career built entirely around this sport.
+              </p>
+              <p>
+                I'm based in Connecticut and work with players of all ages.
+                I'd rather help one person understand <em>why</em> their
+                forehand breaks under pressure than run 50 drills without
+                context.
+              </p>
+              <p>
+                Off the court: good coffee, long bike rides, and reading
+                about how athletes train mentally.
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
-      </div>
+      </section>
+
+      <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Timeline */}
-      <div
-        className="opacity-0 animate-fade-in [animation-delay:150ms]"
-      >
-        <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-6">
-          Timeline
-        </p>
-        <div className="relative">
-          <div className="absolute left-[52px] top-0 bottom-0 w-px bg-border" />
-          <div className="space-y-6">
-            {timeline.map((item, i) => (
-              <div key={i} className="flex items-start gap-6">
-                <span className="w-[52px] shrink-0 text-right text-xs font-mono text-muted-foreground pt-0.5">
-                  {item.year}
-                </span>
-                <div className="relative flex items-center">
-                  <div className="absolute -left-[5px] w-2.5 h-2.5 rounded-full border-2 border-primary bg-background" />
-                </div>
-                <p className="text-sm text-foreground pl-4">{item.event}</p>
-              </div>
-            ))}
-          </div>
+      <section className="px-8 md:px-16 py-28 md:py-36">
+        <ScrollReveal className="mb-14">
+          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
+            Timeline
+          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-light text-foreground">
+            Where I've been
+          </h2>
+        </ScrollReveal>
+        <div className="max-w-lg">
+          <ScrollTimeline />
         </div>
-      </div>
+      </section>
     </div>
   );
 }

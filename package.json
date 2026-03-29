@@ -27,7 +27,16 @@
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7",
     "date-fns": "^3.6.0",
-    "framer-motion": "^11.3.2"
+    "framer-motion": "^11.3.2",
+    "gsap": "3.12.5",
+    "@gsap/react": "2.1.1",
+    "@next/mdx": "^14.2.5",
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "remark-gfm": "^4.0.0",
+    "rehype-highlight": "^7.0.0",
+    "gray-matter": "^4.0.3",
+    "next-mdx-remote": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",

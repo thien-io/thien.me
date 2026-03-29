@@ -14,13 +14,12 @@ export default function GuestbookPage() {
   const [entries, setEntries] = useState<GuestbookEntry[]>([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
 
   const fetchEntries = async () => {
-    setLoading(true);
     try {
       const res = await fetch("/api/guestbook");
       const data = await res.json();
@@ -32,9 +31,7 @@ export default function GuestbookPage() {
     }
   };
 
-  useEffect(() => {
-    fetchEntries();
-  }, []);
+  useEffect(() => { fetchEntries(); }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,7 +49,7 @@ export default function GuestbookPage() {
       setMessage("");
       setSuccess(true);
       await fetchEntries();
-      setTimeout(() => setSuccess(false), 3000);
+      setTimeout(() => setSuccess(false), 4000);
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
@@ -61,41 +58,42 @@ export default function GuestbookPage() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-      <div className="mb-12 animate-fade-in">
-        <p className="text-xs font-mono text-muted-foreground tracking-widest uppercase mb-4">
+    <div>
+      {/* Header */}
+      <section className="px-8 md:px-16 pt-24 pb-20 md:pt-32 md:pb-24">
+        <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">
           Guestbook
         </p>
-        <h1 className="font-display text-5xl font-light mb-4">
-          Leave a note
+        <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">
+          Leave a<br />
+          <em className="text-primary">note.</em>
         </h1>
-        <p className="text-muted-foreground leading-relaxed max-w-lg">
-          Whether you've trained with me, played against me, or just want to say
-          hi — I'd love to hear from you.
+        <p className="text-muted-foreground max-w-sm leading-relaxed">
+          Trained with me, played with me, or just want to say hi — I'd love
+          to hear from you.
         </p>
-      </div>
+      </section>
+
+      <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Form */}
-      <form
-        onSubmit={handleSubmit}
-        className="mb-12 p-6 rounded-xl border border-border bg-card opacity-0 animate-fade-in [animation-delay:100ms]"
-      >
-        <div className="space-y-4">
+      <section className="px-8 md:px-16 py-16">
+        <form onSubmit={handleSubmit} className="max-w-md space-y-5">
           <div>
-            <label className="text-xs font-mono text-muted-foreground uppercase tracking-wider block mb-1.5">
-              Your name
+            <label className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block mb-2">
+              Name
             </label>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              placeholder="e.g. Alex"
+              placeholder="Your name"
               maxLength={60}
-              className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-shadow"
+              className="w-full px-4 py-3 rounded-sm border border-input bg-background text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-shadow placeholder:text-muted-foreground/50"
             />
           </div>
           <div>
-            <label className="text-xs font-mono text-muted-foreground uppercase tracking-wider block mb-1.5">
+            <label className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block mb-2">
               Message
             </label>
             <textarea
@@ -103,75 +101,73 @@ export default function GuestbookPage() {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Thien really helped me with my backhand..."
               maxLength={300}
-              rows={3}
-              className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring transition-shadow resize-none"
+              rows={4}
+              className="w-full px-4 py-3 rounded-sm border border-input bg-background text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-shadow resize-none placeholder:text-muted-foreground/50"
             />
-            <p className="text-xs text-muted-foreground mt-1 text-right font-mono">
-              {message.length}/300
+            <p className="font-mono text-[10px] text-muted-foreground mt-1.5 text-right">
+              {message.length} / 300
             </p>
           </div>
-          {error && (
-            <p className="text-xs text-red-500 font-mono">{error}</p>
-          )}
+
+          {error && <p className="font-mono text-xs text-red-500">{error}</p>}
           {success && (
-            <p className="text-xs text-green-600 dark:text-green-400 font-mono">
-              ✓ Message posted — thanks!
+            <p className="font-mono text-xs text-green-600 dark:text-green-400">
+              ✓ Posted — thanks!
             </p>
           )}
+
           <button
             type="submit"
             disabled={submitting || !name.trim() || !message.trim()}
-            className="px-5 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
+            className="px-6 py-3 rounded-sm bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {submitting ? "Posting..." : "Post message"}
           </button>
-        </div>
-      </form>
+        </form>
+      </section>
+
+      <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Entries */}
-      <div className="space-y-4">
+      <section className="px-8 md:px-16 py-16">
         {loading ? (
-          <div className="space-y-4">
+          <div className="space-y-4 max-w-md">
             {[1, 2, 3].map((i) => (
-              <div
-                key={i}
-                className="h-20 rounded-xl border border-border bg-muted animate-pulse"
-              />
+              <div key={i} className="h-20 rounded-sm border border-border bg-muted/40 animate-pulse" />
             ))}
           </div>
         ) : entries.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="font-display text-2xl font-light text-muted-foreground">
+          <div className="py-16">
+            <p className="font-display text-3xl font-light text-muted-foreground">
               No messages yet.
             </p>
-            <p className="text-sm text-muted-foreground mt-2">
-              Be the first to leave one ↑
+            <p className="font-mono text-xs text-muted-foreground mt-3">
+              Be the first ↑
             </p>
           </div>
         ) : (
-          entries.map((entry, i) => (
-            <div
-              key={entry.id}
-              className="p-5 rounded-xl border border-border bg-card opacity-0 animate-fade-in"
-              style={{ animationDelay: `${i * 60}ms` }}
-            >
-              <div className="flex items-baseline justify-between mb-2">
-                <span className="font-medium text-sm text-foreground">
-                  {entry.name}
-                </span>
-                <span className="text-xs font-mono text-muted-foreground">
-                  {formatDistanceToNow(new Date(entry.created_at), {
-                    addSuffix: true,
-                  })}
-                </span>
+          <div className="space-y-4 max-w-md">
+            {entries.map((entry) => (
+              <div
+                key={entry.id}
+                className="p-6 rounded-sm border border-border bg-card hover:border-border/80 transition-colors"
+              >
+                <div className="flex items-baseline justify-between mb-3">
+                  <span className="text-sm font-medium text-foreground">
+                    {entry.name}
+                  </span>
+                  <span className="font-mono text-[10px] text-muted-foreground">
+                    {formatDistanceToNow(new Date(entry.created_at), { addSuffix: true })}
+                  </span>
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {entry.message}
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {entry.message}
-              </p>
-            </div>
-          ))
+            ))}
+          </div>
         )}
-      </div>
+      </section>
     </div>
   );
 }

@@ -2,85 +2,177 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap");
 
 :root {
   --font-display: "Cormorant Garamond", serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
   --font-mono: "DM Mono", monospace;
 
-  --background: 40 20% 97%;
-  --foreground: 30 10% 12%;
-  --card: 40 20% 99%;
-  --card-foreground: 30 10% 12%;
-  --border: 35 15% 88%;
-  --input: 35 15% 88%;
-  --primary: 25 60% 35%;
-  --primary-foreground: 40 20% 97%;
-  --secondary: 35 20% 92%;
-  --secondary-foreground: 30 10% 20%;
-  --muted: 35 15% 93%;
-  --muted-foreground: 30 8% 50%;
-  --accent: 25 50% 90%;
-  --accent-foreground: 25 60% 25%;
-  --ring: 25 60% 35%;
-  --radius: 0.5rem;
+  --background: 38 18% 96%;
+  --foreground: 28 12% 10%;
+  --card: 38 18% 98%;
+  --card-foreground: 28 12% 10%;
+  --border: 32 12% 86%;
+  --input: 32 12% 86%;
+  --primary: 22 55% 32%;
+  --primary-foreground: 38 18% 96%;
+  --secondary: 32 14% 91%;
+  --secondary-foreground: 28 12% 18%;
+  --muted: 32 12% 92%;
+  --muted-foreground: 28 8% 48%;
+  --accent: 22 40% 88%;
+  --accent-foreground: 22 55% 22%;
+  --ring: 22 55% 32%;
+  --radius: 0.4rem;
 }
 
 .dark {
-  --background: 220 15% 9%;
-  --foreground: 40 15% 90%;
-  --card: 220 15% 11%;
-  --card-foreground: 40 15% 90%;
-  --border: 220 12% 18%;
-  --input: 220 12% 18%;
-  --primary: 35 70% 60%;
-  --primary-foreground: 220 15% 9%;
-  --secondary: 220 12% 15%;
-  --secondary-foreground: 40 15% 80%;
-  --muted: 220 12% 14%;
-  --muted-foreground: 40 8% 50%;
-  --accent: 220 12% 16%;
-  --accent-foreground: 35 70% 65%;
-  --ring: 35 70% 60%;
+  --background: 222 18% 8%;
+  --foreground: 38 14% 88%;
+  --card: 222 16% 10%;
+  --card-foreground: 38 14% 88%;
+  --border: 222 14% 16%;
+  --input: 222 14% 16%;
+  --primary: 33 65% 58%;
+  --primary-foreground: 222 18% 8%;
+  --secondary: 222 14% 13%;
+  --secondary-foreground: 38 14% 78%;
+  --muted: 222 14% 12%;
+  --muted-foreground: 38 8% 46%;
+  --accent: 222 14% 14%;
+  --accent-foreground: 33 65% 63%;
+  --ring: 33 65% 58%;
 }
 
-* {
-  border-color: hsl(var(--border));
-}
+* { border-color: hsl(var(--border)); }
+
+html { scroll-behavior: smooth; }
 
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: var(--font-sans, system-ui);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-.font-display {
-  font-family: var(--font-display);
-}
+.font-display { font-family: var(--font-display); }
+.font-mono    { font-family: var(--font-mono); }
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
 
-/* Sidebar */
+/* Sidebar links */
 .sidebar-link {
-  @apply flex items-center gap-3 px-3 py-2 rounded-md text-sm text-muted-foreground 
+  @apply flex items-center gap-3 px-3 py-2 rounded-md text-sm text-muted-foreground
          hover:text-foreground hover:bg-accent transition-all duration-200;
 }
-.sidebar-link.active {
-  @apply text-foreground bg-accent font-medium;
-}
+.sidebar-link.active { @apply text-foreground bg-accent; }
 
-/* Spotify widget */
-.spotify-bar {
-  animation: spotify-eq 1.2s ease-in-out infinite;
-}
+/* Spotify EQ bars */
+.spotify-bar { animation: spotify-eq 1.2s ease-in-out infinite; }
 .spotify-bar:nth-child(2) { animation-delay: 0.2s; }
 .spotify-bar:nth-child(3) { animation-delay: 0.4s; }
-
 @keyframes spotify-eq {
-  0%, 100% { transform: scaleY(0.4); }
-  50% { transform: scaleY(1); }
+  0%, 100% { transform: scaleY(0.3); }
+  50%       { transform: scaleY(1); }
+}
+
+/* Page fade-in */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 0.5s ease forwards; }
+
+/* Timeline scroll reveal */
+.timeline-item {
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Orb pulse in hero */
+@keyframes orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%       { transform: translate(30px, -20px) scale(1.05); }
+  66%       { transform: translate(-20px, 15px) scale(0.97); }
+}
+.orb { animation: orb-drift 14s ease-in-out infinite; }
+.orb-2 { animation: orb-drift 18s ease-in-out infinite reverse; animation-delay: -6s; }
+.orb-3 { animation: orb-drift 22s ease-in-out infinite; animation-delay: -11s; }
+
+/* Scroll hint */
+@keyframes scrollHint {
+  0%   { transform: translateY(-100%); opacity: 0; }
+  30%  { opacity: 1; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+
+/* ── Blog prose ─────────────────────────────────────────── */
+.prose-thien p {
+  font-size: 0.9375rem;
+  line-height: 1.8;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 1.25rem;
+}
+.prose-thien h2 {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: hsl(var(--foreground));
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+.prose-thien h3 {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: hsl(var(--foreground));
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.prose-thien ul {
+  margin: 0.75rem 0 1.25rem 1.25rem;
+  list-style: none;
+  padding: 0;
+}
+.prose-thien ul li {
+  font-size: 0.9375rem;
+  line-height: 1.75;
+  color: hsl(var(--muted-foreground));
+  padding-left: 1.1rem;
+  position: relative;
+  margin-bottom: 0.35rem;
+}
+.prose-thien ul li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: hsl(var(--primary));
+}
+.prose-thien strong {
+  font-weight: 500;
+  color: hsl(var(--foreground));
+}
+.prose-thien em {
+  font-style: italic;
+  color: hsl(var(--foreground) / 0.85);
+}
+.prose-thien code {
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  background: hsl(var(--muted));
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  color: hsl(var(--primary));
 }

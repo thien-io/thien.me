@@ -5,19 +5,16 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
   Home, BookOpen, Users, Menu, X, Moon, Sun, Mail,
-  Music, Film, Library, PenLine, ChevronDown,
+  Music, Film, Library, PenLine, ChevronDown, Gamepad2,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 
-// Tennis ball icon
 function TennisBallIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"
       strokeLinecap="round" className={className}>
       <circle cx="12" cy="12" r="9" />
-      {/* left seam arc */}
       <path d="M6.3 5.5 C4 8 4 16 6.3 18.5" />
-      {/* right seam arc */}
       <path d="M17.7 5.5 C20 8 20 16 17.7 18.5" />
     </svg>
   );
@@ -32,9 +29,14 @@ const mainLinks = [
 ];
 
 const lifeLinks = [
-  { href: "/music",  label: "Music",  icon: Music  },
-  { href: "/movies", label: "Movies", icon: Film   },
-  { href: "/books",  label: "Books",  icon: Library},
+  { href: "/music",  label: "Music",  icon: Music   },
+  { href: "/movies", label: "Movies", icon: Film    },
+  { href: "/books",  label: "Books",  icon: Library },
+];
+
+const gameLinks = [
+  { href: "/game", label: "Brick Breaker", icon: Gamepad2 },
+  { href: "/pong", label: "Pong",          icon: Gamepad2 },
 ];
 
 function ThemeToggle() {
@@ -51,16 +53,34 @@ function ThemeToggle() {
   );
 }
 
+function CollapsibleSection({
+  label, open, onToggle, children,
+}: {
+  label: string; open: boolean; onToggle: () => void; children: React.ReactNode;
+}) {
+  return (
+    <div className="pt-3">
+      <button onClick={onToggle} className="flex items-center gap-2 px-3 py-1.5 w-full text-left">
+        <span className="font-mono text-[9px] text-muted-foreground uppercase tracking-[0.2em] flex-1">{label}</span>
+        <ChevronDown className={`h-3 w-3 text-muted-foreground transition-transform duration-200 ${open ? "" : "-rotate-90"}`} />
+      </button>
+      {open && <div className="space-y-0.5 mt-0.5">{children}</div>}
+    </div>
+  );
+}
+
 export function Sidebar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [lifeOpen, setLifeOpen] = useState(true);
+  const [lifeOpen, setLifeOpen]   = useState(true);
+  const [gamesOpen, setGamesOpen] = useState(true);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   const NavContent = () => (
     <div className="flex flex-col h-full py-7 px-4">
+      {/* Logo */}
       <div className="mb-10 px-2">
         <Link href="/" onClick={() => setMobileOpen(false)}>
           <p className="font-display text-xl font-light text-foreground tracking-wide">
@@ -72,40 +92,42 @@ export function Sidebar() {
         </Link>
       </div>
 
-      <nav className="flex-1 space-y-0.5">
+      {/* Nav */}
+      <nav className="flex-1 space-y-0.5 overflow-y-auto">
         {mainLinks.map(({ href, label, icon: Icon, custom }) => (
           <Link key={href} href={href} onClick={() => setMobileOpen(false)}
             className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
             {custom
               ? <TennisBallIcon className="h-3.5 w-3.5 shrink-0" />
-              : Icon && <Icon className="h-3.5 w-3.5 shrink-0" />
-            }
+              : Icon && <Icon className="h-3.5 w-3.5 shrink-0" />}
             <span className="text-[13px]">{label}</span>
           </Link>
         ))}
 
-        <div className="pt-3">
-          <button
-            onClick={() => setLifeOpen(!lifeOpen)}
-            className="flex items-center gap-2 px-3 py-1.5 w-full text-left"
-          >
-            <span className="font-mono text-[9px] text-muted-foreground uppercase tracking-[0.2em] flex-1">Life</span>
-            <ChevronDown className={`h-3 w-3 text-muted-foreground transition-transform ${lifeOpen ? "" : "-rotate-90"}`} />
-          </button>
-          {lifeOpen && (
-            <div className="space-y-0.5 mt-0.5">
-              {lifeLinks.map(({ href, label, icon: Icon }) => (
-                <Link key={href} href={href} onClick={() => setMobileOpen(false)}
-                  className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
-                  <Icon className="h-3.5 w-3.5 shrink-0" />
-                  <span className="text-[13px]">{label}</span>
-                </Link>
-              ))}
-            </div>
-          )}
-        </div>
+        {/* Life section */}
+        <CollapsibleSection label="Life" open={lifeOpen} onToggle={() => setLifeOpen(o => !o)}>
+          {lifeLinks.map(({ href, label, icon: Icon }) => (
+            <Link key={href} href={href} onClick={() => setMobileOpen(false)}
+              className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
+              <Icon className="h-3.5 w-3.5 shrink-0" />
+              <span className="text-[13px]">{label}</span>
+            </Link>
+          ))}
+        </CollapsibleSection>
+
+        {/* Games section */}
+        <CollapsibleSection label="Games" open={gamesOpen} onToggle={() => setGamesOpen(o => !o)}>
+          {gameLinks.map(({ href, label, icon: Icon }) => (
+            <Link key={href} href={href} onClick={() => setMobileOpen(false)}
+              className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
+              <Icon className="h-3.5 w-3.5 shrink-0" />
+              <span className="text-[13px]">{label}</span>
+            </Link>
+          ))}
+        </CollapsibleSection>
       </nav>
 
+      {/* Footer */}
       <div className="border-t border-border pt-4 mt-4">
         <div className="flex items-center justify-between px-1">
           <a href="mailto:hello@thien.me" aria-label="Email"

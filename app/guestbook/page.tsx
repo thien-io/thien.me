@@ -69,7 +69,7 @@ export default function GuestbookPage() {
           <em className="text-primary">note.</em>
         </h1>
         <p className="text-muted-foreground max-w-sm leading-relaxed">
-          Whether you've trained with me, played with me, or just want to say hi — I'd love
+          Trained with me, played with me, or just want to say hi — I'd love
           to hear from you.
         </p>
       </section>

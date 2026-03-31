@@ -90,7 +90,7 @@ export default function MusicPage() {
             What I&apos;m<br /><em className="text-primary">listening to.</em>
           </h1>
           <p className="text-muted-foreground max-w-sm leading-relaxed">
-            Top 10 and playlists pulled live from Spotify.
+            What I&apos;ve been putting on repeat. My top tracks this month and the playlists I actually use.
           </p>
         </ScrollReveal>
       </section>

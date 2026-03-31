@@ -17,7 +17,7 @@ export default function BlogPage() {
             Writing on<br /><em className="text-primary">tennis & life.</em>
           </h1>
           <p className="text-muted-foreground max-w-sm leading-relaxed">
-            {posts.length} posts on coaching, technique, mindset, and whatever else I'm thinking about.
+            Things I've been thinking about — on the court and off it. Pull up a chair.
           </p>
         </ScrollReveal>
       </section>

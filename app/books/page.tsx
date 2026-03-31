@@ -98,7 +98,7 @@ export default function BooksPage() {
             What I'm<br /><em className="text-primary">reading.</em>
           </h1>
           <p className="text-muted-foreground max-w-sm leading-relaxed">
-            {books.length} books — sport science, fiction, memoir, and ideas. Everything connects back to the court somehow.
+            Sport science, fiction, memoir, ideas. Some I loved, some I just needed to finish. All worth something.
           </p>
         </ScrollReveal>
       </section>

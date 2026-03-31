@@ -89,14 +89,14 @@ export default function CoachingPage() {
           {packages.map((pkg, i) => (
             <ScrollReveal key={pkg.name} delay={i * 100}>
               <div
-                className={`relative p-8 rounded-sm border transition-all duration-300 hover:shadow-lg group ${
+                className={`relative p-8 rounded-xl border transition-all duration-300 hover:shadow-lg group ${
                   pkg.featured
                     ? "border-primary/30 bg-accent/30"
                     : "border-border bg-card hover:border-border/80"
                 }`}
               >
                 {pkg.featured && (
-                  <span className="absolute -top-2.5 left-6 px-3 py-0.5 bg-primary text-primary-foreground font-mono text-[9px] uppercase tracking-widest rounded-sm">
+                  <span className="absolute -top-2.5 left-6 px-3 py-0.5 bg-primary text-primary-foreground font-mono text-[9px] uppercase tracking-widest rounded-xl">
                     Most popular
                   </span>
                 )}
@@ -153,7 +153,7 @@ export default function CoachingPage() {
             </p>
             <a
               href="mailto:hello@thien.me"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-sm bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 transition-opacity"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 transition-opacity"
             >
               hello@thien.me
             </a>

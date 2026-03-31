@@ -83,7 +83,7 @@ You need to authorize your own Spotify account once to get a long-lived refresh 
 Replace `YOUR_CLIENT_ID` and open this URL in your browser:
 
 ```
-https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=http://localhost:3000&scope=user-read-currently-playing,user-read-playback-state
+https://accounts.spotify.com/authorize?client_id=YOUR_CLIENT_ID&response_type=code&redirect_uri=http://localhost:3000&scope=user-read-currently-playing,user-read-playback-state,user-top-read
 ```
 
 **b) Authorize and grab the code**

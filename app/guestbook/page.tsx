@@ -89,7 +89,7 @@ export default function GuestbookPage() {
               onChange={(e) => setName(e.target.value)}
               placeholder="Your name"
               maxLength={60}
-              className="w-full px-4 py-3 rounded-sm border border-input bg-background text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-shadow placeholder:text-muted-foreground/50"
+              className="w-full px-4 py-3 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-shadow placeholder:text-muted-foreground/50"
             />
           </div>
           <div>
@@ -102,7 +102,7 @@ export default function GuestbookPage() {
               placeholder="Thien really helped me with my backhand..."
               maxLength={300}
               rows={4}
-              className="w-full px-4 py-3 rounded-sm border border-input bg-background text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-shadow resize-none placeholder:text-muted-foreground/50"
+              className="w-full px-4 py-3 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-1 focus:ring-primary transition-shadow resize-none placeholder:text-muted-foreground/50"
             />
             <p className="font-mono text-[10px] text-muted-foreground mt-1.5 text-right">
               {message.length} / 300
@@ -119,7 +119,7 @@ export default function GuestbookPage() {
           <button
             type="submit"
             disabled={submitting || !name.trim() || !message.trim()}
-            className="px-6 py-3 rounded-sm bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
+            className="px-6 py-3 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {submitting ? "Posting..." : "Post message"}
           </button>
@@ -133,7 +133,7 @@ export default function GuestbookPage() {
         {loading ? (
           <div className="space-y-4 max-w-md">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="h-20 rounded-sm border border-border bg-muted/40 animate-pulse" />
+              <div key={i} className="h-20 rounded-xl border border-border bg-muted/40 animate-pulse" />
             ))}
           </div>
         ) : entries.length === 0 ? (
@@ -150,7 +150,7 @@ export default function GuestbookPage() {
             {entries.map((entry) => (
               <div
                 key={entry.id}
-                className="p-6 rounded-sm border border-border bg-card hover:border-border/80 transition-colors"
+                className="p-6 rounded-xl border border-border bg-card hover:border-border/80 transition-colors"
               >
                 <div className="flex items-baseline justify-between mb-3">
                   <span className="text-sm font-medium text-foreground">

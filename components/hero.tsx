@@ -113,21 +113,22 @@ export function Hero() {
           Tennis Coach · Connecticut
         </p>
         <h1 className="font-display font-light leading-[0.9] mb-10">
-          <span className="block text-[clamp(3.5rem,8vw,7rem)] text-foreground">Hi, I&apos;m</span>
+          <span className="block text-[clamp(3.5rem,8vw,7rem)] text-foreground">Hey, I'm</span>
           <span className="block text-[clamp(3.5rem,8vw,7rem)] italic text-primary">Thien.</span>
         </h1>
         <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12">
-          I coach tennis with a focus on technique, mental game, and enjoying
-          the process — for all levels, across Connecticut.
+          Welcome. I'm a tennis coach based in Connecticut.
+          This is where I share what I'm playing, reading, watching,
+          and thinking about — on and off the court.
         </p>
         <div className="flex items-center gap-5">
           <Link href="/coaching"
             className="px-6 py-3 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity">
-            Work with me
+            Hit with me
           </Link>
           <Link href="/guestbook"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 decoration-border">
-            Read testimonials →
+            Say hello →
           </Link>
         </div>
       </div>

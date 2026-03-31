@@ -3,12 +3,20 @@
 import { useEffect, useRef } from "react";
 
 const timeline = [
-  { year: "2006", event: "Started playing tennis at age 8", detail: "Weekend lessons turned into obsession." },
-  { year: "2012", event: "Competed in regional junior tournaments", detail: "Learned how to lose — and why that matters." },
-  { year: "2016", event: "Began coaching part-time during college", detail: "Discovered I loved teaching even more than competing." },
-  { year: "2018", event: "USPTA certified tennis coach", detail: "Made it official." },
-  { year: "2020", event: "Launched thien.me — full-time coaching", detail: "Connecticut became home base." },
-  { year: "Now", event: "200+ students, still learning every day", detail: "The work never stops." },
+  { year: "1998", event: "Born in Connecticut", detail: "Grew up here. Still here. Make of that what you will." },
+  { year: "2006", event: "First tennis lesson at age 8", detail: "My dad signed me up. Weekend lessons turned into something I couldn't put down." },
+  { year: "2009", event: "Joined the junior program at the local club", detail: "Started competing in local under-12 tournaments. Lost a lot. Learned a lot." },
+  { year: "2012", event: "Competed in regional junior tournaments", detail: "Started traveling to tournaments across New England. Learned how to lose — and why that matters." },
+  { year: "2014", event: "High school varsity team, #1 singles", detail: "Three years of competing for the school. Some of the best tennis I've played." },
+  { year: "2016", event: "Began coaching part-time during college", detail: "Started helping at summer camps. Discovered I loved teaching even more than competing." },
+  { year: "2017", event: "Traveled through Southeast Asia for a summer", detail: "First time really away from home. Played tennis in four countries. Came back different." },
+  { year: "2018", event: "USPTA certified tennis coach", detail: "Made it official. Passed the exam on the first try." },
+  { year: "2019", event: "Coached my first competitive junior", detail: "She made the state finals in U16. Still one of my proudest coaching moments." },
+  { year: "2020", event: "Launched thien.me — full-time coaching", detail: "Left the club job and went on my own. Scary and right." },
+  { year: "2021", event: "Started reading seriously again", detail: "Picked up Gallwey, Agassi, Epstein. Books changed how I coach." },
+  { year: "2022", event: "100th student milestone", detail: "Realized I had something worth continuing. Doubled down." },
+  { year: "2023", event: "Built out a small training group", detail: "A handful of dedicated students who meet weekly. The most satisfying coaching I do." },
+  { year: "Now", event: "200+ students, still learning every day", detail: "The work never stops. Neither does the curiosity." },
 ];
 
 export function ScrollTimeline() {

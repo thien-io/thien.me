@@ -4,23 +4,37 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
-  Home, Dumbbell, BookOpen, Users, Menu, X, Moon, Sun, Mail,
+  Home, BookOpen, Users, Menu, X, Moon, Sun, Mail,
   Music, Film, Library, PenLine, ChevronDown,
 } from "lucide-react";
 import { useTheme } from "next-themes";
 
+// Tennis ball icon
+function TennisBallIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"
+      strokeLinecap="round" className={className}>
+      <circle cx="12" cy="12" r="9" />
+      {/* left seam arc */}
+      <path d="M6.3 5.5 C4 8 4 16 6.3 18.5" />
+      {/* right seam arc */}
+      <path d="M17.7 5.5 C20 8 20 16 17.7 18.5" />
+    </svg>
+  );
+}
+
 const mainLinks = [
-  { href: "/",          label: "Home",      icon: Home },
-  { href: "/coaching",  label: "Coaching",  icon: Dumbbell },
-  { href: "/about",     label: "About",     icon: BookOpen },
-  { href: "/guestbook", label: "Guestbook", icon: Users },
-  { href: "/blog",      label: "Blog",      icon: PenLine },
+  { href: "/",          label: "Home",      icon: Home,     custom: false },
+  { href: "/coaching",  label: "Coaching",  icon: null,     custom: true  },
+  { href: "/about",     label: "About",     icon: BookOpen, custom: false },
+  { href: "/guestbook", label: "Guestbook", icon: Users,    custom: false },
+  { href: "/blog",      label: "Blog",      icon: PenLine,  custom: false },
 ];
 
 const lifeLinks = [
-  { href: "/music",  label: "Music",  icon: Music },
-  { href: "/movies", label: "Movies", icon: Film },
-  { href: "/books",  label: "Books",  icon: Library },
+  { href: "/music",  label: "Music",  icon: Music  },
+  { href: "/movies", label: "Movies", icon: Film   },
+  { href: "/books",  label: "Books",  icon: Library},
 ];
 
 function ThemeToggle() {
@@ -47,7 +61,6 @@ export function Sidebar() {
 
   const NavContent = () => (
     <div className="flex flex-col h-full py-7 px-4">
-      {/* Logo */}
       <div className="mb-10 px-2">
         <Link href="/" onClick={() => setMobileOpen(false)}>
           <p className="font-display text-xl font-light text-foreground tracking-wide">
@@ -59,25 +72,24 @@ export function Sidebar() {
         </Link>
       </div>
 
-      {/* Main nav */}
       <nav className="flex-1 space-y-0.5">
-        {mainLinks.map(({ href, label, icon: Icon }) => (
+        {mainLinks.map(({ href, label, icon: Icon, custom }) => (
           <Link key={href} href={href} onClick={() => setMobileOpen(false)}
             className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
-            <Icon className="h-3.5 w-3.5 shrink-0" />
+            {custom
+              ? <TennisBallIcon className="h-3.5 w-3.5 shrink-0" />
+              : Icon && <Icon className="h-3.5 w-3.5 shrink-0" />
+            }
             <span className="text-[13px]">{label}</span>
           </Link>
         ))}
 
-        {/* Life section */}
         <div className="pt-3">
           <button
             onClick={() => setLifeOpen(!lifeOpen)}
             className="flex items-center gap-2 px-3 py-1.5 w-full text-left"
           >
-            <span className="font-mono text-[9px] text-muted-foreground uppercase tracking-[0.2em] flex-1">
-              Life
-            </span>
+            <span className="font-mono text-[9px] text-muted-foreground uppercase tracking-[0.2em] flex-1">Life</span>
             <ChevronDown className={`h-3 w-3 text-muted-foreground transition-transform ${lifeOpen ? "" : "-rotate-90"}`} />
           </button>
           {lifeOpen && (
@@ -94,7 +106,6 @@ export function Sidebar() {
         </div>
       </nav>
 
-      {/* Footer */}
       <div className="border-t border-border pt-4 mt-4">
         <div className="flex items-center justify-between px-1">
           <a href="mailto:hello@thien.me" aria-label="Email"

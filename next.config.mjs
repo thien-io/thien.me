@@ -3,6 +3,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       { protocol: "https", hostname: "i.scdn.co" },
+      { protocol: "https", hostname: "image.tmdb.org" },
+      { protocol: "https", hostname: "p.scdn.co" },
       { protocol: "https", hostname: "mosaic.scdn.co" },
     ],
   },

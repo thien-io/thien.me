@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Sidebar } from "@/components/sidebar";
+import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
   title: "Thien · Tennis Coach",
@@ -33,8 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <div className="flex min-h-screen">
             <Sidebar />
-            <main className="flex-1 md:ml-56 min-h-screen">
-              {children}
+            <main className="flex-1 md:ml-56 min-h-screen flex flex-col">
+              <div className="flex-1">{children}</div>
+              <Footer />
             </main>
           </div>
         </ThemeProvider>

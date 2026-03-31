@@ -122,13 +122,13 @@ export function Hero() {
           and thinking about — on and off the court.
         </p>
         <div className="flex items-center gap-5">
-          <Link href="/coaching"
-            className="px-6 py-3 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity">
-            Hit with me
-          </Link>
           <Link href="/guestbook"
+            className="px-6 py-3 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity">
+            Say hello
+          </Link>
+          <Link href="/coaching"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 decoration-border">
-            Say hello →
+            Hit with me →
           </Link>
         </div>
       </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { ParallaxSection } from "@/components/parallax-section";
 
 const POSTER_BASE = "https://image.tmdb.org/t/p/w342";
 
@@ -134,7 +135,20 @@ function PosterImage({ title }: { title: string }) {
 export default function MoviesPage() {
   return (
     <div>
-      <section className="px-8 md:px-16 pt-24 pb-16 md:pt-32 md:pb-20">
+      <section className="relative px-8 md:px-16 pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+        <ParallaxSection
+          speed={0.12}
+          className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden"
+        >
+          <span
+            className="font-display text-[22vw] font-light leading-none whitespace-nowrap opacity-[0.03]"
+          >
+            watch
+          </span>
+        </ParallaxSection>
+
+        <div className="relative z-10">
+
         <ScrollReveal>
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">Movies</p>
           <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">
@@ -144,6 +158,7 @@ export default function MoviesPage() {
             The ones I keep coming back to, or can&apos;t stop thinking about. Drop me a recommendation — I&apos;m always looking.
           </p>
         </ScrollReveal>
+              </div>
       </section>
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />

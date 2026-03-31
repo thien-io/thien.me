@@ -9,15 +9,16 @@ export default function AboutPage() {
       <section className="relative px-8 md:px-16 pt-24 pb-28 md:pt-32 md:pb-36 overflow-hidden">
         <ParallaxSection
           speed={0.12}
-          className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none select-none flex items-start justify-end pt-16 pr-8 md:pr-16"
+          className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden"
         >
           <span
-            className="font-display text-[18vw] font-light leading-none"
-            style={{ color: "hsl(var(--foreground) / 0.03)" }}
+            className="font-display text-[22vw] font-light leading-none whitespace-nowrap opacity-[0.03]"
           >
             story
           </span>
         </ParallaxSection>
+
+        <div className="relative z-10">
 
         <div className="relative z-10 max-w-xl">
           <ScrollReveal>
@@ -51,6 +52,7 @@ export default function AboutPage() {
             </div>
           </ScrollReveal>
         </div>
+              </div>
       </section>
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />

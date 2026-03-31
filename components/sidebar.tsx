@@ -9,20 +9,26 @@ import {
 } from "lucide-react";
 import { useTheme } from "next-themes";
 
+// Tennis ball icon — provided by user
 function TennisBallIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7"
-      strokeLinecap="round" className={className}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M6.3 5.5 C4 8 4 16 6.3 18.5" />
-      <path d="M17.7 5.5 C20 8 20 16 17.7 18.5" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 256 256"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path fill="currentColor" d="M201.57 54.46a104 104 0 1 0 0 147.08a103.4 103.4 0 0 0 0-147.08M65.75 65.77a87.63 87.63 0 0 1 53.66-25.31A87.3 87.3 0 0 1 94 94.06a87.42 87.42 0 0 1-53.62 25.35a87.58 87.58 0 0 1 25.37-53.64m-25.42 69.71a103.3 103.3 0 0 0 65-30.11a103.24 103.24 0 0 0 30.13-65a87.78 87.78 0 0 1 80.18 80.14a104 104 0 0 0-95.16 95.1a87.78 87.78 0 0 1-80.18-80.14Zm149.92 54.75a87.7 87.7 0 0 1-53.66 25.31a88 88 0 0 1 79-78.95a87.58 87.58 0 0 1-25.34 53.64"/>
     </svg>
   );
 }
 
 const mainLinks = [
   { href: "/",          label: "Home",      icon: Home,     custom: false },
-  { href: "/coaching",  label: "Coaching",  icon: null,     custom: true  },
   { href: "/about",     label: "About",     icon: BookOpen, custom: false },
   { href: "/guestbook", label: "Guestbook", icon: Users,    custom: false },
   { href: "/blog",      label: "Blog",      icon: PenLine,  custom: false },
@@ -38,6 +44,21 @@ const gameLinks = [
   { href: "/game", label: "Brick Breaker", icon: Gamepad2 },
   { href: "/pong", label: "Pong",          icon: Gamepad2 },
 ];
+
+const coachingLinks = [
+  { href: "/coaching/tennis",     label: "Tennis",     icon: null, custom: true,  pickleIcon: false },
+  { href: "/coaching/pickleball", label: "Pickleball", icon: null, custom: false, pickleIcon: true  },
+];
+
+function PickleballIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
+      className={className}>
+      <path fill="currentColor" d="M7.017 14.764q.495.513 1.127.757t1.297.244q.701 0 1.373-.273q.67-.273 1.223-.825l.669-.669q.533-.533.806-1.204t.273-1.373q0-.663-.254-1.293t-.748-1.144L9.175 5.359q-.423-.396-1.005-.396t-.978.415L3.416 9.16Q3 9.575 3 10.158t.416.998zM18.267 21l-5.586-5.606q-.687.689-1.549 1.017q-.862.33-1.736.33q-.851 0-1.65-.318q-.798-.317-1.437-.952L2.702 11.85q-.348-.348-.525-.79Q2 10.62 2 10.167q0-.457.177-.905t.525-.816l3.783-3.802q.348-.348.79-.525q.441-.177.892-.177q.458 0 .906.177t.816.545L13.47 8.27q.635.639.952 1.437q.318.798.318 1.65q0 .88-.342 1.749q-.341.868-1.01 1.574l5.592 5.611zm.864-12.23q-1.197 0-2.029-.846q-.833-.847-.833-2.043t.833-2.039T19.131 3t2.043.846t.845 2.042t-.845 2.039t-2.043.842m.005-1q.778 0 1.33-.548q.553-.549.553-1.332t-.548-1.336T19.139 4t-1.326.548q-.544.549-.544 1.332q0 .784.545 1.336q.544.553 1.322.553M8.323 10.285"/>
+    </svg>
+  );
+}
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -72,8 +93,9 @@ function CollapsibleSection({
 export function Sidebar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [lifeOpen, setLifeOpen]   = useState(true);
-  const [gamesOpen, setGamesOpen] = useState(true);
+  const [lifeOpen, setLifeOpen]       = useState(true);
+  const [gamesOpen, setGamesOpen]     = useState(true);
+  const [coachingOpen, setCoachingOpen] = useState(true);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -84,10 +106,10 @@ export function Sidebar() {
       <div className="mb-10 px-2">
         <Link href="/" onClick={() => setMobileOpen(false)}>
           <p className="font-display text-xl font-light text-foreground tracking-wide">
-            thien<span className="text-primary italic">.me</span>
+            <span className="text-primary">thien</span><span className="text-foreground italic">.me</span>
           </p>
           <p className="font-mono text-[9px] text-muted-foreground mt-1 tracking-[0.2em] uppercase">
-            Tennis Coach · CT
+            Coach · CT
           </p>
         </Link>
       </div>
@@ -110,6 +132,21 @@ export function Sidebar() {
             <Link key={href} href={href} onClick={() => setMobileOpen(false)}
               className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
               <Icon className="h-3.5 w-3.5 shrink-0" />
+              <span className="text-[13px]">{label}</span>
+            </Link>
+          ))}
+        </CollapsibleSection>
+
+        {/* Coaching section */}
+        <CollapsibleSection label="Coaching" open={coachingOpen} onToggle={() => setCoachingOpen(o => !o)}>
+          {coachingLinks.map(({ href, label, custom, pickleIcon }) => (
+            <Link key={href} href={href} onClick={() => setMobileOpen(false)}
+              className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
+              {pickleIcon
+                ? <PickleballIcon className="h-3.5 w-3.5 shrink-0" />
+                : custom
+                  ? <TennisBallIcon className="h-3.5 w-3.5 shrink-0" />
+                  : <span className="h-3.5 w-3.5 shrink-0" />}
               <span className="text-[13px]">{label}</span>
             </Link>
           ))}
@@ -149,7 +186,7 @@ export function Sidebar() {
       <div className="md:hidden fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-5 h-14 bg-background/90 backdrop-blur-md border-b border-border">
         <Link href="/">
           <p className="font-display text-lg font-light">
-            thien<span className="text-primary italic">.me</span>
+            <span className="text-primary">thien</span><span className="text-foreground italic">.me</span>
           </p>
         </Link>
         <div className="flex items-center gap-1">

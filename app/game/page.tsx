@@ -167,6 +167,9 @@ export default function GamePage() {
     finally { setLoadingLB(false); }
   }, []);
 
+  // ── Fetch on mount ────────────────────────────────────────────────────────────
+  useEffect(() => { fetchLB(); }, [fetchLB]);
+
   // ── Submit score ──────────────────────────────────────────────────────────────
   const submitScore = useCallback(async () => {
     if (!playerName.trim() || submitting) return;
@@ -547,7 +550,7 @@ export default function GamePage() {
 
   return (
     <div>
-      <section className="px-8 md:px-16 pt-24 pb-6 md:pt-32">
+      <section className="relative px-8 md:px-16 pt-24 pb-6 md:pt-32 overflow-hidden">
         <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-2">Game</p>
         <h1 className="font-display text-4xl font-light">Brick Breaker</h1>
       </section>

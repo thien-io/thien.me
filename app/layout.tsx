@@ -5,12 +5,12 @@ import { Sidebar } from "@/components/sidebar";
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Thien · Tennis Coach",
-  description: "Tennis coaching in Connecticut — technique, mental game, all levels.",
+  title: "Thien",
+  description: "Tennis and pickleball coach based in Connecticut.",
   metadataBase: new URL("https://thien.me"),
   openGraph: {
-    title: "Thien · Tennis Coach",
-    description: "Tennis coaching in Connecticut.",
+    title: "Thien",
+    description: "Tennis and pickleball coach based in Connecticut.",
     url: "https://thien.me",
     siteName: "thien.me",
     locale: "en_US",

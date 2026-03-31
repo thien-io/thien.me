@@ -173,7 +173,7 @@ export default function Home() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Now playing */}
-      <section className="px-8 md:px-16 py-20">
+      <section className="px-8 md:px-16 py-12">
         <ScrollReveal className="mb-6">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
             Music
@@ -182,15 +182,14 @@ export default function Home() {
             Currently playing
           </h2>
         </ScrollReveal>
-        <ScrollReveal delay={80}>
-          <div className="max-w-sm">
+
+        <ScrollReveal>
+          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-5">Right now</p>
+          <div className="w-full max-w-xl">
             <SpotifyWidget />
           </div>
-          <Link href="/music"
-            className="inline-block mt-4 font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors">
-            More music →
-          </Link>
         </ScrollReveal>
+
       </section>
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />

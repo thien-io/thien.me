@@ -176,3 +176,12 @@ body {
   border-radius: 0.25rem;
   color: hsl(var(--primary));
 }
+
+/* Marquee scrolling text */
+@keyframes marqueeScroll {
+  0%, 20%   { transform: translateX(0); }
+  80%, 100% { transform: translateX(var(--marquee-dist)); }
+}
+.marquee-running {
+  animation: marqueeScroll 3.5s ease-in-out infinite alternate;
+}

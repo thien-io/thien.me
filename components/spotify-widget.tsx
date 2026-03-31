@@ -3,6 +3,7 @@
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
+import { MarqueeText } from "@/components/marquee-text";
 
 interface NowPlaying {
   isPlaying: boolean;
@@ -101,10 +102,8 @@ export function SpotifyWidget() {
             Now playing
           </span>
         </div>
-        <p className="text-sm font-medium text-foreground truncate">
-          {data.title}
-        </p>
-        <p className="text-xs text-muted-foreground truncate">{data.artist}</p>
+        <MarqueeText text={data.title ?? ""} className="text-sm font-medium text-foreground" />
+        <MarqueeText text={data.artist ?? ""} className="text-xs text-muted-foreground" />
       </div>
       <ExternalLink className="h-3.5 w-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0" />
     </a>

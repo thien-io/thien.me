@@ -77,13 +77,13 @@ export function ScrollTimeline() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative pl-4">
+    <div ref={containerRef} className="relative">
       {/* Track line */}
-      <div className="absolute left-[92px] top-2 bottom-2 w-px bg-border/40" />
+      <div className="absolute left-[56px] top-2 bottom-2 w-px bg-border/40" />
       {/* Animated fill line */}
       <div
         ref={lineRef}
-        className="absolute left-[92px] top-2 bottom-2 w-px bg-primary origin-top transition-transform duration-100"
+        className="absolute left-[56px] top-2 bottom-2 w-px bg-primary origin-top transition-transform duration-100"
         style={{ transform: "scaleY(0)" }}
       />
 
@@ -91,12 +91,12 @@ export function ScrollTimeline() {
         {timeline.map((item, i) => (
           <div key={i} className="flex items-start">
             {/* Year label */}
-            <span className="w-[72px] shrink-0 font-mono text-[11px] text-muted-foreground pt-1 text-right select-none">
+            <span className="w-10 shrink-0 font-mono text-[11px] text-muted-foreground pt-1 text-left select-none">
               {item.year}
             </span>
 
             {/* Dot */}
-            <div className="relative mx-5 mt-[7px] shrink-0">
+            <div className="relative mx-4 mt-[7px] shrink-0 pl-5">
               {item.isNow ? (
                 /* "Now" dot — pulsating ring */
                 <span data-dot className="block relative w-2.5 h-2.5">
@@ -123,7 +123,7 @@ export function ScrollTimeline() {
         ))}
       </div>
 
-      <style>{`
+      <style suppressHydrationWarning>{`
         /* Text reveal — starts hidden/shifted left, slides right when revealed */
         .timeline-text-item {
           opacity: 0;

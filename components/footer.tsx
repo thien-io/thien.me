@@ -82,7 +82,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border/50 pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 max-w-2xl">
-          <p className="font-mono text-[10px] text-muted-foreground/50">
+          <p className="font-mono text-[10px] text-muted-foreground/50" suppressHydrationWarning>
             © {new Date().getFullYear()} Thien.
           </p>
           <p className="font-mono text-[10px] text-muted-foreground/40">thien.me</p>

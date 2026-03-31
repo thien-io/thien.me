@@ -185,11 +185,11 @@ export default function PongPage() {
     // ── CPU AI ──────────────────────────────────────────────────────────────────
     // CPU tracks ball centre with intentional imprecision that shrinks with score
     // Introduce a small per-frame positional error so it misses occasionally
-    if (Math.random() < 0.04) {
-      cpuErrorRef.current = (Math.random() - 0.5) * cpu.w * 0.5;
+    if (Math.random() < 0.07) {
+      cpuErrorRef.current = (Math.random() - 0.5) * cpu.w * 0.9;
     }
     const targetX    = ball.x + cpuErrorRef.current - cpu.w / 2;
-    const difficulty = Math.min(0.10 + playerScoreRef.current * 0.006, 0.82);
+    const difficulty = Math.min(0.06 + playerScoreRef.current * 0.005, 0.68);
     const maxMove    = cw * difficulty * (dt / 16);
     const diff       = targetX - cpu.x;
     cpu.x += Math.sign(diff) * Math.min(Math.abs(diff), maxMove);

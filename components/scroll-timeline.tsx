@@ -18,64 +18,139 @@ const timeline = [
   { year: "2023", event: "Built a weekly training group", detail: "A handful of regulars who show up every week. The most satisfying coaching I do." },
   { year: "2025", event: "Reached 4.4 DUPR in pickleball", detail: "Still climbing." },
   { year: "2026", event: "First 4.5 USTA match", detail: "Been working toward this level for a while. Finally competing at it." },
-  { year: "Now",  event: "Still here, still learning", detail: "The work doesn't stop. Neither does the curiosity." },
+  { year: "Now",  event: "Still here, still learning", detail: "The work doesn't stop. Neither does the curiosity.", isNow: true },
 ];
+
+// Dot X position (pixels from left edge of container)
+const DOT_LEFT = 72 + 20; // w-[72px] year + mx-5 gap + centre of dot
 
 export function ScrollTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLDivElement>(null);
+  const lineRef      = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
-    const line = lineRef.current;
+    const line      = lineRef.current;
     if (!container || !line) return;
 
-    const items = container.querySelectorAll<HTMLElement>(".timeline-item");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-      },
-      { threshold: 0.2, rootMargin: "0px 0px -60px 0px" }
-    );
-    items.forEach((item) => observer.observe(item));
+    const dots  = Array.from(container.querySelectorAll<HTMLElement>("[data-dot]"));
+    const items = Array.from(container.querySelectorAll<HTMLElement>("[data-item]"));
 
+    // ── Scroll handler: drive line fill and trigger each item when line reaches dot ──
     const handleScroll = () => {
-      const rect = container.getBoundingClientRect();
-      const viewH = window.innerHeight;
-      const progress = Math.min(1, Math.max(0, (viewH - rect.top) / (rect.height + viewH)));
+      const containerRect = container.getBoundingClientRect();
+      const viewH         = window.innerHeight;
+
+      // Progress 0→1 as the section scrolls through the viewport.
+      // Use a tighter window so the line moves faster relative to scroll.
+      const scrollable = containerRect.height * 0.7 + viewH;
+      const scrolled   = viewH - containerRect.top;
+      const progress   = Math.min(1, Math.max(0, scrolled / scrollable));
+
       line.style.transform = `scaleY(${progress})`;
+
+      // The line top is at containerRect.top + a small offset (top-2 → 8px).
+      // The filled portion of the line ends at:
+      const lineTop = containerRect.top + 8;
+      const lineH   = container.offsetHeight - 16; // accounts for top-2 bottom-2
+      const lineEnd = lineTop + lineH * progress;   // current y of the fill front
+
+      dots.forEach((dot, i) => {
+        const item     = items[i];
+        const dotRect  = dot.getBoundingClientRect();
+        const dotCentY = dotRect.top + dotRect.height / 2;
+
+        if (lineEnd >= dotCentY) {
+          // Line has reached this dot → fill it and reveal text
+          dot.classList.add("reached");
+          item.classList.add("revealed");
+        } else {
+          dot.classList.remove("reached");
+          item.classList.remove("revealed");
+        }
+      });
     };
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div ref={containerRef} className="relative pl-4">
-      <div className="absolute left-[72px] top-2 bottom-2 w-px bg-border/50" />
-      <div ref={lineRef} className="absolute left-[72px] top-2 bottom-2 w-px bg-primary origin-top" style={{ transform: "scaleY(0)" }} />
-      <div className="space-y-10">
+      {/* Track line */}
+      <div className="absolute left-[92px] top-2 bottom-2 w-px bg-border/40" />
+      {/* Animated fill line */}
+      <div
+        ref={lineRef}
+        className="absolute left-[92px] top-2 bottom-2 w-px bg-primary origin-top transition-transform duration-100"
+        style={{ transform: "scaleY(0)" }}
+      />
+
+      <div className="space-y-9">
         {timeline.map((item, i) => (
-          <div key={i} className="timeline-item flex items-start gap-0" style={{ transitionDelay: `${i * 60}ms` }}>
-            <span className="w-[72px] shrink-0 font-mono text-[11px] text-muted-foreground pt-0.5 text-right pr-0">
+          <div key={i} className="flex items-start">
+            {/* Year label */}
+            <span className="w-[72px] shrink-0 font-mono text-[11px] text-muted-foreground pt-1 text-right select-none">
               {item.year}
             </span>
-            <div className="relative mx-5 mt-1">
-              <div className="w-2 h-2 rounded-full border border-primary bg-background" />
+
+            {/* Dot */}
+            <div className="relative mx-5 mt-[7px] shrink-0">
+              {item.isNow ? (
+                /* "Now" dot — pulsating ring */
+                <span data-dot className="block relative w-2.5 h-2.5">
+                  {/* Pulse ring — always visible */}
+                  <span className="absolute inset-0 rounded-full bg-primary/30 animate-[nowPulse_2s_ease-in-out_infinite]" />
+                  {/* Inner solid dot — fills when reached */}
+                  <span className="dot-inner absolute inset-[1px] rounded-full border border-primary bg-background transition-colors duration-300" />
+                </span>
+              ) : (
+                /* Normal dot */
+                <span data-dot className="dot-wrap block w-2 h-2 rounded-full border border-primary bg-background transition-colors duration-300" />
+              )}
             </div>
-            <div className="flex-1 pb-2">
+
+            {/* Text — slides in from the dot position */}
+            <div
+              data-item
+              className="flex-1 pb-2 timeline-text-item"
+            >
               <p className="text-sm font-medium text-foreground leading-snug">{item.event}</p>
               <p className="text-xs text-muted-foreground mt-1 leading-relaxed">{item.detail}</p>
             </div>
           </div>
         ))}
       </div>
+
+      <style>{`
+        /* Text reveal — starts hidden/shifted left, slides right when revealed */
+        .timeline-text-item {
+          opacity: 0;
+          transform: translateX(-10px);
+          transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .timeline-text-item.revealed {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        /* Normal dot — fills solid when reached */
+        .dot-wrap.reached {
+          background-color: hsl(var(--primary));
+        }
+
+        /* Now dot inner — fills when reached */
+        [data-dot].reached .dot-inner {
+          background-color: hsl(var(--primary));
+        }
+
+        /* Pulse animation for "Now" dot */
+        @keyframes nowPulse {
+          0%, 100% { transform: scale(1);   opacity: 0.4; }
+          50%       { transform: scale(2.2); opacity: 0; }
+        }
+      `}</style>
     </div>
   );
 }

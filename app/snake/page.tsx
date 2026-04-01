@@ -229,7 +229,8 @@ export default function SnakePage() {
     const resize = () => {
       const container = canvas.parentElement;
       if (!container) return;
-      const size = Math.min(container.clientWidth, 420);
+      const maxSize = Math.min(Math.round(window.innerHeight * 0.55), 420);
+      const size = Math.min(container.clientWidth, maxSize);
       const cellCount = Math.floor(size / CELL);
       const actual = cellCount * CELL;
       canvas.width  = actual;
@@ -312,12 +313,12 @@ export default function SnakePage() {
 
   return (
     <div>
-      <section className="relative px-8 md:px-16 pt-24 pb-6 md:pt-32 overflow-hidden">
+      <section className="relative px-8 md:px-16 pt-6 pb-3 md:pt-32 overflow-hidden">
         <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-2">Game</p>
         <h1 className="font-display text-4xl font-light">Snake</h1>
       </section>
 
-      <div className="flex flex-col lg:flex-row gap-6 px-4 md:px-8 pb-16 items-start">
+      <div className="flex flex-col lg:flex-row gap-6 px-3 md:px-8 pb-6 md:pb-16 items-start">
         {/* Canvas area */}
         <div className="flex-1 min-w-0 flex flex-col items-center">
           {/* HUD */}

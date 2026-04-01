@@ -77,7 +77,7 @@ function LeaderboardCard({ game }: { game: GameCard }) {
 
   return (
     <div
-      className="shrink-0 w-64 rounded-2xl border border-border bg-card p-5 flex flex-col gap-4 snap-start"
+      className="w-full rounded-2xl border border-border bg-card p-5 flex flex-col gap-4"
     >
       {/* Header */}
       <div className="flex items-center justify-between">
@@ -133,47 +133,32 @@ function LeaderboardCard({ game }: { game: GameCard }) {
   );
 }
 
-export function GamesPreview() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-
+export function GamesCarousel() {
   return (
-    <section className="px-8 md:px-16 py-24 md:py-32">
-      <ScrollReveal className="mb-10 flex items-end justify-between max-w-xl">
-        <div>
-          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
-            Games
-          </p>
-          <h2 className="font-display text-3xl font-light text-foreground">
-            Take a break, beat my score.
-          </h2>
-          <p className="text-sm text-muted-foreground mt-3 leading-relaxed max-w-xs">
-            Three classic games, one leaderboard each. Scores are live — see where you land.
-          </p>
+    <section className="px-8 md:px-16 py-16">
+      <div className="max-w-xl">
+        <div className="mb-6 flex items-end justify-between">
+          <div>
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
+              Games
+            </p>
+            <h2 className="font-display text-3xl font-light text-foreground">
+              Take a break, beat my score.
+            </h2>
+          </div>
+          <Link
+            href="/game"
+            className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors mb-1 shrink-0"
+          >
+            All games →
+          </Link>
         </div>
-        <Link
-          href="/game"
-          className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors mb-1 shrink-0"
-        >
-          All games →
-        </Link>
-      </ScrollReveal>
 
-      {/* Horizontal carousel */}
-      <div className="relative">
-        <div
-          ref={scrollRef}
-          className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 -mx-2 px-2 scrollbar-hide"
-          style={{ scrollbarWidth: "none" }}
-        >
+        <div className="flex flex-col gap-3">
           {GAMES.map(game => (
             <LeaderboardCard key={game.title} game={game} />
           ))}
         </div>
-
-        {/* Scroll hint on mobile */}
-        <p className="md:hidden mt-2 font-mono text-[9px] text-muted-foreground/30 text-center">
-          swipe to see more
-        </p>
       </div>
     </section>
   );

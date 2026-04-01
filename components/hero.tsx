@@ -97,13 +97,13 @@ export function Hero() {
     <section className="relative min-h-[92vh] flex flex-col justify-end pb-20 px-8 md:px-16 overflow-hidden">
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
 
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ contain: "paint" }}>
         <div className="orb absolute rounded-full opacity-[0.13] dark:opacity-[0.08]"
-          style={{ width:"600px", height:"600px", top:"-120px", right:"-100px",
+          style={{ width:"min(600px, 100vw)", height:"min(600px, 100vw)", top:"-120px", right:"-10%",
             background:"radial-gradient(circle, hsl(32 80% 60%) 0%, transparent 70%)",
             filter:"blur(70px)" }} />
         <div className="orb-2 absolute rounded-full opacity-[0.09] dark:opacity-[0.06]"
-          style={{ width:"500px", height:"500px", bottom:"-60px", left:"-80px",
+          style={{ width:"min(500px, 90vw)", height:"min(500px, 90vw)", bottom:"-60px", left:"-10%",
             background:"radial-gradient(circle, hsl(18 60% 50%) 0%, transparent 70%)",
             filter:"blur(80px)" }} />
       </div>

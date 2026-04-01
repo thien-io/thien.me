@@ -3,7 +3,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParallaxSection } from "@/components/parallax-section";
 import { ScrollTimeline } from "@/components/scroll-timeline";
 import { SpotifyWidget } from "@/components/spotify-widget";
-import { GamesPreview } from "@/components/games-preview";
+import { GamesCarousel } from "@/components/games-preview";
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 
@@ -22,7 +22,7 @@ export default function Home() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* About */}
-      <section className="px-8 md:px-16 py-24 md:py-32">
+      <section className="px-8 md:px-16 py-16 md:py-32">
         <div className="max-w-xl">
           <ScrollReveal>
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">
@@ -67,7 +67,7 @@ export default function Home() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Stats */}
-      <section className="relative px-8 md:px-16 py-24 md:py-32 overflow-hidden">
+      <section className="relative px-8 md:px-16 py-16 md:py-32 overflow-hidden">
         <ParallaxSection
           speed={0.15}
           className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
@@ -103,7 +103,7 @@ export default function Home() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Timeline */}
-      <section className="px-8 md:px-16 py-24 md:py-32">
+      <section className="px-8 md:px-16 py-16 md:py-32">
         <ScrollReveal className="mb-14">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
             Timeline
@@ -120,7 +120,7 @@ export default function Home() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Coaching cards */}
-      <section className="px-8 md:px-16 py-24 md:py-32">
+      <section className="px-8 md:px-16 py-16 md:py-32">
         <ScrollReveal className="mb-10">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
             Coaching
@@ -174,7 +174,7 @@ export default function Home() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Now playing */}
-      <section className="px-8 md:px-16 py-12">
+      <section className="px-8 md:px-16 py-16 md:py-16">
         <ScrollReveal className="mb-6">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
             Music
@@ -196,7 +196,7 @@ export default function Home() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Recent posts */}
-      <section className="px-8 md:px-16 py-24">
+      <section className="px-8 md:px-16 py-16 md:py-24">
         <ScrollReveal className="mb-10 flex items-end justify-between max-w-xl">
           <div>
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
@@ -242,12 +242,12 @@ export default function Home() {
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
-      <GamesPreview />
+      <GamesCarousel />
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Contact */}
-      <section className="px-8 md:px-16 py-24">
+      <section className="px-8 md:px-16 py-16 md:py-24">
         <ScrollReveal>
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">Contact</p>
           <h2 className="font-display text-3xl md:text-4xl font-light text-foreground mb-4">

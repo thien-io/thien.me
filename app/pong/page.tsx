@@ -294,7 +294,7 @@ export default function PongPage() {
       const container = canvas.parentElement;
       if (!container) return;
       const w = Math.min(container.clientWidth, 380);
-      const h = Math.round(w * 1.8);
+      const h = Math.min(Math.round(w * 1.8), Math.round(window.innerHeight * 0.62));
       canvas.width = w; canvas.height = h;
       const pw = w * PADDLE_W_RATIO;
       if (stateRef.current !== "menu") {
@@ -366,13 +366,13 @@ export default function PongPage() {
 
   return (
     <div>
-      <section className="relative px-8 md:px-16 pt-24 pb-6 md:pt-32 overflow-hidden">
+      <section className="relative px-8 md:px-16 pt-6 pb-3 md:pt-32 overflow-hidden">
 
         <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-2">Games</p>
         <h1 className="font-display text-4xl font-light">Pong</h1>
       </section>
 
-      <div className="flex flex-col lg:flex-row gap-6 px-4 md:px-8 pb-16 items-start">
+      <div className="flex flex-col lg:flex-row gap-6 px-3 md:px-8 pb-6 md:pb-16 items-start">
         {/* Game */}
         <div className="flex-1 min-w-0 flex flex-col items-center">
           {(uiState === "playing" || uiState === "paused" || uiState === "point") && (

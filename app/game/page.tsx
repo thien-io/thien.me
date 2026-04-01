@@ -461,7 +461,7 @@ export default function GamePage() {
       const container = canvas.parentElement;
       if (!container) return;
       const w = Math.min(container.clientWidth, 400);
-      const h = Math.round(w * 1.75);
+      const h = Math.min(Math.round(w * 1.75), Math.round(window.innerHeight * 0.62));
       canvas.width  = w;
       canvas.height = h;
       if (stateRef.current === "playing") initLevel(levelRef.current);

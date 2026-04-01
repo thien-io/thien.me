@@ -229,7 +229,7 @@ export default function MoviesPage() {
   return (
     <div>
       {/* ── Hero ────────────────────────────────────────────────────────────── */}
-      <section className="relative px-8 md:px-16 pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+      <section className="relative px-8 md:px-16 pt-10 pb-10 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden">
           <span className="font-display text-[22vw] font-light leading-none whitespace-nowrap opacity-[0.03]">watch</span>
         </div>

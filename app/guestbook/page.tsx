@@ -61,7 +61,7 @@ export default function GuestbookPage() {
   return (
     <div>
       {/* Header */}
-      <section className="relative px-8 md:px-16 pt-24 pb-20 md:pt-32 md:pb-24 overflow-hidden">
+      <section className="relative px-8 md:px-16 pt-10 pb-12 md:pt-32 md:pb-24 overflow-hidden">
         <ParallaxSection
           speed={0.12}
           className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden"
@@ -92,7 +92,7 @@ export default function GuestbookPage() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Form */}
-      <section className="px-8 md:px-16 py-16">
+      <section className="px-8 md:px-16 py-8 md:py-16">
         <form onSubmit={handleSubmit} className="max-w-md space-y-5">
           <div>
             <label className="font-mono text-[10px] tracking-[0.2em] uppercase text-muted-foreground block mb-2">
@@ -144,7 +144,7 @@ export default function GuestbookPage() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Entries */}
-      <section className="px-8 md:px-16 py-16">
+      <section className="px-8 md:px-16 py-8 md:py-16">
         {loading ? (
           <div className="space-y-4 max-w-md">
             {[1, 2, 3].map((i) => (

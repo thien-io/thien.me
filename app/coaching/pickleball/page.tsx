@@ -47,7 +47,7 @@ export default function PickleballCoachingPage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative px-8 md:px-16 pt-24 pb-28 md:pt-32 md:pb-36 overflow-hidden">
+      <section className="relative px-8 md:px-16 pt-10 pb-14 md:pt-32 md:pb-36 overflow-hidden">
         <ParallaxSection
           speed={0.12}
           className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden"
@@ -98,7 +98,7 @@ export default function PickleballCoachingPage() {
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* Packages */}
-      <section className="px-8 md:px-16 py-28 md:py-36">
+      <section className="px-8 md:px-16 py-10 md:py-36">
         <div className="space-y-5 max-w-xl">
           {packages.map((pkg, i) => (
             <ScrollReveal key={pkg.name} delay={i * 100}>

@@ -374,6 +374,16 @@ export default function MoviesPage() {
                     <div className="w-10 h-10 rounded-full bg-muted-foreground/20" />
                   </div>
                 )}
+                {/* Flip to info */}
+                <button
+                  onClick={() => setFlipped(true)}
+                  className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-all"
+                  aria-label="View details"
+                >
+                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M9 15 3 9l6-6M3 9h12a6 6 0 0 1 0 12h-3"/>
+                  </svg>
+                </button>
               </div>
 
               {/* BACK — info */}
@@ -397,6 +407,16 @@ export default function MoviesPage() {
                     </span>
                   ))}
                 </div>
+                {/* Flip back to poster */}
+                <button
+                  onClick={() => setFlipped(false)}
+                  className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-muted hover:bg-accent border border-border/50 text-muted-foreground hover:text-foreground flex items-center justify-center transition-all"
+                  aria-label="View poster"
+                >
+                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 9 6 6m0-6-6 6"/>
+                  </svg>
+                </button>
               </div>
             </div>
 

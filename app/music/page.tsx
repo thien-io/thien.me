@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParallaxSection } from "@/components/parallax-section";
 import { SpotifyWidget } from "@/components/spotify-widget";
-import { MarqueeText } from "@/components/marquee-text";
 import Image from "next/image";
 
 interface Track {
@@ -16,41 +15,11 @@ interface Playlist {
   tracks: number; image: string; url: string;
 }
 
-const FALLBACK_TRACKS: Track[] = [
-  { rank:1,  title:"Espresso",             artist:"Sabrina Carpenter",             album:"Short n' Sweet",        albumArt:"", albumArtSmall:"", duration:"2:55", url:"#" },
-  { rank:2,  title:"A Bar Song (Tipsy)",   artist:"Shaboozey",                     album:"Where I Come From",     albumArt:"", albumArtSmall:"", duration:"3:17", url:"#" },
-  { rank:3,  title:"Birds of a Feather",   artist:"Billie Eilish",                 album:"HIT ME HARD AND SOFT",  albumArt:"", albumArtSmall:"", duration:"3:30", url:"#" },
-  { rank:4,  title:"Too Sweet",            artist:"Hozier",                        album:"Unreal Unearth",         albumArt:"", albumArtSmall:"", duration:"4:02", url:"#" },
-  { rank:5,  title:"Good Luck, Babe!",     artist:"Chappell Roan",                 album:"The Rise and Fall…",    albumArt:"", albumArtSmall:"", duration:"3:39", url:"#" },
-  { rank:6,  title:"White Flag",           artist:"Joseph",                        album:"Good Luck, Kid",         albumArt:"", albumArtSmall:"", duration:"3:44", url:"#" },
-  { rank:7,  title:"Lose Control",         artist:"Teddy Swims",                   album:"I've Tried Everything",  albumArt:"", albumArtSmall:"", duration:"3:29", url:"#" },
-  { rank:8,  title:"saturn",               artist:"SZA",                           album:"SOS",                    albumArt:"", albumArtSmall:"", duration:"2:37", url:"#" },
-  { rank:9,  title:"Please Please Please", artist:"Sabrina Carpenter",             album:"Short n' Sweet",         albumArt:"", albumArtSmall:"", duration:"2:58", url:"#" },
-  { rank:10, title:"I Had Some Help",      artist:"Post Malone ft. Morgan Wallen", album:"F-1 Trillion",           albumArt:"", albumArtSmall:"", duration:"3:06", url:"#" },
-];
-
 const SpotifyLogo = () => (
   <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.419 1.56-.299.421-1.02.599-1.559.3z"/>
   </svg>
 );
-
-function TrackArt({ src, alt }: { src: string; alt: string }) {
-  const [err, setErr] = useState(false);
-  if (!src || err) {
-    return (
-      <div className="w-11 h-11 rounded-lg shrink-0 bg-muted border border-border/50 flex items-center justify-center">
-        <div className="w-3 h-3 rounded-full bg-muted-foreground/20" />
-      </div>
-    );
-  }
-  return (
-    <div className="w-11 h-11 rounded-lg shrink-0 overflow-hidden border border-border/30">
-      <Image src={src} alt={alt} width={44} height={44}
-        className="w-full h-full object-cover" onError={() => setErr(true)} unoptimized />
-    </div>
-  );
-}
 
 function PlaylistArt({ src, name }: { src: string; name: string }) {
   const [err, setErr] = useState(false);
@@ -70,21 +39,13 @@ function PlaylistArt({ src, name }: { src: string; name: string }) {
 }
 
 export default function MusicPage() {
-  const [tracks, setTracks]         = useState<Track[]>([]);
   const [playlists, setPlaylists]   = useState<Playlist[]>([]);
   const [top100, setTop100]         = useState<Track[]>([]);
-  const [tracksLoading, setTracksLoading]       = useState(true);
   const [playlistsLoading, setPlaylistsLoading] = useState(true);
   const [top100Loading, setTop100Loading]       = useState(true);
   const [activeTrack, setActiveTrack]           = useState<Track | null>(null);
 
   useEffect(() => {
-    fetch("/api/spotify/top-tracks", { cache: "no-store" })
-      .then(r => r.json())
-      .then(d => setTracks(d.tracks?.length ? d.tracks : FALLBACK_TRACKS))
-      .catch(() => setTracks(FALLBACK_TRACKS))
-      .finally(() => setTracksLoading(false));
-
     fetch("/api/spotify/playlists", { cache: "no-store" })
       .then(r => r.json())
       .then(d => setPlaylists(d.playlists || []))
@@ -110,8 +71,8 @@ export default function MusicPage() {
   }, [activeTrack]);
 
   return (
-    <div>
-      {/* ── Hero ────────────────────────────────────────────────────────────── */}
+    <div className="overflow-x-hidden">
+      {/* ── Hero ─────────────────────────────────────────────────────────────── */}
       <section className="relative px-8 md:px-16 pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <ParallaxSection
           speed={0.12}
@@ -128,7 +89,7 @@ export default function MusicPage() {
               What I&apos;m<br /><em className="text-primary">listening to.</em>
             </h1>
             <p className="text-muted-foreground max-w-sm leading-relaxed">
-              What I&apos;ve been putting on repeat — top tracks this month, all-time favourites, and the playlists I actually use.
+              All-time favourites and the playlists I actually use.
             </p>
           </ScrollReveal>
         </div>
@@ -136,7 +97,7 @@ export default function MusicPage() {
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
-      {/* ── Now playing ─────────────────────────────────────────────────────── */}
+      {/* ── Now playing ──────────────────────────────────────────────────────── */}
       <section className="px-8 md:px-16 py-12">
         <ScrollReveal>
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-5">Right now</p>
@@ -148,66 +109,7 @@ export default function MusicPage() {
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
-      {/* ── Top 10 ──────────────────────────────────────────────────────────── */}
-      <section className="px-8 md:px-16 py-16">
-        <ScrollReveal className="mb-8">
-          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">This month</p>
-          <h2 className="font-display text-3xl font-light">Top 10 tracks</h2>
-        </ScrollReveal>
-
-        <div className="w-full max-w-md">
-          {tracksLoading ? (
-            <div className="rounded-2xl border border-border bg-card overflow-hidden divide-y divide-border/40">
-              {Array.from({ length: 10 }).map((_, i) => (
-                <div key={i} className="flex items-center gap-4 px-5 py-3.5">
-                  <div className="w-11 h-11 rounded-lg bg-muted animate-pulse shrink-0" />
-                  <div className="flex-1 space-y-2">
-                    <div className="h-3 bg-muted animate-pulse rounded w-2/3" />
-                    <div className="h-2.5 bg-muted animate-pulse rounded w-1/3" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="rounded-2xl border border-border bg-card overflow-hidden divide-y divide-border/40">
-              {tracks.map((song, i) => (
-                <ScrollReveal key={song.rank} delay={i * 40}>
-                  <a
-                    href={song.url !== "#" ? song.url : undefined}
-                    target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-4 px-5 py-3.5 hover:bg-accent/40 transition-colors group"
-                  >
-                    <TrackArt src={song.albumArt} alt={song.album} />
-                    <span className="font-mono text-[10px] text-muted-foreground/40 w-4 text-right shrink-0 tabular-nums">
-                      {song.rank}
-                    </span>
-                    <div className="flex-1 min-w-0">
-                      <MarqueeText
-                        text={song.title}
-                        className="text-sm font-medium text-foreground group-hover:text-primary transition-colors"
-                      />
-                      <p className="font-mono text-[10px] text-muted-foreground mt-0.5 truncate">{song.artist}</p>
-                    </div>
-                    <span className="font-mono text-[10px] text-muted-foreground/40 shrink-0 tabular-nums hidden sm:block">
-                      {song.duration}
-                    </span>
-                  </a>
-                </ScrollReveal>
-              ))}
-            </div>
-          )}
-          <ScrollReveal delay={420} className="mt-4">
-            <p className="font-mono text-[10px] text-muted-foreground/40 flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/50 inline-block" />
-              Live from Spotify · updates monthly
-            </p>
-          </ScrollReveal>
-        </div>
-      </section>
-
-      <div className="h-px bg-border/50 mx-8 md:mx-16" />
-
-      {/* ── Top 100 grid ────────────────────────────────────────────────────── */}
+      {/* ── Top 100 grid ─────────────────────────────────────────────────────── */}
       <section className="px-8 md:px-16 py-16">
         <ScrollReveal className="mb-8">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">All-time</p>
@@ -215,13 +117,13 @@ export default function MusicPage() {
         </ScrollReveal>
 
         {top100Loading ? (
-          <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-8 lg:grid-cols-10 gap-2 md:gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-2 md:gap-3">
             {Array.from({ length: 100 }).map((_, i) => (
               <div key={i} className="aspect-square rounded-xl bg-muted animate-pulse" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-8 lg:grid-cols-10 gap-2 md:gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-2 md:gap-3">
             {top100.map((track, i) => (
               <button
                 key={track.rank}
@@ -236,7 +138,7 @@ export default function MusicPage() {
                     alt={track.album}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-[1.06]"
-                    sizes="(max-width: 640px) 20vw, (max-width: 768px) 14vw, (max-width: 1024px) 12vw, 10vw"
+                    sizes="(max-width: 640px) 33vw, (max-width: 768px) 20vw, (max-width: 1024px) 12vw, 10vw"
                     unoptimized
                   />
                 ) : (
@@ -263,7 +165,7 @@ export default function MusicPage() {
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
-      {/* ── Playlists ───────────────────────────────────────────────────────── */}
+      {/* ── Playlists ────────────────────────────────────────────────────────── */}
       <section className="px-8 md:px-16 py-16">
         <ScrollReveal className="mb-8">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">Playlists</p>
@@ -309,7 +211,7 @@ export default function MusicPage() {
         )}
       </section>
 
-      {/* ── Track detail overlay ────────────────────────────────────────────── */}
+      {/* ── Track detail overlay ─────────────────────────────────────────────── */}
       {activeTrack && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-background/95 backdrop-blur-lg"
@@ -320,20 +222,12 @@ export default function MusicPage() {
               className="flex flex-col md:flex-row rounded-2xl overflow-hidden border border-border shadow-2xl bg-card"
               style={{ maxHeight: "88vh" }}
             >
-              {/* Art */}
               <div className="md:w-[280px] shrink-0 aspect-square md:aspect-auto relative bg-muted">
                 {activeTrack.albumArt && (
-                  <Image
-                    src={activeTrack.albumArt}
-                    alt={activeTrack.album}
-                    fill
-                    className="object-cover"
-                    sizes="280px"
-                    unoptimized
-                  />
+                  <Image src={activeTrack.albumArt} alt={activeTrack.album} fill
+                    className="object-cover" sizes="280px" unoptimized />
                 )}
               </div>
-              {/* Info */}
               <div className="flex-1 overflow-y-auto p-8 md:p-10 flex flex-col justify-center">
                 <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em] mb-3">
                   #{activeTrack.rank} · {activeTrack.duration}
@@ -344,9 +238,7 @@ export default function MusicPage() {
                 <p className="font-mono text-sm text-primary mb-1">{activeTrack.artist}</p>
                 <p className="font-mono text-xs text-muted-foreground mb-8">{activeTrack.album}</p>
                 <a
-                  href={activeTrack.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={activeTrack.url} target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1DB954] text-black text-sm font-medium hover:bg-[#1ed760] transition-colors w-fit"
                 >
                   <SpotifyLogo />

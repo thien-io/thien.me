@@ -105,7 +105,7 @@ export default function PickleballCoachingPage() {
               <div
                 className={`relative p-8 rounded-xl border transition-all duration-300 hover:shadow-sm group ${
                   pkg.featured
-                    ? "border-primary/30 bg-accent/30"
+                    ? "border-primary/30 bg-primary/10 dark:bg-primary/20"
                     : "border-border bg-card"
                 }`}
               >

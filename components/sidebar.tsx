@@ -96,7 +96,7 @@ export function Sidebar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [lifeOpen, setLifeOpen]       = useState(true);
-  const [gamesOpen, setGamesOpen]     = useState(true);
+  const [gamesOpen, setGamesOpen]     = useState(false);
   const [coachingOpen, setCoachingOpen] = useState(true);
 
   const isActive = (href: string) =>

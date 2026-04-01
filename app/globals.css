@@ -180,6 +180,34 @@ body {
 /* ── Color themes ───────────────────────────────────────────── */
 /* amber = default, no override needed */
 
+[data-color="gold"] {
+  --primary: 45 68% 36%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 45 55% 90%;
+  --accent-foreground: 45 68% 24%;
+  --ring: 45 68% 36%;
+}
+html.dark[data-color="gold"] {
+  --primary: 45 75% 58%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 45 80% 68%;
+  --ring: 45 75% 58%;
+}
+
+[data-color="beige"] {
+  --primary: 35 42% 40%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 35 32% 90%;
+  --accent-foreground: 35 42% 28%;
+  --ring: 35 42% 40%;
+}
+html.dark[data-color="beige"] {
+  --primary: 35 48% 62%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 35 52% 72%;
+  --ring: 35 48% 62%;
+}
+
 [data-color="sage"] {
   --primary: 150 38% 30%;
   --primary-foreground: 38 18% 96%;
@@ -262,6 +290,174 @@ html.dark[data-color="terracotta"] {
   --primary-foreground: 222 18% 8%;
   --accent-foreground: 20 65% 72%;
   --ring: 20 62% 62%;
+}
+
+[data-color="copper"] {
+  --primary: 25 62% 36%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 25 48% 90%;
+  --accent-foreground: 25 62% 24%;
+  --ring: 25 62% 36%;
+}
+html.dark[data-color="copper"] {
+  --primary: 25 68% 58%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 25 72% 68%;
+  --ring: 25 68% 58%;
+}
+
+[data-color="coral"] {
+  --primary: 12 62% 40%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 12 48% 92%;
+  --accent-foreground: 12 62% 28%;
+  --ring: 12 62% 40%;
+}
+html.dark[data-color="coral"] {
+  --primary: 12 70% 62%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 12 74% 72%;
+  --ring: 12 70% 62%;
+}
+
+[data-color="crimson"] {
+  --primary: 348 62% 36%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 348 46% 92%;
+  --accent-foreground: 348 62% 24%;
+  --ring: 348 62% 36%;
+}
+html.dark[data-color="crimson"] {
+  --primary: 348 68% 60%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 348 72% 70%;
+  --ring: 348 68% 60%;
+}
+
+[data-color="mauve"] {
+  --primary: 320 36% 38%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 320 28% 92%;
+  --accent-foreground: 320 36% 26%;
+  --ring: 320 36% 38%;
+}
+html.dark[data-color="mauve"] {
+  --primary: 320 46% 63%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 320 50% 72%;
+  --ring: 320 46% 63%;
+}
+
+[data-color="plum"] {
+  --primary: 285 42% 36%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 285 32% 92%;
+  --accent-foreground: 285 42% 24%;
+  --ring: 285 42% 36%;
+}
+html.dark[data-color="plum"] {
+  --primary: 285 52% 60%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 285 56% 70%;
+  --ring: 285 52% 60%;
+}
+
+[data-color="indigo"] {
+  --primary: 240 50% 42%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 240 38% 92%;
+  --accent-foreground: 240 50% 28%;
+  --ring: 240 50% 42%;
+}
+html.dark[data-color="indigo"] {
+  --primary: 240 60% 66%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 240 64% 75%;
+  --ring: 240 60% 66%;
+}
+
+[data-color="sky"] {
+  --primary: 200 65% 38%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 200 52% 91%;
+  --accent-foreground: 200 65% 25%;
+  --ring: 200 65% 38%;
+}
+html.dark[data-color="sky"] {
+  --primary: 200 70% 60%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 200 74% 70%;
+  --ring: 200 70% 60%;
+}
+
+[data-color="steel"] {
+  --primary: 205 42% 36%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 205 32% 91%;
+  --accent-foreground: 205 42% 23%;
+  --ring: 205 42% 36%;
+}
+html.dark[data-color="steel"] {
+  --primary: 205 50% 58%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 205 54% 68%;
+  --ring: 205 50% 58%;
+}
+
+[data-color="mint"] {
+  --primary: 160 46% 32%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 160 36% 90%;
+  --accent-foreground: 160 46% 20%;
+  --ring: 160 46% 32%;
+}
+html.dark[data-color="mint"] {
+  --primary: 160 52% 52%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 160 56% 62%;
+  --ring: 160 52% 52%;
+}
+
+[data-color="forest"] {
+  --primary: 135 46% 26%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 135 34% 90%;
+  --accent-foreground: 135 46% 16%;
+  --ring: 135 46% 26%;
+}
+html.dark[data-color="forest"] {
+  --primary: 135 48% 46%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 135 52% 58%;
+  --ring: 135 48% 46%;
+}
+
+[data-color="olive"] {
+  --primary: 75 44% 30%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 75 34% 90%;
+  --accent-foreground: 75 44% 18%;
+  --ring: 75 44% 30%;
+}
+html.dark[data-color="olive"] {
+  --primary: 75 50% 50%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 75 54% 62%;
+  --ring: 75 50% 50%;
+}
+
+[data-color="slate"] {
+  --primary: 215 26% 36%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 215 20% 91%;
+  --accent-foreground: 215 26% 23%;
+  --ring: 215 26% 36%;
+}
+html.dark[data-color="slate"] {
+  --primary: 215 34% 60%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 215 38% 70%;
+  --ring: 215 34% 60%;
 }
 
 /* Marquee scrolling text */

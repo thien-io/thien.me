@@ -29,6 +29,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             100% { transform: translateY(200%); opacity: 0; }
           }
         `}</style>
+        {/* Apply saved color theme before first paint — prevents flash */}
+        <script dangerouslySetInnerHTML={{ __html: `
+          try {
+            var c = localStorage.getItem('thien-color');
+            if (c && c !== 'amber') document.documentElement.setAttribute('data-color', c);
+          } catch(e) {}
+        `}} />
       </head>
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

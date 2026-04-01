@@ -7,6 +7,7 @@ import {
   Home, BookOpen, Users, Menu, X, Moon, Sun, Mail,
   Music, Film, Library, PenLine, ChevronDown, Gamepad2,
 } from "lucide-react";
+import { ColorPicker } from "@/components/color-picker";
 import { useTheme } from "next-themes";
 
 // Tennis ball icon — provided by user
@@ -172,7 +173,10 @@ export function Sidebar() {
             className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-all">
             <Mail className="h-3.5 w-3.5" />
           </a>
-          <ThemeToggle />
+          <div className="flex items-center gap-0.5">
+            <ColorPicker />
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </div>

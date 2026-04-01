@@ -35,7 +35,7 @@ export default function Home() {
               <em className="text-primary">perpetual student.</em>
             </h2>
           </ScrollReveal>
-          <ScrollReveal delay={160}>
+          <ScrollReveal delay={160}>            
             <div className="space-y-4 text-muted-foreground leading-relaxed max-w-md">
               <p>
                 I've been coaching tennis in Connecticut since 2015 and picked up

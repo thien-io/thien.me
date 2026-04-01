@@ -71,7 +71,7 @@ body {
   @apply flex items-center gap-3 px-3 py-2 rounded-md text-sm text-muted-foreground
          hover:text-foreground hover:bg-accent transition-all duration-200;
 }
-.sidebar-link.active { @apply text-foreground bg-accent; }
+.sidebar-link.active { @apply text-primary bg-primary/10; }
 
 /* Spotify EQ bars */
 .spotify-bar { animation: spotify-eq 1.2s ease-in-out infinite; }
@@ -175,6 +175,93 @@ body {
   padding: 0.15rem 0.4rem;
   border-radius: 0.25rem;
   color: hsl(var(--primary));
+}
+
+/* ── Color themes ───────────────────────────────────────────── */
+/* amber = default, no override needed */
+
+[data-color="sage"] {
+  --primary: 150 38% 30%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 150 28% 90%;
+  --accent-foreground: 150 38% 22%;
+  --ring: 150 38% 30%;
+}
+html.dark[data-color="sage"] {
+  --primary: 150 45% 52%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 150 50% 65%;
+  --ring: 150 45% 52%;
+}
+
+[data-color="ocean"] {
+  --primary: 210 58% 38%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 210 45% 91%;
+  --accent-foreground: 210 58% 25%;
+  --ring: 210 58% 38%;
+}
+html.dark[data-color="ocean"] {
+  --primary: 210 65% 62%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 210 70% 72%;
+  --ring: 210 65% 62%;
+}
+
+[data-color="rose"] {
+  --primary: 350 52% 40%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 350 38% 92%;
+  --accent-foreground: 350 52% 28%;
+  --ring: 350 52% 40%;
+}
+html.dark[data-color="rose"] {
+  --primary: 350 62% 65%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 350 65% 75%;
+  --ring: 350 62% 65%;
+}
+
+[data-color="lavender"] {
+  --primary: 265 48% 42%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 265 36% 92%;
+  --accent-foreground: 265 48% 30%;
+  --ring: 265 48% 42%;
+}
+html.dark[data-color="lavender"] {
+  --primary: 265 58% 68%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 265 62% 76%;
+  --ring: 265 58% 68%;
+}
+
+[data-color="teal"] {
+  --primary: 178 48% 28%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 178 36% 90%;
+  --accent-foreground: 178 48% 20%;
+  --ring: 178 48% 28%;
+}
+html.dark[data-color="teal"] {
+  --primary: 178 52% 50%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 178 55% 62%;
+  --ring: 178 52% 50%;
+}
+
+[data-color="terracotta"] {
+  --primary: 17 55% 40%;
+  --primary-foreground: 38 18% 96%;
+  --accent: 17 38% 92%;
+  --accent-foreground: 17 55% 28%;
+  --ring: 17 55% 40%;
+}
+html.dark[data-color="terracotta"] {
+  --primary: 20 62% 62%;
+  --primary-foreground: 222 18% 8%;
+  --accent-foreground: 20 65% 72%;
+  --ring: 20 62% 62%;
 }
 
 /* Marquee scrolling text */

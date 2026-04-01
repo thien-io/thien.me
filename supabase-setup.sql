@@ -63,3 +63,22 @@ CREATE POLICY "Allow public insert pong"
   ON pong_leaderboard FOR INSERT WITH CHECK (true);
 
 CREATE INDEX pong_score_idx ON pong_leaderboard (score DESC);
+
+-- ── Snake Leaderboard ──────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS snake_leaderboard (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL CHECK (char_length(name) >= 1 AND char_length(name) <= 30),
+  score INTEGER NOT NULL CHECK (score > 0),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE snake_leaderboard ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public read snake"
+  ON snake_leaderboard FOR SELECT USING (true);
+
+CREATE POLICY "Allow public insert snake"
+  ON snake_leaderboard FOR INSERT WITH CHECK (true);
+
+CREATE INDEX snake_score_idx ON snake_leaderboard (score DESC);

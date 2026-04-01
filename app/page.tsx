@@ -56,7 +56,7 @@ export default function Home() {
                 Full story →
               </Link>
               <Link href="/coaching"
-                className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors">
+                className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors">
                 Work with me →
               </Link>
             </div>
@@ -216,7 +216,7 @@ export default function Home() {
           {recentPosts.map((post, i) => (
             <ScrollReveal key={post.slug} delay={i * 80}>
               <Link href={`/blog/${post.slug}`}
-                className="block group py-5 border-b border-border/40 hover:bg-accent/20 -mx-3 px-3 rounded-xl transition-colors">
+                className="block group py-5 border-b border-border/40 hover:bg-primary/10 -mx-3 px-3 rounded-xl transition-colors">
                 <div className="flex items-start justify-between gap-4 mb-1.5">
                   <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-snug">
                     {post.title}
@@ -259,7 +259,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="mailto:hello@thien.me"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-accent/20 transition-all font-mono text-sm text-foreground"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/10 transition-all font-mono text-sm text-foreground"
             >
               <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -268,7 +268,7 @@ export default function Home() {
             </a>
             <Link
               href="/guestbook"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-accent/20 transition-all font-mono text-sm text-foreground"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/10 transition-all font-mono text-sm text-foreground"
             >
               <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" />

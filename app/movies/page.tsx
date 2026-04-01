@@ -252,7 +252,7 @@ export default function MoviesPage() {
           <span className="font-mono text-[9px] text-muted-foreground/50 uppercase tracking-widest mr-1">Sort</span>
           {(["year","rating","title"] as SortKey[]).map(k => (
             <button key={k} onClick={() => toggleMovieSort(k)}
-              className={`font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-lg border transition-all ${movieSort === k ? "border-primary bg-primary text-primary-foreground" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>
+              className={`font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-lg border transition-all ${movieSort === k ? "border-primary bg-primary text-primary-foreground" : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
               {k}{movieSort === k ? (movieDir === "desc" ? " ↓" : " ↑") : ""}
             </button>
           ))}
@@ -261,7 +261,7 @@ export default function MoviesPage() {
         <div className="flex flex-wrap gap-1.5">
           {MOVIE_FILTERS.map(f => (
             <button key={f} onClick={() => setMovieFilter(f)}
-              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${movieFilter === f ? "border-foreground bg-foreground text-background" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>
+              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${movieFilter === f ? "border-foreground bg-foreground text-background" : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
               {f}
             </button>
           ))}
@@ -305,7 +305,7 @@ export default function MoviesPage() {
         <div className="flex flex-wrap gap-1.5">
           {TV_FILTERS.map(f => (
             <button key={f} onClick={() => setTvFilter(f)}
-              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${tvFilter === f ? "border-foreground bg-foreground text-background" : "border-border text-muted-foreground hover:text-foreground hover:border-foreground/30"}`}>
+              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${tvFilter === f ? "border-foreground bg-foreground text-background" : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
               {f}
             </button>
           ))}
@@ -410,7 +410,7 @@ export default function MoviesPage() {
                 {/* Flip back to poster */}
                 <button
                   onClick={() => setFlipped(false)}
-                  className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-muted hover:bg-accent border border-border/50 text-muted-foreground hover:text-foreground flex items-center justify-center transition-all"
+                  className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-muted hover:bg-primary/10 border border-border/50 text-muted-foreground hover:text-primary flex items-center justify-center transition-all"
                   aria-label="View poster"
                 >
                   <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2">
@@ -422,7 +422,7 @@ export default function MoviesPage() {
 
             {/* Close */}
             <button onClick={close}
-              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-card border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 flex items-center justify-center transition-all font-mono text-sm shadow-lg z-10">
+              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/30 flex items-center justify-center transition-all font-mono text-sm shadow-lg z-10">
               ✕
             </button>
           </div>

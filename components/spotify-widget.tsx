@@ -76,7 +76,7 @@ export function SpotifyWidget() {
       href={data.songUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center gap-3 p-4 rounded-xl border border-border bg-card hover:bg-accent transition-colors group"
+      className="flex items-center gap-3 p-4 rounded-xl border border-border bg-card hover:bg-primary/10 hover:border-primary/30 transition-colors group"
     >
       {data.albumArt && (
         <Image

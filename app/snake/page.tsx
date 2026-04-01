@@ -390,7 +390,7 @@ export default function SnakePage() {
 
                 <button
                   onClick={startGame}
-                  className="w-full py-2 rounded-xl border border-border font-mono text-xs text-muted-foreground hover:text-foreground hover:border-foreground/30 transition-all"
+                  className="w-full py-2 rounded-xl border border-border font-mono text-xs text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
                 >
                   Play again
                 </button>

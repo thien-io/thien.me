@@ -32,7 +32,7 @@ export function Footer() {
               Coach · CT
             </p>
             <div className="mt-4">
-              <a href="mailto:hello@thien.me" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+              <a href="mailto:hello@thien.me" className="text-xs text-muted-foreground hover:text-primary transition-colors">
                 hello@thien.me
               </a>
             </div>
@@ -44,7 +44,7 @@ export function Footer() {
             <ul className="space-y-2">
               {links.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href={l.href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -58,7 +58,7 @@ export function Footer() {
             <ul className="space-y-2">
               {coachingLinks.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href={l.href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -72,7 +72,7 @@ export function Footer() {
             <ul className="space-y-2">
               {lifeLinks.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+                  <Link href={l.href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
                     {l.label}
                   </Link>
                 </li>

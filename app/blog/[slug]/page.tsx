@@ -62,7 +62,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <section className="px-8 md:px-16 pt-10 pb-10 md:pt-32 md:pb-16 max-w-2xl">
         <Link
           href="/blog"
-          className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2 mb-10"
+          className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 mb-10"
         >
           ← Blog
         </Link>
@@ -102,7 +102,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
       <section className="px-8 md:px-16 py-12">
         <Link
           href="/blog"
-          className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
+          className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
         >
           ← All posts
         </Link>

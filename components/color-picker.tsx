@@ -109,7 +109,7 @@ export function ColorPicker() {
       {/* Trigger */}
       <button
         onClick={() => setOpen(o => !o)}
-        className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-all w-8 h-8 flex items-center justify-center"
+        className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all w-8 h-8 flex items-center justify-center"
         aria-label="Change accent color"
       >
         <div

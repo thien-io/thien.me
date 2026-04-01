@@ -67,7 +67,7 @@ function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-all w-8 h-8 flex items-center justify-center"
+      className="relative p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all w-8 h-8 flex items-center justify-center"
       aria-label="Toggle theme"
     >
       <Sun className="h-4 w-4 transition-all rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
@@ -170,7 +170,7 @@ export function Sidebar() {
       <div className="border-t border-border pt-4 mt-4">
         <div className="flex items-center justify-between px-1">
           <a href="mailto:hello@thien.me" aria-label="Email"
-            className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-all">
+            className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
             <Mail className="h-3.5 w-3.5" />
           </a>
           <div className="flex items-center gap-0.5">
@@ -197,7 +197,7 @@ export function Sidebar() {
         <div className="flex items-center gap-1">
           <ThemeToggle />
           <button onClick={() => setMobileOpen(!mobileOpen)}
-            className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-accent transition-all">
+            className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>

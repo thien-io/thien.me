@@ -143,7 +143,7 @@ export function Hero() {
             Say hello
           </Link>
           <Link href="/coaching"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 decoration-border">
+            className="text-sm text-muted-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-border">
             Hit with me →
           </Link>
         </div>

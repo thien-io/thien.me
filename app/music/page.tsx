@@ -188,7 +188,7 @@ export default function MusicPage() {
               <ScrollReveal key={pl.id} delay={i * 50}>
                 <a
                   href={pl.url} target="_blank" rel="noopener noreferrer"
-                  className="flex gap-4 p-4 rounded-2xl border border-border bg-card hover:border-primary/40 hover:bg-accent/20 transition-all group items-start"
+                  className="flex gap-4 p-4 rounded-2xl border border-border bg-card hover:border-primary/40 hover:bg-primary/10 transition-all group items-start"
                 >
                   <PlaylistArt src={pl.image} name={pl.name} />
                   <div className="flex-1 min-w-0">
@@ -248,7 +248,7 @@ export default function MusicPage() {
             </div>
             <button
               onClick={() => setActiveTrack(null)}
-              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-card border border-border text-muted-foreground hover:text-foreground hover:border-foreground/30 flex items-center justify-center transition-all font-mono text-sm shadow-lg"
+              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/30 flex items-center justify-center transition-all font-mono text-sm shadow-lg"
             >
               ✕
             </button>

@@ -48,7 +48,7 @@ const gameLinks = [
 ];
 
 const coachingLinks = [
-  { href: "/booking",             label: "Book",       icon: CalendarCheck, custom: false, pickleIcon: false },
+  { href: "/booking",             label: "Bookings",   icon: CalendarCheck, custom: false, pickleIcon: false },
   { href: "/coaching/tennis",     label: "Tennis",     icon: null,          custom: true,  pickleIcon: false },
   { href: "/coaching/pickleball", label: "Pickleball", icon: null,          custom: false, pickleIcon: true  },
 ];

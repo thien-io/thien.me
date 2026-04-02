@@ -18,7 +18,7 @@ const links = [
 ];
 
 const coachingLinks = [
-  { label: "Book",       href: "/booking" },
+  { label: "Bookings",   href: "/booking" },
   { label: "Tennis",     href: "/coaching/tennis" },
   { label: "Pickleball", href: "/coaching/pickleball" },
 ];

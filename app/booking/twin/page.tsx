@@ -25,17 +25,17 @@ export default function BookingTwinPage() {
         </ScrollReveal>
         <ScrollReveal delay={80}>
           <p className="font-mono text-[9px] uppercase tracking-widest text-primary mb-3">
-            Twin Lakes · CT
+            Salisbury · CT
           </p>
           <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-4">
             Twin Lakes<br />
-            <em className="text-primary">Tennis Club.</em>
+            <em className="text-primary">Beach Club.</em>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className="text-muted-foreground leading-relaxed max-w-md">
-            Outdoor hard courts. Pick a time below — sessions are 60 min.
-            Confirm the court number in the notes.
+            Outdoor grass courts. Pick a time below — sessions are 60 min.
+            Provide your phone number in the notes.
           </p>
         </ScrollReveal>
       </section>

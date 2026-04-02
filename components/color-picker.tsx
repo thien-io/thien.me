@@ -10,8 +10,10 @@ const COLORS = [
   { name: "beige",      swatch: "hsl(35 45% 52%)"  },
   { name: "copper",     swatch: "hsl(25 65% 46%)"  },
   { name: "terracotta", swatch: "hsl(17 58% 50%)"  },
+  { name: "peach",      swatch: "hsl(20 75% 60%)"  },
   { name: "coral",      swatch: "hsl(12 68% 52%)"  },
   { name: "crimson",    swatch: "hsl(348 65% 46%)" },
+  { name: "wine",       swatch: "hsl(348 60% 35%)" },
   { name: "rose",       swatch: "hsl(350 54% 50%)" },
   { name: "mauve",      swatch: "hsl(320 38% 50%)" },
   { name: "lavender",   swatch: "hsl(265 50% 55%)" },
@@ -20,10 +22,12 @@ const COLORS = [
   { name: "ocean",      swatch: "hsl(210 60% 50%)" },
   { name: "sky",        swatch: "hsl(200 68% 48%)" },
   { name: "steel",      swatch: "hsl(205 45% 44%)" },
+  { name: "cyan",       swatch: "hsl(190 65% 42%)" },
   { name: "teal",       swatch: "hsl(178 48% 36%)" },
   { name: "mint",       swatch: "hsl(160 48% 40%)" },
   { name: "sage",       swatch: "hsl(150 40% 38%)" },
   { name: "forest",     swatch: "hsl(135 48% 34%)" },
+  { name: "lime",       swatch: "hsl(88 50% 38%)"  },
   { name: "olive",      swatch: "hsl(75 45% 38%)"  },
   { name: "slate",      swatch: "hsl(215 28% 50%)" },
 ] as const;
@@ -71,7 +75,7 @@ export function ColorPicker({ direction = "up" }: { direction?: "up" | "down" })
         <>
           <div className="fixed inset-0 z-10" onClick={() => { setOpen(false); applyColor(active); setHovered(null); }} />
           <div className={`absolute ${direction === "down" ? "top-full mt-2 right-0" : "bottom-full mb-2 left-0"} z-20 bg-card border border-border rounded-2xl p-3 shadow-xl`}
-            style={{ width: "220px" }}>
+            style={{ width: "196px" }}>
 
             {/* Preview strip */}
             <div className="flex items-center gap-2 mb-3 px-0.5">
@@ -85,7 +89,7 @@ export function ColorPicker({ direction = "up" }: { direction?: "up" | "down" })
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-7 gap-2">
+            <div className="grid grid-cols-5 gap-2">
               {COLORS.map(c => (
                 <button
                   key={c.name}

@@ -32,8 +32,8 @@ const lifeLinks = [
 export function Footer() {
   return (
     <footer className="border-t border-border mt-16 md:mt-24">
-      <div className="px-8 md:px-16 py-12 md:py-16">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12 max-w-2xl">
+      <div className="w-full max-w-5xl mx-auto px-8 md:px-16 py-12 md:py-16">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12 max-w-full">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-1">
             <p className="font-display text-xl font-light text-foreground mb-1">
@@ -102,7 +102,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border/50 pt-6 flex items-center gap-3 max-w-2xl">
+        <div className="border-t border-border/50 pt-6 flex items-center gap-3 max-w-full">
           <p className="font-mono text-[10px] text-muted-foreground/50" suppressHydrationWarning>
             © {new Date().getFullYear()} Thien.
           </p>

@@ -49,6 +49,14 @@
 
 html { scroll-behavior: smooth; }
 
+/* Centered content container used by all pages except hero */
+.content-wrap {
+  width: 100%;
+  max-width: 64rem; /* 1024px — matches max-w-4xl */
+  margin-left: auto;
+  margin-right: auto;
+}
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));

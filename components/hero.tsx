@@ -108,29 +108,18 @@ export function Hero() {
     >
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
 
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" style={{ contain: "paint" }}>
-        <div className="orb absolute rounded-full opacity-[0.13] dark:opacity-[0.08]"
-          style={{ width:"min(600px, 100vw)", height:"min(600px, 100vw)", top:"-120px", right:"-10%",
-            background:"radial-gradient(circle, hsl(32 80% 60%) 0%, transparent 70%)",
-            filter:"blur(70px)" }} />
-        <div className="orb-2 absolute rounded-full opacity-[0.09] dark:opacity-[0.06]"
-          style={{ width:"min(500px, 90vw)", height:"min(500px, 90vw)", bottom:"-60px", left:"-10%",
-            background:"radial-gradient(circle, hsl(18 60% 50%) 0%, transparent 70%)",
-            filter:"blur(80px)" }} />
-      </div>
-
-      <div className="relative z-10 max-w-2xl pointer-events-none select-none">
+      <div className="relative z-10 pointer-events-none select-none">
         <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-10 hero-item"
            style={{ animationDelay: "0ms" }}>
           Tennis Coach · Connecticut
         </p>
         <h1 className="font-display font-light leading-[0.9] mb-10">
-          <span className="block text-[clamp(3.5rem,8vw,7rem)] text-foreground hero-item"
+          <span className="block text-[clamp(2.8rem,7vw,7rem)] text-foreground hero-item"
                 style={{ animationDelay: "130ms" }}>Hey, I&apos;m</span>
-          <span className="block text-[clamp(3.5rem,8vw,7rem)] italic text-primary hero-item"
+          <span className="block text-[clamp(2.8rem,7vw,7rem)] italic text-primary hero-item"
                 style={{ animationDelay: "260ms" }}>Thien.</span>
         </h1>
-        <p className="text-muted-foreground text-lg leading-relaxed max-w-md mb-12 hero-item"
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-sm md:max-w-md mb-12 hero-item"
            style={{ animationDelay: "400ms" }}>
           Welcome. I&apos;m a tennis coach based in Connecticut.
           This is where I share what I&apos;m playing, reading, watching,

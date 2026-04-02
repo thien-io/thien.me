@@ -372,7 +372,7 @@ export default function PongPage() {
         <h1 className="font-display text-4xl font-light">Pong</h1>
       </section>
 
-      <div className="flex flex-col lg:flex-row gap-6 px-3 md:px-8 pb-6 md:pb-16 items-start">
+      <div className="flex flex-col lg:flex-row gap-6 px-3 md:px-8 pb-6 md:pb-16 items-start justify-center">
         {/* Game */}
         <div className="flex-1 min-w-0 flex flex-col items-center">
           {(uiState === "playing" || uiState === "paused" || uiState === "point") && (

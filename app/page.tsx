@@ -19,6 +19,7 @@ export default function Home() {
     <div>
       <Hero />
 
+      <div className="content-wrap">
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
       {/* About */}
@@ -278,6 +279,7 @@ export default function Home() {
           </div>
         </ScrollReveal>
       </section>
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { BlogList } from "@/components/blog-list";
 
 export default function BlogPage() {
   const posts = getAllPosts();
-  const tags = [...new Set(posts.flatMap(p => p.tags))].sort();
+  const tags = Array.from(new Set(posts.flatMap(p => p.tags))).sort();
 
   return (
     <div>

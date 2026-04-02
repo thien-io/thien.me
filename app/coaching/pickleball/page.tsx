@@ -1,5 +1,6 @@
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParallaxSection } from "@/components/parallax-section";
+import Link from "next/link";
 
 const packages = [
   {
@@ -132,10 +133,10 @@ export default function PickleballCoachingPage() {
                     </li>
                   ))}
                 </ul>
-                <a href="mailto:hello@thien.me"
+                <Link href="/booking"
                   className="inline-flex items-center gap-2 font-mono text-[11px] tracking-wider uppercase text-primary hover:gap-3 transition-all">
                   Get started →
-                </a>
+                </Link>
               </div>
             </ScrollReveal>
           ))}
@@ -143,12 +144,22 @@ export default function PickleballCoachingPage() {
 
         <ScrollReveal delay={400} className="mt-20 max-w-xl">
           <div className="border-t border-border pt-12">
-            <p className="font-display text-2xl font-light text-foreground mb-2">Questions first?</p>
-            <p className="text-sm text-muted-foreground mb-6">No pressure. Reach out and we'll find what works.</p>
-            <a href="mailto:hello@thien.me"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 transition-opacity">
-              hello@thien.me
-            </a>
+            <p className="font-display text-2xl font-light text-foreground mb-2">Ready to get started?</p>
+            <p className="text-sm text-muted-foreground mb-6">Pick a time that works for you, or reach out first if you have questions.</p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link
+                href="/booking"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 transition-opacity"
+              >
+                Book a session →
+              </Link>
+              <a
+                href="mailto:hello@thien.me"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border font-mono text-xs tracking-wide text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
+              >
+                hello@thien.me
+              </a>
+            </div>
           </div>
         </ScrollReveal>
       </section>

@@ -138,13 +138,13 @@ export function Hero() {
         </p>
         <div className="flex items-center gap-5 hero-item pointer-events-auto select-auto"
              style={{ animationDelay: "540ms" }}>
-          <Link href="/guestbook"
+          <Link href="/booking"
             className="px-6 py-3 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity">
-            Say hello
+            Book a session
           </Link>
-          <Link href="/coaching"
+          <Link href="/guestbook"
             className="text-sm text-muted-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-border">
-            Hit with me →
+            Sign the guestbook →
           </Link>
         </div>
       </div>

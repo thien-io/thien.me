@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
   Home, BookOpen, Users, Menu, X, Moon, Sun, Mail,
-  Music, Film, Library, PenLine, ChevronDown, Gamepad2,
+  Music, Film, Library, PenLine, ChevronDown, Gamepad2, CalendarCheck,
 } from "lucide-react";
 import { ColorPicker } from "@/components/color-picker";
 import { useTheme } from "next-themes";
@@ -29,16 +29,17 @@ function TennisBallIcon({ className }: { className?: string }) {
 }
 
 const mainLinks = [
-  { href: "/",          label: "Home",      icon: Home,     custom: false },
-  { href: "/about",     label: "About",     icon: BookOpen, custom: false },
-  { href: "/guestbook", label: "Guestbook", icon: Users,    custom: false },
-  { href: "/blog",      label: "Blog",      icon: PenLine,  custom: false },
+  { href: "/",          label: "Home",      icon: Home,          custom: false },
+  { href: "/about",     label: "About",     icon: BookOpen,      custom: false },
+  { href: "/booking",   label: "Book",      icon: CalendarCheck, custom: false },
+  { href: "/guestbook", label: "Guestbook", icon: Users,         custom: false },
+  { href: "/blog",      label: "Blog",      icon: PenLine,       custom: false },
 ];
 
 const lifeLinks = [
-  { href: "/music",  label: "Music",  icon: Music   },
-  { href: "/movies", label: "Movies", icon: Film    },
-  { href: "/books",  label: "Books",  icon: Library },
+  { href: "/music",  label: "Music",   icon: Music   },
+  { href: "/movies", label: "Movies",  icon: Film    },
+  { href: "/books",  label: "Library", icon: Library },
 ];
 
 const gameLinks = [
@@ -128,17 +129,6 @@ export function Sidebar() {
           </Link>
         ))}
 
-        {/* Life section */}
-        <CollapsibleSection label="Life" open={lifeOpen} onToggle={() => setLifeOpen(o => !o)}>
-          {lifeLinks.map(({ href, label, icon: Icon }) => (
-            <Link key={href} href={href} onClick={() => setMobileOpen(false)}
-              className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
-              <Icon className="h-3.5 w-3.5 shrink-0" />
-              <span className="text-[13px]">{label}</span>
-            </Link>
-          ))}
-        </CollapsibleSection>
-
         {/* Coaching section */}
         <CollapsibleSection label="Coaching" open={coachingOpen} onToggle={() => setCoachingOpen(o => !o)}>
           {coachingLinks.map(({ href, label, custom, pickleIcon }) => (
@@ -149,6 +139,17 @@ export function Sidebar() {
                 : custom
                   ? <TennisBallIcon className="h-3.5 w-3.5 shrink-0" />
                   : <span className="h-3.5 w-3.5 shrink-0" />}
+              <span className="text-[13px]">{label}</span>
+            </Link>
+          ))}
+        </CollapsibleSection>
+
+        {/* Life section */}
+        <CollapsibleSection label="Life" open={lifeOpen} onToggle={() => setLifeOpen(o => !o)}>
+          {lifeLinks.map(({ href, label, icon: Icon }) => (
+            <Link key={href} href={href} onClick={() => setMobileOpen(false)}
+              className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
+              <Icon className="h-3.5 w-3.5 shrink-0" />
               <span className="text-[13px]">{label}</span>
             </Link>
           ))}

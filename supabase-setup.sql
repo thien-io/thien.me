@@ -82,3 +82,34 @@ CREATE POLICY "Allow public insert snake"
   ON snake_leaderboard FOR INSERT WITH CHECK (true);
 
 CREATE INDEX snake_score_idx ON snake_leaderboard (score DESC);
+
+-- ── Site Likes ─────────────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS site_likes (
+  id INTEGER PRIMARY KEY,
+  count INTEGER NOT NULL DEFAULT 0
+);
+
+-- Seed the single row
+INSERT INTO site_likes (id, count) VALUES (1, 0)
+  ON CONFLICT (id) DO NOTHING;
+
+ALTER TABLE site_likes ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public read likes"
+  ON site_likes FOR SELECT USING (true);
+
+-- Atomic increment function (avoids race conditions)
+CREATE OR REPLACE FUNCTION increment_likes()
+RETURNS INTEGER
+LANGUAGE plpgsql
+SECURITY DEFINER
+AS $$
+DECLARE
+  new_count INTEGER;
+BEGIN
+  UPDATE site_likes SET count = count + 1 WHERE id = 1
+  RETURNING count INTO new_count;
+  RETURN new_count;
+END;
+$$;

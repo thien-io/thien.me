@@ -154,6 +154,26 @@ const TV_FILTERS:    FilterKey[] = ["All","Action","Animation","Comedy","Crime",
 
 const STARS = (n: number) => "★".repeat(n) + "☆".repeat(5 - n);
 
+const GENRE_COLORS: Record<string, string> = {
+  Action:      "bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/25",
+  Animation:   "bg-yellow-500/10 text-yellow-700 dark:text-yellow-500 border-yellow-500/25",
+  Comedy:      "bg-lime-500/10 text-lime-700 dark:text-lime-400 border-lime-500/25",
+  Crime:       "bg-zinc-500/10 text-zinc-600 dark:text-zinc-400 border-zinc-500/25",
+  Documentary: "bg-slate-500/10 text-slate-600 dark:text-slate-400 border-slate-500/25",
+  Drama:       "bg-violet-500/10 text-violet-700 dark:text-violet-400 border-violet-500/25",
+  Family:      "bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/25",
+  Fantasy:     "bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/25",
+  History:     "bg-amber-500/10 text-amber-700 dark:text-amber-400 border-amber-500/25",
+  Horror:      "bg-red-500/10 text-red-700 dark:text-red-400 border-red-500/25",
+  Mystery:     "bg-indigo-500/10 text-indigo-700 dark:text-indigo-400 border-indigo-500/25",
+  Romance:     "bg-pink-500/10 text-pink-700 dark:text-pink-400 border-pink-500/25",
+  "Sci-Fi":    "bg-cyan-500/10 text-cyan-700 dark:text-cyan-400 border-cyan-500/25",
+  Sport:       "bg-emerald-500/10 text-emerald-700 dark:text-emerald-400 border-emerald-500/25",
+  Thriller:    "bg-rose-500/10 text-rose-700 dark:text-rose-400 border-rose-500/25",
+  War:         "bg-stone-500/10 text-stone-600 dark:text-stone-400 border-stone-500/25",
+  Western:     "bg-orange-600/10 text-orange-800 dark:text-orange-500 border-orange-600/25",
+};
+
 // ── Component ─────────────────────────────────────────────────────────────────
 export default function MoviesPage() {
   const [active, setActive]   = useState<Media | null>(null);
@@ -239,7 +259,7 @@ export default function MoviesPage() {
             Films I&apos;ve<br /><em className="text-primary">loved.</em>
           </h1>
           <p className="text-muted-foreground max-w-sm leading-relaxed">
-            Films and shows I keep coming back to. Click any poster to flip it.
+            Films and shows I keep coming back to.
           </p>
         </div>
       </section>
@@ -261,7 +281,7 @@ export default function MoviesPage() {
         <div className="flex flex-wrap gap-1.5">
           {MOVIE_FILTERS.map(f => (
             <button key={f} onClick={() => setMovieFilter(f)}
-              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${movieFilter === f ? "border-foreground bg-foreground text-background" : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
+              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${movieFilter === f ? "border-foreground bg-foreground text-background" : (f !== "All" && GENRE_COLORS[f]) ? GENRE_COLORS[f] : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
               {f}
             </button>
           ))}
@@ -305,7 +325,7 @@ export default function MoviesPage() {
         <div className="flex flex-wrap gap-1.5">
           {TV_FILTERS.map(f => (
             <button key={f} onClick={() => setTvFilter(f)}
-              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${tvFilter === f ? "border-foreground bg-foreground text-background" : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
+              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${tvFilter === f ? "border-foreground bg-foreground text-background" : (f !== "All" && GENRE_COLORS[f]) ? GENRE_COLORS[f] : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
               {f}
             </button>
           ))}
@@ -354,7 +374,8 @@ export default function MoviesPage() {
           >
             {/* Flip card */}
             <div
-              className={`card-flip-inner relative${flipped ? " is-flipped" : ""}`}
+              className={`card-flip-inner relative cursor-pointer${flipped ? " is-flipped" : ""}`}
+              onClick={() => setFlipped(f => !f)}
               style={{
                 width: "min(300px, 82vw)",
                 height: "min(450px, calc(82vw * 1.5))",
@@ -374,16 +395,6 @@ export default function MoviesPage() {
                     <div className="w-10 h-10 rounded-full bg-muted-foreground/20" />
                   </div>
                 )}
-                {/* Flip to info */}
-                <button
-                  onClick={() => setFlipped(true)}
-                  className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-all"
-                  aria-label="View details"
-                >
-                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 15 3 9l6-6M3 9h12a6 6 0 0 1 0 12h-3"/>
-                  </svg>
-                </button>
               </div>
 
               {/* BACK — info */}
@@ -402,21 +413,11 @@ export default function MoviesPage() {
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-border/40">
                   {active.genres.map(g => (
-                    <span key={g} className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground bg-muted px-2 py-0.5 rounded-md border border-border/50">
+                    <span key={g} className={`font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-md border ${GENRE_COLORS[g] ?? "text-muted-foreground bg-muted border-border/50"}`}>
                       {g}
                     </span>
                   ))}
                 </div>
-                {/* Flip back to poster */}
-                <button
-                  onClick={() => setFlipped(false)}
-                  className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-muted hover:bg-primary/10 border border-border/50 text-muted-foreground hover:text-primary flex items-center justify-center transition-all"
-                  aria-label="View poster"
-                >
-                  <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2">
-                    <rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 9 6 6m0-6-6 6"/>
-                  </svg>
-                </button>
               </div>
             </div>
 

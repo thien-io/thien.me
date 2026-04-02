@@ -11,6 +11,72 @@ interface GuestbookEntry {
   created_at: string;
 }
 
+const ENTRY_COLORS = [
+  { name: "text-rose-700 dark:text-rose-300",       border: "border-rose-200 dark:border-rose-800",       bg: "bg-rose-50 dark:bg-rose-900/20"       },
+  { name: "text-pink-700 dark:text-pink-300",       border: "border-pink-200 dark:border-pink-800",       bg: "bg-pink-50 dark:bg-pink-900/20"       },
+  { name: "text-fuchsia-700 dark:text-fuchsia-300", border: "border-fuchsia-200 dark:border-fuchsia-800", bg: "bg-fuchsia-50 dark:bg-fuchsia-900/20" },
+  { name: "text-violet-700 dark:text-violet-300",   border: "border-violet-200 dark:border-violet-800",   bg: "bg-violet-50 dark:bg-violet-900/20"   },
+  { name: "text-purple-700 dark:text-purple-300",   border: "border-purple-200 dark:border-purple-800",   bg: "bg-purple-50 dark:bg-purple-900/20"   },
+  { name: "text-indigo-700 dark:text-indigo-300",   border: "border-indigo-200 dark:border-indigo-800",   bg: "bg-indigo-50 dark:bg-indigo-900/20"   },
+  { name: "text-blue-700 dark:text-blue-300",       border: "border-blue-200 dark:border-blue-800",       bg: "bg-blue-50 dark:bg-blue-900/20"       },
+  { name: "text-sky-700 dark:text-sky-300",         border: "border-sky-200 dark:border-sky-800",         bg: "bg-sky-50 dark:bg-sky-900/20"         },
+  { name: "text-cyan-700 dark:text-cyan-300",       border: "border-cyan-200 dark:border-cyan-800",       bg: "bg-cyan-50 dark:bg-cyan-900/20"       },
+  { name: "text-teal-700 dark:text-teal-300",       border: "border-teal-200 dark:border-teal-800",       bg: "bg-teal-50 dark:bg-teal-900/20"       },
+  { name: "text-emerald-700 dark:text-emerald-300", border: "border-emerald-200 dark:border-emerald-800", bg: "bg-emerald-50 dark:bg-emerald-900/20" },
+  { name: "text-green-700 dark:text-green-300",     border: "border-green-200 dark:border-green-800",     bg: "bg-green-50 dark:bg-green-900/20"     },
+  { name: "text-lime-700 dark:text-lime-400",       border: "border-lime-200 dark:border-lime-800",       bg: "bg-lime-50 dark:bg-lime-900/20"       },
+  { name: "text-yellow-700 dark:text-yellow-300",   border: "border-yellow-200 dark:border-yellow-800",   bg: "bg-yellow-50 dark:bg-yellow-900/20"   },
+  { name: "text-amber-700 dark:text-amber-300",     border: "border-amber-200 dark:border-amber-800",     bg: "bg-amber-50 dark:bg-amber-900/20"     },
+  { name: "text-orange-700 dark:text-orange-300",   border: "border-orange-200 dark:border-orange-800",   bg: "bg-orange-50 dark:bg-orange-900/20"   },
+  { name: "text-red-700 dark:text-red-300",         border: "border-red-200 dark:border-red-800",         bg: "bg-red-50 dark:bg-red-900/20"         },
+  { name: "text-rose-800 dark:text-rose-200",       border: "border-rose-200 dark:border-rose-800",       bg: "bg-rose-100 dark:bg-rose-900/30"      },
+  { name: "text-sky-800 dark:text-sky-200",         border: "border-sky-200 dark:border-sky-800",         bg: "bg-sky-100 dark:bg-sky-900/30"        },
+  { name: "text-emerald-800 dark:text-emerald-200", border: "border-emerald-200 dark:border-emerald-800", bg: "bg-emerald-100 dark:bg-emerald-900/30"},
+  { name: "text-violet-800 dark:text-violet-200",   border: "border-violet-200 dark:border-violet-800",   bg: "bg-violet-100 dark:bg-violet-900/30"  },
+  { name: "text-amber-800 dark:text-amber-200",     border: "border-amber-200 dark:border-amber-800",     bg: "bg-amber-100 dark:bg-amber-900/30"    },
+];
+
+function hashId(id: string) {
+  let h = 0;
+  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
+  return h;
+}
+
+function buildColorIndices(entries: GuestbookEntry[]) {
+  const indices: number[] = [];
+  for (let i = 0; i < entries.length; i++) {
+    let idx = hashId(entries[i].id) % ENTRY_COLORS.length;
+    if (i > 0 && idx === indices[i - 1]) idx = (idx + 1) % ENTRY_COLORS.length;
+    indices.push(idx);
+  }
+  return indices;
+}
+
+function ColoredEntries({ entries }: { entries: GuestbookEntry[] }) {
+  const colorIndices = buildColorIndices(entries);
+  return (
+    <>
+      {entries.map((entry, i) => {
+        const color = ENTRY_COLORS[colorIndices[i]];
+        return (
+          <div
+            key={entry.id}
+            className={`p-6 rounded-xl border transition-colors ${color.border} ${color.bg}`}
+          >
+            <div className='flex items-baseline justify-between mb-3'>
+              <span className={`text-sm font-medium ${color.name}`}>{entry.name}</span>
+              <span className='font-mono text-[10px] text-muted-foreground'>
+                {formatDistanceToNow(new Date(entry.created_at), { addSuffix: true })}
+              </span>
+            </div>
+            <p className='text-sm text-foreground/80 leading-relaxed'>{entry.message}</p>
+          </div>
+        );
+      })}
+    </>
+  );
+}
+
 export default function GuestbookPage() {
   const [entries, setEntries] = useState<GuestbookEntry[]>([]);
   const [name, setName] = useState("");
@@ -131,7 +197,7 @@ export default function GuestbookPage() {
           <button
             type='submit'
             disabled={submitting || !name.trim() || !message.trim()}
-            className='px-6 py-3 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed'
+            className='px-6 py-3 rounded-xl bg-primary text-white font-mono text-xs tracking-wide hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed'
           >
             {submitting ? 'Posting...' : 'Post message'}
           </button>
@@ -162,26 +228,7 @@ export default function GuestbookPage() {
           </div>
         ) : (
           <div className='space-y-4 max-w-md'>
-            {entries.map((entry) => (
-              <div
-                key={entry.id}
-                className='p-6 rounded-xl border border-border bg-card hover:border-border/80 transition-colors'
-              >
-                <div className='flex items-baseline justify-between mb-3'>
-                  <span className='text-sm font-medium text-foreground'>
-                    {entry.name}
-                  </span>
-                  <span className='font-mono text-[10px] text-muted-foreground'>
-                    {formatDistanceToNow(new Date(entry.created_at), {
-                      addSuffix: true,
-                    })}
-                  </span>
-                </div>
-                <p className='text-sm text-muted-foreground leading-relaxed'>
-                  {entry.message}
-                </p>
-              </div>
-            ))}
+            <ColoredEntries entries={entries} />
           </div>
         )}
       </section>

@@ -18,9 +18,9 @@ const links = [
 ];
 
 const coachingLinks = [
+  { label: "Book",       href: "/booking" },
   { label: "Tennis",     href: "/coaching/tennis" },
   { label: "Pickleball", href: "/coaching/pickleball" },
-  { label: "Book",       href: "/booking" },
 ];
 
 const lifeLinks = [
@@ -102,7 +102,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-border/50 pt-6 flex items-center gap-3 max-w-full">
+        <div className="border-t border-border/50 pt-6 flex items-center justify-between max-w-full">
           <p className="font-mono text-[10px] text-muted-foreground/50" suppressHydrationWarning>
             © {new Date().getFullYear()} Thien.
           </p>

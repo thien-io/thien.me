@@ -103,11 +103,12 @@ export default function PickleballCoachingPage() {
         <div className="space-y-5 max-w-xl">
           {packages.map((pkg, i) => (
             <ScrollReveal key={pkg.name} delay={i * 100}>
-              <div
-                className={`relative p-8 rounded-xl border transition-all duration-300 hover:shadow-sm group ${
+              <Link
+                href="/booking"
+                className={`relative block p-8 rounded-xl border transition-all duration-300 group ${
                   pkg.featured
-                    ? "border-primary/30 bg-primary/10 dark:bg-primary/20"
-                    : "border-border bg-card"
+                    ? "border-primary/30 bg-primary/10 dark:bg-primary/20 hover:border-primary/60 hover:bg-primary/15"
+                    : "border-border bg-card hover:border-primary/30 hover:bg-primary/5"
                 }`}
               >
                 {pkg.featured && (
@@ -117,7 +118,7 @@ export default function PickleballCoachingPage() {
                 )}
                 <div className="flex items-start justify-between mb-5">
                   <div>
-                    <h3 className="font-medium text-foreground text-base">{pkg.name}</h3>
+                    <h3 className="font-medium text-foreground text-base group-hover:text-primary transition-colors">{pkg.name}</h3>
                     <p className="font-mono text-[10px] text-muted-foreground mt-1 tracking-wider uppercase">
                       {pkg.duration}
                     </p>
@@ -133,11 +134,10 @@ export default function PickleballCoachingPage() {
                     </li>
                   ))}
                 </ul>
-                <Link href="/booking"
-                  className="inline-flex items-center gap-2 font-mono text-[11px] tracking-wider uppercase text-primary hover:gap-3 transition-all">
+                <span className="inline-flex items-center gap-2 font-mono text-[11px] tracking-wider uppercase text-primary group-hover:gap-3 transition-all">
                   Get started →
-                </Link>
-              </div>
+                </span>
+              </Link>
             </ScrollReveal>
           ))}
         </div>

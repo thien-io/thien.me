@@ -79,10 +79,11 @@ export default function Home() {
           </span>
         </ParallaxSection>
 
-        <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 gap-10 md:gap-6 max-w-xl">
+        <div className="relative z-10 grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-6 max-w-2xl">
           {[
             { value: "8+",   label: "Years coaching" },
             { value: "200+", label: "Students" },
+            { value: "4.5",  label: "USTA tennis" },
             { value: "4.4",  label: "DUPR pickleball" },
             { value: "CT",   label: "Based in" },
           ].map((stat, i) => (

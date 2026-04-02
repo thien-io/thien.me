@@ -3,22 +3,70 @@
 import { useEffect, useRef } from "react";
 
 const timeline = [
-  { year: "2006", event: "Started playing tennis", detail: "Weekend lessons. Never really stopped." },
-  { year: "2007", event: "Won high school state  championship", detail: "We were so dominate that year!" },
-  { year: "2009", event: "Joined a junior program", detail: "Started competing. Lost a lot. Learned more." },
-  { year: "2012", event: "Graduated UConn", detail: "Studied there, played there, left with a degree and no idea what was next." },
-  { year: "2015", event: "Coaching at a local club", detail: "Early mornings, long days, zero regrets." },
-  { year: "2018", event: "USPTA certified", detail: "Made it official." },
-  { year: "2019", event: "Visited Vietnam", detail: "Hanoi, Hoi An, Ho Chi Minh City. Changed how I think about a lot of things." },
-  { year: "2019", event: "Coached my first competitive junior", detail: "She made the state finals in U16. Still one of my proudest moments." },
-  { year: "2021", event: "Started playing pickleball", detail: "Picked it up on a whim. Got serious within a month." },
-  { year: "2022", event: "100th student", detail: "Realized I had something worth continuing." },
-  { year: "2023", event: "Won a 4.0 DUPR pickleball tournament", detail: "First competitive tournament win. Didn't expect it to feel that good." },
-  { year: "2023", event: "Visited Japan", detail: "Tokyo, Kyoto, Osaka. Already planning to go back." },
-  { year: "2023", event: "Coach top 10 singles player in the state", detail: "No better feeling as a coach." },
-  { year: "2025", event: "Reached 4.4 DUPR in pickleball", detail: "Still climbing." },
-  { year: "2026", event: "First 4.5 USTA match", detail: "Been working toward this level for a while." },
-  { year: "Now",  event: "Still here, still learning", detail: "The work doesn't stop. Neither does the curiosity.", isNow: true },
+  {
+    year: '1998',
+    event: 'Started playing tennis',
+    detail: 'Weekend lessons. Never really stopped.',
+  },
+  {
+    year: '2007',
+    event: 'Won high school state  championship',
+    detail: 'We were so dominate that year!',
+  },
+  {
+    year: '2012',
+    event: 'Graduated UConn',
+    detail:
+      'Studied there, played there, left with a degree and no idea what was next.',
+  },
+  {
+    year: '2015',
+    event: 'Coaching at a local club',
+    detail: 'Early mornings, long days, zero regrets.',
+  },
+  { year: '2018', event: 'USPTA certified', detail: 'Made it official.' },
+  {
+    year: '2019',
+    event: 'Visited Vietnam',
+    detail:
+      'Hanoi, Hoi An, Ho Chi Minh City. Made it back to the motherland.',
+  },
+  {
+    year: '2021',
+    event: 'Started playing pickleball',
+    detail: 'Picked it up on a whim. Got serious within a month.',
+  },
+  {
+    year: '2022',
+    event: '100th student',
+    detail: 'Realized I had something worth continuing.',
+  },
+  {
+    year: '2024',
+    event: 'Visited Japan',
+    detail: 'Tokyo, Kyoto, Osaka. Already planning to go back.',
+  },
+  {
+    year: '2024',
+    event: 'Coach top 10 singles player CT',
+    detail: 'No better feeling as a coach.',
+  },
+  {
+    year: '2025',
+    event: 'Reached 4.4 DUPR in pickleball',
+    detail: 'Still climbing.',
+  },
+  {
+    year: '2026',
+    event: 'First 4.5 USTA match',
+    detail: 'Been working toward this level for a while.',
+  },
+  {
+    year: 'Now',
+    event: 'Still here, still learning',
+    detail: "The work doesn't stop. Neither does the curiosity.",
+    isNow: true,
+  },
 ];
 
 

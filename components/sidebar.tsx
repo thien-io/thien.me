@@ -29,11 +29,10 @@ function TennisBallIcon({ className }: { className?: string }) {
 }
 
 const mainLinks = [
-  { href: "/",          label: "Home",      icon: Home,          custom: false },
-  { href: "/about",     label: "About",     icon: BookOpen,      custom: false },
-  { href: "/booking",   label: "Book",      icon: CalendarCheck, custom: false },
-  { href: "/guestbook", label: "Guestbook", icon: Users,         custom: false },
-  { href: "/blog",      label: "Blog",      icon: PenLine,       custom: false },
+  { href: "/",          label: "Home",      icon: Home,     custom: false },
+  { href: "/about",     label: "About",     icon: BookOpen, custom: false },
+  { href: "/guestbook", label: "Guestbook", icon: Users,    custom: false },
+  { href: "/blog",      label: "Blog",      icon: PenLine,  custom: false },
 ];
 
 const lifeLinks = [
@@ -49,8 +48,9 @@ const gameLinks = [
 ];
 
 const coachingLinks = [
-  { href: "/coaching/tennis",     label: "Tennis",     icon: null, custom: true,  pickleIcon: false },
-  { href: "/coaching/pickleball", label: "Pickleball", icon: null, custom: false, pickleIcon: true  },
+  { href: "/booking",             label: "Book",       icon: CalendarCheck, custom: false, pickleIcon: false },
+  { href: "/coaching/tennis",     label: "Tennis",     icon: null,          custom: true,  pickleIcon: false },
+  { href: "/coaching/pickleball", label: "Pickleball", icon: null,          custom: false, pickleIcon: true  },
 ];
 
 function PickleballIcon({ className }: { className?: string }) {
@@ -131,14 +131,16 @@ export function Sidebar() {
 
         {/* Coaching section */}
         <CollapsibleSection label="Coaching" open={coachingOpen} onToggle={() => setCoachingOpen(o => !o)}>
-          {coachingLinks.map(({ href, label, custom, pickleIcon }) => (
+          {coachingLinks.map(({ href, label, icon: Icon, custom, pickleIcon }) => (
             <Link key={href} href={href} onClick={() => setMobileOpen(false)}
               className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
               {pickleIcon
                 ? <PickleballIcon className="h-3.5 w-3.5 shrink-0" />
                 : custom
                   ? <TennisBallIcon className="h-3.5 w-3.5 shrink-0" />
-                  : <span className="h-3.5 w-3.5 shrink-0" />}
+                  : Icon
+                    ? <Icon className="h-3.5 w-3.5 shrink-0" />
+                    : <span className="h-3.5 w-3.5 shrink-0" />}
               <span className="text-[13px]">{label}</span>
             </Link>
           ))}

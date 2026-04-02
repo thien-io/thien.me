@@ -19,7 +19,7 @@ const locations = [
     href: '/booking/lakeridge',
     name: 'Lakeridge',
     address: 'Torrington, CT',
-    desc: 'Well-maintained indoor and outdoor courts in Torrinton.',
+    desc: 'Well-maintained indoor and outdoor hard courts.',
     tag: 'tennis · pickleball',
   },
 ];

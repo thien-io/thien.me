@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
@@ -33,85 +33,54 @@ function hashColor(id: string) {
 
 export function TestimonialsCarousel() {
   const [entries, setEntries] = useState<Entry[]>([]);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     fetch("/api/guestbook")
       .then(r => r.json())
-      .then(d => setEntries(d.entries || []))
+      .then(d => setEntries((d.entries || []).slice(0, 3)))
       .catch(() => {});
   }, []);
-
-  const scroll = (dir: "left" | "right") => {
-    scrollRef.current?.scrollBy({ left: dir === "left" ? -336 : 336, behavior: "smooth" });
-  };
 
   if (!entries.length) return null;
 
   return (
-    <section className="py-16 md:py-32">
+    <section className="px-8 md:px-16 py-16 md:py-32">
       <ScrollReveal>
-        <div className="px-8 md:px-16 mb-10">
-          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
-            Testimonials
-          </p>
-          <h2 className="font-display text-3xl font-light text-foreground">
-            What students say
-          </h2>
+        <div className="mb-10 flex items-end justify-between">
+          <div>
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
+              Testimonials
+            </p>
+            <h2 className="font-display text-3xl font-light text-foreground">
+              What students say
+            </h2>
+          </div>
+          <Link
+            href="/guestbook"
+            className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors mb-1 shrink-0"
+          >
+            Leave a message →
+          </Link>
         </div>
       </ScrollReveal>
 
-      {/* Scroll container — touch-pan-x enables native swipe on mobile */}
-      <div
-        ref={scrollRef}
-        className="flex gap-4 overflow-x-auto pl-8 md:pl-16 scroll-smooth touch-pan-x"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" } as React.CSSProperties}
-      >
-        {entries.map(entry => {
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {entries.map((entry, i) => {
           const color = hashColor(entry.id);
           return (
-            <div
-              key={entry.id}
-              className={`flex-none w-72 md:w-80 p-6 rounded-xl border ${color.border} ${color.bg}`}
-            >
-              <p className="text-[11px] text-primary mb-3 select-none">&ldquo;</p>
-              <p className="text-sm text-foreground/80 leading-relaxed mb-5">
-                {entry.message}
-              </p>
-              <span className={`font-mono text-[10px] uppercase tracking-wider ${color.name}`}>
-                {entry.name}
-              </span>
-            </div>
+            <ScrollReveal key={entry.id} delay={i * 80}>
+              <div className={`p-6 rounded-xl border h-full ${color.border} ${color.bg}`}>
+                <p className="text-[11px] text-primary mb-3 select-none">&ldquo;</p>
+                <p className="text-sm text-foreground/80 leading-relaxed mb-5">
+                  {entry.message}
+                </p>
+                <span className={`font-mono text-[10px] uppercase tracking-wider ${color.name}`}>
+                  {entry.name}
+                </span>
+              </div>
+            </ScrollReveal>
           );
         })}
-        {/* Trailing spacer — keeps last card from being flush against the edge */}
-        <div className="flex-none w-8 md:w-16 shrink-0" aria-hidden="true" />
-      </div>
-
-      {/* Controls — below the cards */}
-      <div className="px-8 md:px-16 mt-6 flex items-center justify-between">
-        <div className="flex gap-2">
-          <button
-            onClick={() => scroll("left")}
-            aria-label="Scroll left"
-            className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all text-sm"
-          >
-            ←
-          </button>
-          <button
-            onClick={() => scroll("right")}
-            aria-label="Scroll right"
-            className="w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/30 transition-all text-sm"
-          >
-            →
-          </button>
-        </div>
-        <Link
-          href="/guestbook"
-          className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
-        >
-          Leave a message →
-        </Link>
       </div>
     </section>
   );

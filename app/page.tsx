@@ -3,6 +3,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParallaxSection } from "@/components/parallax-section";
 import { ScrollTimeline } from "@/components/scroll-timeline";
 import { SpotifyWidget } from "@/components/spotify-widget";
+import { TestimonialsCarousel } from "@/components/testimonials-carousel";
 import { getAllPosts } from "@/lib/posts";
 import Link from "next/link";
 
@@ -100,6 +101,10 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <div className="h-px bg-border/50 mx-8 md:mx-16" />
+
+      <TestimonialsCarousel />
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 

@@ -40,11 +40,18 @@ export function Hero() {
     if (!ctx) return;
 
     const resize = () => {
-      wRef.current = canvas.width  = canvas.offsetWidth;
-      hRef.current = canvas.height = canvas.offsetHeight;
+      const dpr = window.devicePixelRatio || 1;
+      const w   = canvas.offsetWidth;
+      const h   = canvas.offsetHeight;
+      canvas.width  = w * dpr;
+      canvas.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      wRef.current = w;
+      hRef.current = h;
     };
-    resize();
-    window.addEventListener("resize", resize);
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
 
     // Balls drop after text has animated in
     const spawnTimer = setTimeout(() => {
@@ -81,7 +88,7 @@ export function Hero() {
     tick();
 
     return () => {
-      window.removeEventListener("resize", resize);
+      ro.disconnect();
       cancelAnimationFrame(rafRef.current);
       clearTimeout(spawnTimer);
     };

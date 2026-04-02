@@ -14,7 +14,7 @@ const CAL_LINK = "thien.me/lakeridge";
 export default function BookingLakeridgePage() {
   return (
     <div>
-      <section className='px-8 md:px-16 pt-10 pb-8 md:pt-24 md:pb-10'>
+      <section className='px-8 md:px-16 pt-24 pb-8 md:pt-24 md:pb-10'>
         <ScrollReveal>
           <Link
             href='/booking'

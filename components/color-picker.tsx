@@ -30,7 +30,7 @@ const COLORS = [
 
 type ColorName = typeof COLORS[number]["name"];
 
-export function ColorPicker() {
+export function ColorPicker({ direction = "up" }: { direction?: "up" | "down" }) {
   const [active,  setActive]  = useState<ColorName>("amber");
   const [open,    setOpen]    = useState(false);
   const [hovered, setHovered] = useState<ColorName | null>(null);
@@ -70,7 +70,7 @@ export function ColorPicker() {
       {open && (
         <>
           <div className="fixed inset-0 z-10" onClick={() => { setOpen(false); applyColor(active); setHovered(null); }} />
-          <div className="absolute bottom-full mb-2 left-0 z-20 bg-card border border-border rounded-2xl p-3 shadow-xl"
+          <div className={`absolute ${direction === "down" ? "top-full mt-2 right-0" : "bottom-full mb-2 left-0"} z-20 bg-card border border-border rounded-2xl p-3 shadow-xl`}
             style={{ width: "220px" }}>
 
             {/* Preview strip */}

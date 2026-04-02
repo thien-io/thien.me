@@ -5,31 +5,41 @@ import { useState, useEffect } from "react";
 const STORAGE_KEY = "thien-color";
 
 const COLORS = [
-  { name: "amber",      swatch: "hsl(27 58% 46%)"  },
-  { name: "gold",       swatch: "hsl(45 72% 44%)"  },
-  { name: "beige",      swatch: "hsl(35 45% 52%)"  },
-  { name: "copper",     swatch: "hsl(25 65% 46%)"  },
-  { name: "terracotta", swatch: "hsl(17 58% 50%)"  },
-  { name: "peach",      swatch: "hsl(20 75% 60%)"  },
-  { name: "coral",      swatch: "hsl(12 68% 52%)"  },
-  { name: "crimson",    swatch: "hsl(348 65% 46%)" },
-  { name: "wine",       swatch: "hsl(348 60% 35%)" },
-  { name: "rose",       swatch: "hsl(350 54% 50%)" },
-  { name: "mauve",      swatch: "hsl(320 38% 50%)" },
-  { name: "lavender",   swatch: "hsl(265 50% 55%)" },
-  { name: "plum",       swatch: "hsl(285 45% 46%)" },
-  { name: "indigo",     swatch: "hsl(240 52% 54%)" },
-  { name: "ocean",      swatch: "hsl(210 60% 50%)" },
-  { name: "sky",        swatch: "hsl(200 68% 48%)" },
-  { name: "steel",      swatch: "hsl(205 45% 44%)" },
-  { name: "cyan",       swatch: "hsl(190 65% 42%)" },
-  { name: "teal",       swatch: "hsl(178 48% 36%)" },
-  { name: "mint",       swatch: "hsl(160 48% 40%)" },
-  { name: "sage",       swatch: "hsl(150 40% 38%)" },
-  { name: "forest",     swatch: "hsl(135 48% 34%)" },
-  { name: "lime",       swatch: "hsl(88 50% 38%)"  },
-  { name: "olive",      swatch: "hsl(75 45% 38%)"  },
-  { name: "slate",      swatch: "hsl(215 28% 50%)" },
+  // row 1 — reds
+  { name: "scarlet",    swatch: "hsl(4 78% 46%)"   },
+  { name: "crimson",    swatch: "hsl(348 65% 46%)"  },
+  { name: "raspberry",  swatch: "hsl(338 62% 44%)"  },
+  { name: "rose",       swatch: "hsl(350 54% 50%)"  },
+  { name: "flamingo",   swatch: "hsl(345 68% 62%)"  },
+  { name: "mauve",      swatch: "hsl(320 38% 50%)"  },
+  // row 2 — warm
+  { name: "roland",     swatch: "hsl(16 70% 44%)"   },
+  { name: "coral",      swatch: "hsl(12 68% 52%)"   },
+  { name: "terracotta", swatch: "hsl(17 58% 50%)"   },
+  { name: "orange",     swatch: "hsl(22 80% 50%)"   },
+  { name: "amber",      swatch: "hsl(27 58% 46%)"   },
+  { name: "sunflower",  swatch: "hsl(46 82% 44%)"   },
+  // row 3 — purples
+  { name: "wimbledon",  swatch: "hsl(290 55% 32%)"  },
+  { name: "fuchsia",    swatch: "hsl(310 62% 48%)"  },
+  { name: "plum",       swatch: "hsl(285 45% 46%)"  },
+  { name: "lavender",   swatch: "hsl(265 50% 55%)"  },
+  { name: "violet",     swatch: "hsl(258 58% 50%)"  },
+  { name: "indigo",     swatch: "hsl(240 52% 54%)"  },
+  // row 4 — blues
+  { name: "navy",       swatch: "hsl(222 58% 36%)"  },
+  { name: "us open",    swatch: "hsl(207 80% 44%)"  },
+  { name: "aus open",   swatch: "hsl(220 84% 50%)"  },
+  { name: "ocean",      swatch: "hsl(210 60% 50%)"  },
+  { name: "sky",        swatch: "hsl(200 68% 48%)"  },
+  { name: "cyan",       swatch: "hsl(190 65% 42%)"  },
+  // row 5 — greens / neutral
+  { name: "teal",       swatch: "hsl(178 48% 36%)"  },
+  { name: "emerald",    swatch: "hsl(145 72% 32%)"  },
+  { name: "sage",       swatch: "hsl(150 40% 38%)"  },
+  { name: "forest",     swatch: "hsl(135 48% 34%)"  },
+  { name: "olive",      swatch: "hsl(75 45% 38%)"   },
+  { name: "slate",      swatch: "hsl(215 28% 50%)"  },
 ] as const;
 
 type ColorName = typeof COLORS[number]["name"];
@@ -40,8 +50,10 @@ export function ColorPicker({ direction = "up" }: { direction?: "up" | "down" })
   const [hovered, setHovered] = useState<ColorName | null>(null);
 
   useEffect(() => {
-    const saved = (localStorage.getItem(STORAGE_KEY) ?? "amber") as ColorName;
-    setActive(saved);
+    const saved = localStorage.getItem(STORAGE_KEY) ?? "amber";
+    const valid = (COLORS.find(c => c.name === saved) ? saved : "amber") as ColorName;
+    setActive(valid);
+    applyColor(valid);
   }, []);
 
   function select(name: ColorName) {
@@ -75,7 +87,7 @@ export function ColorPicker({ direction = "up" }: { direction?: "up" | "down" })
         <>
           <div className="fixed inset-0 z-10" onClick={() => { setOpen(false); applyColor(active); setHovered(null); }} />
           <div className={`absolute ${direction === "down" ? "top-full mt-2 right-0" : "bottom-full mb-2 left-0"} z-20 bg-card border border-border rounded-2xl p-3 shadow-xl`}
-            style={{ width: "196px" }}>
+            style={{ width: "232px" }}>
 
             {/* Preview strip */}
             <div className="flex items-center gap-2 mb-3 px-0.5">
@@ -89,7 +101,7 @@ export function ColorPicker({ direction = "up" }: { direction?: "up" | "down" })
             </div>
 
             {/* Grid */}
-            <div className="grid grid-cols-5 gap-2">
+            <div className="grid grid-cols-6 gap-2">
               {COLORS.map(c => (
                 <button
                   key={c.name}

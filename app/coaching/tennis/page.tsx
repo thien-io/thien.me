@@ -70,8 +70,8 @@ export default function CoachingPage() {
           </ScrollReveal>
           <ScrollReveal delay={80}>
             <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">
-              Work with<br />
-              <em className="text-primary">me.</em>
+              tennis<br />
+              <em className="text-primary">sessions</em>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={160}>

@@ -61,6 +61,38 @@ const GAMES: GameCard[] = [
       </svg>
     ),
   },
+  {
+    title: "Ball Rush",
+    href: "/ballrush",
+    apiPath: "/api/ballrush-leaderboard",
+    color: "#ecf53a",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
+        <circle cx="9" cy="12" r="5" />
+        <path d="M6 9.5 Q9 7 12 9.5" strokeLinecap="round" />
+        <path d="M6 14.5 Q9 17 12 14.5" strokeLinecap="round" />
+        <path d="M16 8 L22 8" strokeLinecap="round" strokeDasharray="2 2" />
+        <path d="M16 12 L22 12" strokeLinecap="round" strokeDasharray="2 2" />
+        <path d="M16 16 L22 16" strokeLinecap="round" strokeDasharray="2 2" />
+      </svg>
+    ),
+  },
+  {
+    title: "Tennis Tanks",
+    href: "/tennistanks",
+    apiPath: "/api/tennistanks-leaderboard",
+    color: "#f07520",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-5 h-5">
+        <rect x="2" y="14" width="8" height="5" rx="2" />
+        <rect x="14" y="14" width="8" height="5" rx="2" />
+        <line x1="6" y1="14" x2="9" y2="10" strokeLinecap="round" />
+        <line x1="18" y1="14" x2="15" y2="10" strokeLinecap="round" />
+        <circle cx="12" cy="8" r="2.5" />
+        <line x1="12" y1="3" x2="12" y2="5" strokeDasharray="1 2" />
+      </svg>
+    ),
+  },
 ];
 
 function LeaderboardCard({ game }: { game: GameCard }) {

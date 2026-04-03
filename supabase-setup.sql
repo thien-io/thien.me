@@ -83,6 +83,44 @@ CREATE POLICY "Allow public insert snake"
 
 CREATE INDEX snake_score_idx ON snake_leaderboard (score DESC);
 
+-- ── Ball Rush Leaderboard ─────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS ballrush_leaderboard (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL CHECK (char_length(name) >= 1 AND char_length(name) <= 30),
+  score INTEGER NOT NULL CHECK (score > 0),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE ballrush_leaderboard ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public read ballrush"
+  ON ballrush_leaderboard FOR SELECT USING (true);
+
+CREATE POLICY "Allow public insert ballrush"
+  ON ballrush_leaderboard FOR INSERT WITH CHECK (true);
+
+CREATE INDEX ballrush_score_idx ON ballrush_leaderboard (score DESC);
+
+-- ── Tennis Tanks Leaderboard ───────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS tennistanks_leaderboard (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL CHECK (char_length(name) >= 1 AND char_length(name) <= 30),
+  score INTEGER NOT NULL CHECK (score >= 0),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE tennistanks_leaderboard ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Allow public read tennistanks"
+  ON tennistanks_leaderboard FOR SELECT USING (true);
+
+CREATE POLICY "Allow public insert tennistanks"
+  ON tennistanks_leaderboard FOR INSERT WITH CHECK (true);
+
+CREATE INDEX tennistanks_score_idx ON tennistanks_leaderboard (score DESC);
+
 -- ── Site Likes ─────────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS site_likes (

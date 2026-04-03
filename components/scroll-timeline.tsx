@@ -26,12 +26,6 @@ const timeline = [
   },
   { year: '2018', event: 'USPTA certified', detail: 'Made it official.' },
   {
-    year: '2019',
-    event: 'Visited Vietnam',
-    detail:
-      'Hanoi, Hoi An, Ho Chi Minh City. Made it back to the motherland.',
-  },
-  {
     year: '2021',
     event: 'Started playing pickleball',
     detail: 'Picked it up on a whim. Got serious within a month.',
@@ -40,11 +34,6 @@ const timeline = [
     year: '2022',
     event: '100th student',
     detail: 'Realized I had something worth continuing.',
-  },
-  {
-    year: '2024',
-    event: 'Visited Japan',
-    detail: 'Tokyo, Kyoto, Osaka. Already planning to go back.',
   },
   {
     year: '2024',

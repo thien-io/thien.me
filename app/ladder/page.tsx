@@ -34,7 +34,7 @@ export default function LadderPage() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className="text-muted-foreground leading-relaxed max-w-md">
-            Ladder rankings for each location. Challenge players above you, climb the board.
+            Ladder rankings for each club. Challenge players above you, claim their spot.
           </p>
         </ScrollReveal>
       </section>

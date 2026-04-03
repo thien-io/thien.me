@@ -48,10 +48,34 @@ const gameLinks = [
 ];
 
 const coachingLinks = [
-  { href: "/booking",             label: "Bookings",   icon: CalendarCheck, custom: false, pickleIcon: false },
-  { href: "/coaching/tennis",     label: "Tennis",     icon: null,          custom: true,  pickleIcon: false },
-  { href: "/coaching/pickleball", label: "Pickleball", icon: null,          custom: false, pickleIcon: true  },
-  { href: "/ladder",              label: "Ladder",     icon: Trophy,        custom: false, pickleIcon: false },
+  {
+    href: '/booking',
+    label: 'Bookings',
+    icon: CalendarCheck,
+    custom: false,
+    pickleIcon: false,
+  },
+  {
+    href: '/ladder',
+    label: 'Ladder',
+    icon: Trophy,
+    custom: false,
+    pickleIcon: false,
+  },
+  {
+    href: '/coaching/tennis',
+    label: 'Tennis',
+    icon: null,
+    custom: true,
+    pickleIcon: false,
+  },
+  {
+    href: '/coaching/pickleball',
+    label: 'Pickleball',
+    icon: null,
+    custom: false,
+    pickleIcon: true,
+  },
 ];
 
 function PickleballIcon({ className }: { className?: string }) {

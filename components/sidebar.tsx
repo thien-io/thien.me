@@ -181,11 +181,6 @@ export function Sidebar() {
             <Mail className="h-3.5 w-3.5" />
           </a>
           <div className="flex items-center gap-0.5">
-            <Link href="/admin" onClick={() => setMobileOpen(false)}
-              className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"
-              aria-label="Admin">
-              <Settings className="h-3.5 w-3.5" />
-            </Link>
             <span className="hidden md:block"><ColorPicker /></span>
             <ThemeToggle />
           </div>

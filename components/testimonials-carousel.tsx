@@ -70,7 +70,6 @@ export function TestimonialsCarousel() {
           return (
             <ScrollReveal key={entry.id} delay={i * 80}>
               <div className={`p-6 rounded-xl border h-full ${color.border} ${color.bg}`}>
-                <p className="text-[11px] text-primary mb-3 select-none">&ldquo;</p>
                 <p className="text-sm text-foreground/80 leading-relaxed mb-5">
                   {entry.message}
                 </p>

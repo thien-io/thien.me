@@ -9,7 +9,7 @@ export default function BlogPage() {
 
   return (
     <div>
-      <section className="relative px-8 md:px-16 pt-10 pb-10 md:pt-32 md:pb-20 overflow-hidden">
+      <section className="relative px-8 md:px-16 pt-28 pb-10 md:pt-32 md:pb-20 overflow-hidden">
         <ParallaxSection
           speed={0.12}
           className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden"

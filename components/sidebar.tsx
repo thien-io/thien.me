@@ -44,10 +44,7 @@ const lifeLinks = [
 
 const gameLinks = [
   { href: "/game",         label: "Brick Breaker", icon: Gamepad2 },
-  { href: "/pong",         label: "Pong",          icon: Gamepad2 },
   { href: "/snake",        label: "Snake",         icon: Gamepad2 },
-  { href: "/ballrush",     label: "Ball Rush",     icon: Gamepad2 },
-  { href: "/tennistanks",  label: "Tennis Tanks",  icon: Gamepad2 },
 ];
 
 const coachingLinks = [

@@ -45,7 +45,7 @@ const locations = [
 export default function BookingPage() {
   return (
     <div>
-      <section className="px-8 md:px-16 pt-10 pb-8 md:pt-24 md:pb-10">
+      <section className="px-8 md:px-16 pt-28 pb-8 md:pt-24 md:pb-10">
         <ScrollReveal>
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-6">
             Booking

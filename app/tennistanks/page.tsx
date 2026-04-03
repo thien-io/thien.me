@@ -705,55 +705,76 @@ export default function TennisTanksPage() {
 
   return (
     <div>
-      <section className="relative px-8 md:px-16 pt-6 pb-3 md:pt-32 overflow-hidden">
-        <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-2">Game</p>
-        <h1 className="font-display text-4xl font-light">Tennis Tanks</h1>
+      <section className='relative px-8 md:px-16 pt-28 pb-3 md:pt-32 overflow-hidden'>
+        <p className='font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-2'>
+          Game
+        </p>
+        <h1 className='font-display text-4xl font-light'>Tennis Tanks</h1>
       </section>
 
-      <div className="flex flex-col lg:flex-row gap-6 px-3 md:px-8 pb-6 md:pb-16 items-start justify-center">
-
+      <div className='flex flex-col lg:flex-row gap-6 px-3 md:px-8 pb-6 md:pb-16 items-start justify-center'>
         {/* Canvas area */}
-        <div className="flex-1 min-w-0 flex flex-col items-center">
-
+        <div className='flex-1 min-w-0 flex flex-col items-center'>
           {/* Score HUD */}
-          {phase !== "menu" && (
-            <div className="w-full flex items-center justify-between px-1 mb-2">
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-[10px] text-blue-500 uppercase tracking-widest">You</span>
-                <span className="font-mono text-sm font-bold text-blue-400 tabular-nums">{uiPlayerSc}</span>
-              </div>
-              <div className="text-center">
-                <span className="font-mono text-[9px] text-muted-foreground uppercase tracking-widest">
-                  {uiWind !== 0 && `Wind ${uiWind > 0 ? "→" : "←"} ${Math.abs(uiWind).toFixed(1)}`}
+          {phase !== 'menu' && (
+            <div className='w-full flex items-center justify-between px-1 mb-2'>
+              <div className='flex items-center gap-2'>
+                <span className='font-mono text-[10px] text-blue-500 uppercase tracking-widest'>
+                  You
+                </span>
+                <span className='font-mono text-sm font-bold text-blue-400 tabular-nums'>
+                  {uiPlayerSc}
                 </span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="font-mono text-sm font-bold text-orange-400 tabular-nums">{uiAiSc}</span>
-                <span className="font-mono text-[10px] text-orange-500 uppercase tracking-widest">AI</span>
+              <div className='text-center'>
+                <span className='font-mono text-[9px] text-muted-foreground uppercase tracking-widest'>
+                  {uiWind !== 0 &&
+                    `Wind ${uiWind > 0 ? '→' : '←'} ${Math.abs(uiWind).toFixed(1)}`}
+                </span>
+              </div>
+              <div className='flex items-center gap-2'>
+                <span className='font-mono text-sm font-bold text-orange-400 tabular-nums'>
+                  {uiAiSc}
+                </span>
+                <span className='font-mono text-[10px] text-orange-500 uppercase tracking-widest'>
+                  AI
+                </span>
               </div>
             </div>
           )}
 
-          <div className="relative w-full">
+          <div className='relative w-full'>
             <canvas
               ref={cvsRef}
-              className="w-full rounded-xl border border-border select-none"
+              className='w-full rounded-xl border border-border select-none'
             />
 
             {/* Menu overlay */}
-            {phase === "menu" && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-xl bg-background/75 backdrop-blur-sm">
-                <div className="text-center">
-                  <p className="font-display text-5xl font-light text-primary italic">Tennis Tanks</p>
-                  <p className="font-mono text-[10px] text-muted-foreground mt-2">aim, charge, fire — first to {WIN_SCORE} wins</p>
+            {phase === 'menu' && (
+              <div className='absolute inset-0 flex flex-col items-center justify-center gap-5 rounded-xl bg-background/75 backdrop-blur-sm'>
+                <div className='text-center'>
+                  <p className='font-display text-5xl font-light text-primary italic'>
+                    Tennis Tanks
+                  </p>
+                  <p className='font-mono text-[10px] text-muted-foreground mt-2'>
+                    aim, charge, fire — first to {WIN_SCORE} wins
+                  </p>
                 </div>
-                <div className="text-center space-y-1.5 px-6">
-                  <p className="font-mono text-[10px] text-muted-foreground">↑ / ↓ arrows to adjust angle</p>
-                  <p className="font-mono text-[10px] text-muted-foreground">Hold Space to charge power, release to fire</p>
-                  <p className="font-mono text-[10px] text-muted-foreground">Ball bounces off walls &amp; terrain — watch the wind!</p>
+                <div className='text-center space-y-1.5 px-6'>
+                  <p className='font-mono text-[10px] text-muted-foreground'>
+                    ↑ / ↓ arrows to adjust angle
+                  </p>
+                  <p className='font-mono text-[10px] text-muted-foreground'>
+                    Hold Space to charge power, release to fire
+                  </p>
+                  <p className='font-mono text-[10px] text-muted-foreground'>
+                    Ball bounces off walls &amp; terrain — watch the wind!
+                  </p>
                 </div>
-                <button onClick={startGame}
-                  className="px-8 py-3 rounded-xl bg-primary text-primary-foreground font-mono text-sm tracking-wide hover:opacity-90 transition-opacity">
+                <button
+                  onClick={startGame}
+                  className='px-8 py-3 rounded-xl bg-primary text-primary-foreground font-mono text-sm tracking-wide hover:opacity-90 transition-opacity'
+                >
                   Play
                 </button>
               </div>
@@ -761,35 +782,57 @@ export default function TennisTanksPage() {
 
             {/* Game over overlay */}
             {isGameOver && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-xl bg-background/85 backdrop-blur-sm px-6">
-                <p className="font-display text-3xl font-light">
-                  {playerWon ? "You Won!" : "AI Won"}
+              <div className='absolute inset-0 flex flex-col items-center justify-center gap-4 rounded-xl bg-background/85 backdrop-blur-sm px-6'>
+                <p className='font-display text-3xl font-light'>
+                  {playerWon ? 'You Won!' : 'AI Won'}
                 </p>
-                <div className="flex items-center gap-6">
-                  <div className="text-center">
-                    <p className="font-mono text-2xl font-bold text-blue-400">{uiPlayerSc}</p>
-                    <p className="font-mono text-[9px] text-muted-foreground mt-0.5">You</p>
+                <div className='flex items-center gap-6'>
+                  <div className='text-center'>
+                    <p className='font-mono text-2xl font-bold text-blue-400'>
+                      {uiPlayerSc}
+                    </p>
+                    <p className='font-mono text-[9px] text-muted-foreground mt-0.5'>
+                      You
+                    </p>
                   </div>
-                  <p className="font-mono text-muted-foreground">–</p>
-                  <div className="text-center">
-                    <p className="font-mono text-2xl font-bold text-orange-400">{uiAiSc}</p>
-                    <p className="font-mono text-[9px] text-muted-foreground mt-0.5">AI</p>
+                  <p className='font-mono text-muted-foreground'>–</p>
+                  <div className='text-center'>
+                    <p className='font-mono text-2xl font-bold text-orange-400'>
+                      {uiAiSc}
+                    </p>
+                    <p className='font-mono text-[9px] text-muted-foreground mt-0.5'>
+                      AI
+                    </p>
                   </div>
                 </div>
                 {!submitted ? (
-                  <div className="w-full space-y-2">
-                    <input type="text" placeholder="Your name" maxLength={30} value={pname}
-                      onChange={e => setPname(e.target.value)}
-                      onKeyDown={e => e.key === "Enter" && submitScore()}
-                      className="w-full px-3 py-2 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-1 focus:ring-primary text-center font-mono" />
-                    <button onClick={submitScore} disabled={submitting || !pname.trim()}
-                      className="w-full py-2 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 disabled:opacity-40 transition-opacity">
-                      {submitting ? "Saving..." : "Save score"}
+                  <div className='w-full space-y-2'>
+                    <input
+                      type='text'
+                      placeholder='Your name'
+                      maxLength={30}
+                      value={pname}
+                      onChange={(e) => setPname(e.target.value)}
+                      onKeyDown={(e) => e.key === 'Enter' && submitScore()}
+                      className='w-full px-3 py-2 rounded-xl border border-input bg-background text-sm focus:outline-none focus:ring-1 focus:ring-primary text-center font-mono'
+                    />
+                    <button
+                      onClick={submitScore}
+                      disabled={submitting || !pname.trim()}
+                      className='w-full py-2 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 disabled:opacity-40 transition-opacity'
+                    >
+                      {submitting ? 'Saving...' : 'Save score'}
                     </button>
                   </div>
-                ) : <p className="font-mono text-xs text-primary">✓ Score saved!</p>}
-                <button onClick={startGame}
-                  className="w-full py-2 rounded-xl border border-border font-mono text-xs text-muted-foreground hover:text-primary hover:border-primary/30 transition-all">
+                ) : (
+                  <p className='font-mono text-xs text-primary'>
+                    ✓ Score saved!
+                  </p>
+                )}
+                <button
+                  onClick={startGame}
+                  className='w-full py-2 rounded-xl border border-border font-mono text-xs text-muted-foreground hover:text-primary hover:border-primary/30 transition-all'
+                >
                   Play again
                 </button>
               </div>
@@ -797,82 +840,111 @@ export default function TennisTanksPage() {
           </div>
 
           {/* Controls panel */}
-          {(phase === "player-aim") && (
-            <div className="mt-4 w-full bg-card border border-border rounded-xl p-4 space-y-3">
-              <div className="flex items-center gap-4">
-                <span className="font-mono text-[10px] text-muted-foreground w-16 shrink-0">Angle</span>
+          {phase === 'player-aim' && (
+            <div className='mt-4 w-full bg-card border border-border rounded-xl p-4 space-y-3'>
+              <div className='flex items-center gap-4'>
+                <span className='font-mono text-[10px] text-muted-foreground w-16 shrink-0'>
+                  Angle
+                </span>
                 <input
-                  type="range" min={5} max={85} value={uiAngle}
+                  type='range'
+                  min={5}
+                  max={85}
+                  value={uiAngle}
                   onChange={handleAngleChange}
-                  className="flex-1 accent-primary"
+                  className='flex-1 accent-primary'
                 />
-                <span className="font-mono text-xs tabular-nums w-8 text-right">{uiAngle}°</span>
+                <span className='font-mono text-xs tabular-nums w-8 text-right'>
+                  {uiAngle}°
+                </span>
               </div>
-              <div className="flex items-center gap-4">
-                <span className="font-mono text-[10px] text-muted-foreground w-16 shrink-0">Power</span>
-                <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
+              <div className='flex items-center gap-4'>
+                <span className='font-mono text-[10px] text-muted-foreground w-16 shrink-0'>
+                  Power
+                </span>
+                <div className='flex-1 h-2 bg-muted rounded-full overflow-hidden'>
                   <div
-                    className="h-full rounded-full transition-all"
+                    className='h-full rounded-full transition-all'
                     style={{
                       width: `${uiPower}%`,
                       background: `hsl(${120 - uiPower * 1.2}, 80%, 50%)`,
                     }}
                   />
                 </div>
-                <span className="font-mono text-xs tabular-nums w-8 text-right">{uiPower}%</span>
+                <span className='font-mono text-xs tabular-nums w-8 text-right'>
+                  {uiPower}%
+                </span>
               </div>
-              <p className="font-mono text-[10px] text-muted-foreground text-center">
-                Hold <kbd className="px-1 py-0.5 border border-border rounded text-[9px]">Space</kbd> to charge · Release to fire
+              <p className='font-mono text-[10px] text-muted-foreground text-center'>
+                Hold{' '}
+                <kbd className='px-1 py-0.5 border border-border rounded text-[9px]'>
+                  Space
+                </kbd>{' '}
+                to charge · Release to fire
               </p>
             </div>
           )}
 
-          {phase === "ai-think" && (
-            <div className="mt-4 w-full bg-card border border-border rounded-xl p-3 text-center">
-              <p className="font-mono text-[10px] text-muted-foreground">AI is aiming...</p>
+          {phase === 'ai-think' && (
+            <div className='mt-4 w-full bg-card border border-border rounded-xl p-3 text-center'>
+              <p className='font-mono text-[10px] text-muted-foreground'>
+                AI is aiming...
+              </p>
             </div>
           )}
 
-          {phase === "player-fire" && (
-            <div className="mt-4 w-full bg-card border border-border rounded-xl p-3 text-center">
-              <p className="font-mono text-[10px] text-muted-foreground">Ball in flight...</p>
+          {phase === 'player-fire' && (
+            <div className='mt-4 w-full bg-card border border-border rounded-xl p-3 text-center'>
+              <p className='font-mono text-[10px] text-muted-foreground'>
+                Ball in flight...
+              </p>
             </div>
           )}
 
-          {phase === "ai-fire" && (
-            <div className="mt-4 w-full bg-card border border-border rounded-xl p-3 text-center">
-              <p className="font-mono text-[10px] text-orange-400">Incoming!</p>
+          {phase === 'ai-fire' && (
+            <div className='mt-4 w-full bg-card border border-border rounded-xl p-3 text-center'>
+              <p className='font-mono text-[10px] text-orange-400'>Incoming!</p>
             </div>
           )}
 
           {/* Mobile controls */}
-          {phase === "player-aim" && (
-            <div className="mt-3 flex gap-2 w-full">
+          {phase === 'player-aim' && (
+            <div className='mt-3 flex gap-2 w-full'>
               <button
                 onPointerDown={() => {
                   const id = setInterval(() => {
-                    angleRef.current = Math.min(85 * Math.PI / 180, angleRef.current + 3 * Math.PI / 180);
-                    setUiAngle(Math.round(angleRef.current * 180 / Math.PI));
+                    angleRef.current = Math.min(
+                      (85 * Math.PI) / 180,
+                      angleRef.current + (3 * Math.PI) / 180,
+                    );
+                    setUiAngle(Math.round((angleRef.current * 180) / Math.PI));
                   }, 80);
                   const stop = () => clearInterval(id);
-                  window.addEventListener("pointerup", stop, { once: true });
-                  window.addEventListener("pointercancel", stop, { once: true });
+                  window.addEventListener('pointerup', stop, { once: true });
+                  window.addEventListener('pointercancel', stop, {
+                    once: true,
+                  });
                 }}
-                className="flex-1 h-12 rounded-xl border border-border bg-card font-mono text-xs text-muted-foreground active:bg-primary/10 active:text-primary touch-manipulation"
+                className='flex-1 h-12 rounded-xl border border-border bg-card font-mono text-xs text-muted-foreground active:bg-primary/10 active:text-primary touch-manipulation'
               >
                 Angle ↑
               </button>
               <button
                 onPointerDown={() => {
                   const id = setInterval(() => {
-                    angleRef.current = Math.max(5 * Math.PI / 180, angleRef.current - 3 * Math.PI / 180);
-                    setUiAngle(Math.round(angleRef.current * 180 / Math.PI));
+                    angleRef.current = Math.max(
+                      (5 * Math.PI) / 180,
+                      angleRef.current - (3 * Math.PI) / 180,
+                    );
+                    setUiAngle(Math.round((angleRef.current * 180) / Math.PI));
                   }, 80);
                   const stop = () => clearInterval(id);
-                  window.addEventListener("pointerup", stop, { once: true });
-                  window.addEventListener("pointercancel", stop, { once: true });
+                  window.addEventListener('pointerup', stop, { once: true });
+                  window.addEventListener('pointercancel', stop, {
+                    once: true,
+                  });
                 }}
-                className="flex-1 h-12 rounded-xl border border-border bg-card font-mono text-xs text-muted-foreground active:bg-primary/10 active:text-primary touch-manipulation"
+                className='flex-1 h-12 rounded-xl border border-border bg-card font-mono text-xs text-muted-foreground active:bg-primary/10 active:text-primary touch-manipulation'
               >
                 Angle ↓
               </button>
@@ -887,8 +959,10 @@ export default function TennisTanksPage() {
                     playerFire();
                   }
                 }}
-                onPointerCancel={() => { chargingRef.current = false; }}
-                className="flex-[2] h-12 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide active:opacity-80 touch-manipulation"
+                onPointerCancel={() => {
+                  chargingRef.current = false;
+                }}
+                className='flex-[2] h-12 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide active:opacity-80 touch-manipulation'
               >
                 Hold to charge · Release to fire
               </button>
@@ -897,37 +971,57 @@ export default function TennisTanksPage() {
         </div>
 
         {/* Leaderboard */}
-        <div className="w-full lg:w-64 shrink-0">
-          <div className="border border-border rounded-xl bg-card p-5">
-            <div className="flex items-center justify-between mb-4">
-              <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Leaderboard</p>
-              <button onClick={fetchLb}
-                className="font-mono text-[9px] text-muted-foreground/50 hover:text-muted-foreground transition-colors">
+        <div className='w-full lg:w-64 shrink-0'>
+          <div className='border border-border rounded-xl bg-card p-5'>
+            <div className='flex items-center justify-between mb-4'>
+              <p className='font-mono text-[10px] uppercase tracking-widest text-muted-foreground'>
+                Leaderboard
+              </p>
+              <button
+                onClick={fetchLb}
+                className='font-mono text-[9px] text-muted-foreground/50 hover:text-muted-foreground transition-colors'
+              >
                 refresh
               </button>
             </div>
-            <p className="font-mono text-[9px] text-muted-foreground/50 mb-3">score = points scored</p>
+            <p className='font-mono text-[9px] text-muted-foreground/50 mb-3'>
+              score = points scored
+            </p>
             {lbLoad ? (
-              <div className="space-y-2">
+              <div className='space-y-2'>
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <div key={i} className="h-8 bg-muted animate-pulse rounded-lg" />
+                  <div
+                    key={i}
+                    className='h-8 bg-muted animate-pulse rounded-lg'
+                  />
                 ))}
               </div>
             ) : lb.length === 0 ? (
-              <p className="font-mono text-[10px] text-muted-foreground/50 text-center py-4">
-                No scores yet.<br />Be the first!
+              <p className='font-mono text-[10px] text-muted-foreground/50 text-center py-4'>
+                No scores yet.
+                <br />
+                Be the first!
               </p>
             ) : (
-              <div className="space-y-1.5">
+              <div className='space-y-1.5'>
                 {lb.map((e, i) => (
-                  <div key={e.id} className={`flex items-center gap-2 py-1.5 px-2 rounded-lg ${i === 0 ? "bg-primary/10" : ""}`}>
-                    <span className={`font-mono text-[10px] w-4 text-right shrink-0 ${i === 0 ? "text-primary font-bold" : "text-muted-foreground/40"}`}>
+                  <div
+                    key={e.id}
+                    className={`flex items-center gap-2 py-1.5 px-2 rounded-lg ${i === 0 ? 'bg-primary/10' : ''}`}
+                  >
+                    <span
+                      className={`font-mono text-[10px] w-4 text-right shrink-0 ${i === 0 ? 'text-primary font-bold' : 'text-muted-foreground/40'}`}
+                    >
                       {i + 1}
                     </span>
-                    <span className={`text-xs font-medium flex-1 truncate ${i === 0 ? "text-primary" : "text-foreground"}`}>
+                    <span
+                      className={`text-xs font-medium flex-1 truncate ${i === 0 ? 'text-primary' : 'text-foreground'}`}
+                    >
                       {e.name}
                     </span>
-                    <span className={`font-mono text-[11px] tabular-nums shrink-0 ${i === 0 ? "text-primary font-bold" : "text-foreground"}`}>
+                    <span
+                      className={`font-mono text-[11px] tabular-nums shrink-0 ${i === 0 ? 'text-primary font-bold' : 'text-foreground'}`}
+                    >
                       {e.score}
                     </span>
                   </div>

@@ -550,7 +550,7 @@ export default function GamePage() {
 
   return (
     <div>
-      <section className="relative px-6 md:px-16 pt-6 pb-3 md:pt-32 overflow-hidden">
+      <section className="relative px-6 md:px-16 pt-28 pb-3 md:pt-32 overflow-hidden">
         <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-2">Game</p>
         <h1 className="font-display text-4xl font-light">Brick Breaker</h1>
       </section>

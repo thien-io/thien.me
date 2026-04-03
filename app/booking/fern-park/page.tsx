@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function BookingFernParkPage() {
   return (
     <div>
-      <section className="px-8 md:px-16 pt-24 pb-8 md:pt-24 md:pb-10">
+      <section className="px-8 md:px-16 pt-28 pb-8 md:pt-24 md:pb-10">
         <ScrollReveal>
           <Link
             href="/booking"

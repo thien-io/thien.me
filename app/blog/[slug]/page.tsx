@@ -59,7 +59,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   return (
     <div>
       {/* Header */}
-      <section className="px-8 md:px-16 pt-10 pb-10 md:pt-32 md:pb-16 max-w-2xl">
+      <section className="px-8 md:px-16 pt-28 pb-10 md:pt-32 md:pb-16 max-w-2xl">
         <Link
           href="/blog"
           className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-2 mb-10"

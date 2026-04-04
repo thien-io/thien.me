@@ -164,55 +164,6 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="h-px bg-border/50 mx-8 md:mx-16" />
-
-
-      <div className="h-px bg-border/50 mx-8 md:mx-16" />
-
-      {/* Recent posts */}
-      <section className="px-8 md:px-16 py-16 md:py-24">
-        <ScrollReveal className="mb-10 flex items-end justify-between max-w-xl">
-          <div>
-            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
-              Writing
-            </p>
-            <h2 className="font-display text-3xl font-light text-foreground">
-              From the blog
-            </h2>
-          </div>
-          <Link href="/blog"
-            className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors mb-1">
-            All posts →
-          </Link>
-        </ScrollReveal>
-
-        <div className="max-w-xl space-y-px">
-          {recentPosts.map((post, i) => (
-            <ScrollReveal key={post.slug} delay={i * 80}>
-              <Link href={`/blog/${post.slug}`}
-                className="block group py-5 border-b border-border/40 hover:bg-primary/10 -mx-3 px-3 rounded-xl transition-colors">
-                <div className="flex items-start justify-between gap-4 mb-1.5">
-                  <h3 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-snug">
-                    {post.title}
-                  </h3>
-                  <span className="font-mono text-[10px] text-muted-foreground/60 shrink-0 tabular-nums pt-0.5">
-                    {formatDate(post.date)}
-                  </span>
-                </div>
-                <p className="text-xs text-muted-foreground leading-relaxed">{post.summary}</p>
-                <div className="flex gap-1.5 mt-3">
-                  {post.tags.map(tag => (
-                    <span key={tag}
-                      className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground/50 bg-muted px-2 py-0.5 rounded-sm">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </Link>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 

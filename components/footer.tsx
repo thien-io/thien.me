@@ -26,7 +26,6 @@ const coachingLinks = [
 const lifeLinks = [
   { label: "Music",   href: "/music" },
   { label: "Movies",  href: "/movies" },
-  { label: "Library", href: "/books" },
 ];
 
 export function Footer() {

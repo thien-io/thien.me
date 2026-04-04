@@ -16,14 +16,16 @@ function checkAdmin(request: Request) {
   return secret && key === secret;
 }
 
-async function getLocationId(supabase: ReturnType<typeof createClient>, slug: string) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function getLocationId(supabase: any, slug: string) {
   const { data, error } = await supabase
     .from("ladder_locations")
     .select("id")
     .eq("slug", slug)
     .single();
   if (error || !data) throw new Error("Location not found");
-  return (data as { id: string }).id;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (data as any).id as string;
 }
 
 // GET /api/ladder/[slug]/submissions  (admin — returns all pending)

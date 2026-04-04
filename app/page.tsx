@@ -1,20 +1,10 @@
 import { Hero } from "@/components/hero";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { ParallaxSection } from "@/components/parallax-section";
-import { ScrollTimeline } from "@/components/scroll-timeline";
-import { SpotifyWidget } from "@/components/spotify-widget";
 import { TestimonialsCarousel } from "@/components/testimonials-carousel";
-import { getAllPosts } from "@/lib/posts";
+import { LadderPreview } from "@/components/ladder-preview";
 import Link from "next/link";
 
 export default function Home() {
-  const recentPosts = getAllPosts().slice(0, 3);
-
-  const formatDate = (d: string) =>
-    new Date(d).toLocaleDateString("en-US", {
-      month: "short", day: "numeric", year: "numeric",
-    });
-
   return (
     <div>
       <Hero />
@@ -24,6 +14,10 @@ export default function Home() {
         <div className='pt-6'>
           <TestimonialsCarousel />
         </div>
+
+        <div className='h-px bg-border/50 mx-8 md:mx-16' />
+
+        <LadderPreview />
 
         <div className='h-px bg-border/50 mx-8 md:mx-16' />
 

@@ -26,6 +26,16 @@ interface Location {
   name: string;
 }
 
+interface Submission {
+  id: string;
+  score: string;
+  played_at: string;
+  submitter_name: string | null;
+  status: string;
+  winner: { id: string; name: string; rank: number };
+  loser:  { id: string; name: string; rank: number };
+}
+
 // ─── Auth screen ──────────────────────────────────────────────────────────────
 
 function AuthScreen({ onAuth }: { onAuth: (key: string) => void }) {
@@ -88,9 +98,11 @@ function AuthScreen({ onAuth }: { onAuth: (key: string) => void }) {
 // ─── Ladder admin panel for one location ─────────────────────────────────────
 
 function LocationPanel({ slug, name, adminKey }: { slug: string; name: string; adminKey: string }) {
-  const [players, setPlayers]     = useState<Player[]>([]);
-  const [matches, setMatches]     = useState<Match[]>([]);
-  const [loading, setLoading]     = useState(true);
+  const [players, setPlayers]         = useState<Player[]>([]);
+  const [matches, setMatches]         = useState<Match[]>([]);
+  const [submissions, setSubmissions] = useState<Submission[]>([]);
+  const [loading, setLoading]         = useState(true);
+  const [actioning, setActioning]     = useState<string | null>(null);
 
   // Add player
   const [newName, setNewName]     = useState("");
@@ -115,12 +127,14 @@ function LocationPanel({ slug, name, adminKey }: { slug: string; name: string; a
   const fetchAll = useCallback(async () => {
     setLoading(true);
     try {
-      const [pd, md] = await Promise.all([
+      const [pd, md, sd] = await Promise.all([
         fetch(`/api/ladder/${slug}/players`).then(r => r.json()),
         fetch(`/api/ladder/${slug}/matches`).then(r => r.json()),
+        fetch(`/api/ladder/${slug}/submissions`, { headers: { "x-admin-key": adminKey } }).then(r => r.json()),
       ]);
       setPlayers(pd.players ?? []);
       setMatches(md.matches ?? []);
+      setSubmissions(sd.submissions ?? []);
       // Init edit rank inputs
       const ranks: Record<string, string> = {};
       for (const p of (pd.players ?? [])) ranks[p.id] = String(p.rank);
@@ -192,6 +206,20 @@ function LocationPanel({ slug, name, adminKey }: { slug: string; name: string; a
     await fetchAll();
   }
 
+  async function actionSubmission(id: string, action: "approve" | "deny") {
+    setActioning(id);
+    try {
+      await fetch(`/api/ladder/${slug}/submissions/${id}`, {
+        method: "PATCH",
+        headers,
+        body: JSON.stringify({ action }),
+      });
+      await fetchAll();
+    } finally {
+      setActioning(null);
+    }
+  }
+
   if (loading) {
     return (
       <div className="space-y-3">
@@ -202,6 +230,58 @@ function LocationPanel({ slug, name, adminKey }: { slug: string; name: string; a
 
   return (
     <div className="space-y-10">
+
+      {/* ── Pending submissions ─────────────────────────────────────────── */}
+      {submissions.length > 0 && (
+        <div>
+          <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-4 flex items-center gap-2">
+            Pending score submissions
+            <span className="bg-primary text-primary-foreground font-mono text-[9px] px-1.5 py-0.5 rounded-full">
+              {submissions.length}
+            </span>
+          </p>
+          <div className="space-y-3">
+            {submissions.map(s => (
+              <div key={s.id} className="border border-border rounded-xl bg-card p-4 flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-sm font-medium text-green-500">{s.winner.name}</span>
+                    <span className="font-mono text-[10px] text-muted-foreground/50">def.</span>
+                    <span className="text-sm text-muted-foreground">{s.loser.name}</span>
+                    <span className="font-mono text-xs text-foreground ml-1">{s.score}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-[10px] text-muted-foreground">
+                      {new Date(s.played_at + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                    </span>
+                    {s.submitter_name && (
+                      <span className="font-mono text-[10px] text-muted-foreground/60">
+                        submitted by {s.submitter_name}
+                      </span>
+                    )}
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 shrink-0">
+                  <button
+                    onClick={() => actionSubmission(s.id, "approve")}
+                    disabled={actioning === s.id}
+                    className="px-3 py-1.5 rounded-lg bg-primary text-primary-foreground font-mono text-[10px] tracking-wide hover:opacity-90 disabled:opacity-40 transition-opacity"
+                  >
+                    {actioning === s.id ? "…" : "Approve"}
+                  </button>
+                  <button
+                    onClick={() => actionSubmission(s.id, "deny")}
+                    disabled={actioning === s.id}
+                    className="px-3 py-1.5 rounded-lg border border-border font-mono text-[10px] text-muted-foreground hover:text-red-400 hover:border-red-400/30 disabled:opacity-40 transition-colors"
+                  >
+                    Deny
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* ── Players ─────────────────────────────────────────────────────── */}
       <div>

@@ -97,6 +97,28 @@ BEGIN
 END;
 $$;
 
+-- ── Score Submissions ────────────────────────────────────────────────────────
+
+CREATE TABLE IF NOT EXISTS ladder_score_submissions (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  location_id UUID NOT NULL REFERENCES ladder_locations(id) ON DELETE CASCADE,
+  winner_id UUID NOT NULL REFERENCES ladder_players(id) ON DELETE CASCADE,
+  loser_id  UUID NOT NULL REFERENCES ladder_players(id) ON DELETE CASCADE,
+  score TEXT NOT NULL CHECK (char_length(score) >= 1 AND char_length(score) <= 80),
+  played_at DATE NOT NULL DEFAULT CURRENT_DATE,
+  submitter_name TEXT CHECK (submitter_name IS NULL OR char_length(submitter_name) <= 60),
+  status TEXT NOT NULL DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'denied')),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE ladder_score_submissions ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow public insert submissions"  ON ladder_score_submissions FOR INSERT WITH CHECK (true);
+CREATE POLICY "Allow service read submissions"   ON ladder_score_submissions FOR SELECT USING (true);
+CREATE POLICY "Allow service update submissions" ON ladder_score_submissions FOR UPDATE USING (true);
+CREATE POLICY "Allow service delete submissions" ON ladder_score_submissions FOR DELETE USING (true);
+
+CREATE INDEX ladder_submissions_location_status_idx ON ladder_score_submissions (location_id, status, created_at DESC);
+
 -- ── Site Likes ─────────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS site_likes (

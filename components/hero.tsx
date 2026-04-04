@@ -139,9 +139,9 @@ export function Hero() {
             className="px-6 py-3 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity">
             Book a session
           </Link>
-          <Link href="/guestbook"
+          <Link href="/pricing"
             className="text-sm text-muted-foreground hover:text-primary transition-colors underline underline-offset-4 decoration-border">
-            Sign the guestbook →
+            View pricing →
           </Link>
         </div>
       </div>

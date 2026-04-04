@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { SubmitScoreModal } from '@/components/submit-score-modal';
 
 interface Player {
   id: string;
@@ -44,6 +45,7 @@ export default function LadderSlugPage({
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showSubmit, setShowSubmit] = useState(false);
 
   const locationName = LOCATION_NAMES[slug] ?? slug;
 
@@ -81,9 +83,19 @@ export default function LadderSlugPage({
         <p className='font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3'>
           Ladder
         </p>
-        <h1 className='font-display text-4xl md:text-5xl font-light leading-tight mb-2'>
-          {locationName}
-        </h1>
+        <div className='flex items-end justify-between gap-4'>
+          <h1 className='font-display text-4xl md:text-5xl font-light leading-tight mb-2'>
+            {locationName}
+          </h1>
+          {!loading && !error && players.length > 0 && (
+            <button
+              onClick={() => setShowSubmit(true)}
+              className='mb-2 shrink-0 px-4 py-2 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/10 transition-all font-mono text-xs text-foreground'
+            >
+              Submit score
+            </button>
+          )}
+        </div>
       </section>
 
       <div className='h-px bg-border/50 mx-8 md:mx-16' />
@@ -255,6 +267,14 @@ export default function LadderSlugPage({
             </div>
           </div>
         </div>
+      )}
+
+      {showSubmit && (
+        <SubmitScoreModal
+          slug={slug}
+          players={players}
+          onClose={() => setShowSubmit(false)}
+        />
       )}
     </div>
   );

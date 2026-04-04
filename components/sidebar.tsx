@@ -4,12 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
-  Home, BookOpen, Users, Menu, X, Moon, Sun, Mail,
+  Home, BookOpen, Users, Menu, X, Mail,
   Music, Film, ChevronDown, CalendarCheck,
   Trophy,
 } from "lucide-react";
-import { ColorPicker } from "@/components/color-picker";
-import { useTheme } from "next-themes";
 
 // Tennis ball icon — provided by user
 function TennisBallIcon({ className }: { className?: string }) {
@@ -69,19 +67,6 @@ function PickleballIcon({ className }: { className?: string }) {
   );
 }
 
-function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  return (
-    <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="relative p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all w-8 h-8 flex items-center justify-center"
-      aria-label="Toggle theme"
-    >
-      <Sun className="h-4 w-4 transition-all rotate-0 scale-100 dark:-rotate-90 dark:scale-0" />
-      <Moon className="h-4 w-4 transition-all rotate-90 scale-0 dark:rotate-0 dark:scale-100 absolute" />
-    </button>
-  );
-}
 
 function CollapsibleSection({
   label, open, onToggle, children,
@@ -167,15 +152,11 @@ const [coachingOpen, setCoachingOpen] = useState(true);
 
       {/* Footer */}
       <div className="border-t border-border pt-4 mt-4">
-        <div className="flex items-center justify-between px-1">
+        <div className="px-1">
           <a href="mailto:hello@thien.me" aria-label="Email"
-            className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
+            className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all inline-flex">
             <Mail className="h-3.5 w-3.5" />
           </a>
-          <div className="flex items-center gap-0.5">
-            <span className="hidden md:block"><ColorPicker /></span>
-            <ThemeToggle />
-          </div>
         </div>
       </div>
     </div>
@@ -194,8 +175,6 @@ const [coachingOpen, setCoachingOpen] = useState(true);
           </p>
         </Link>
         <div className="flex items-center gap-1">
-          <ColorPicker direction="down" />
-          <ThemeToggle />
           <button onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all">
             {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { Sidebar } from "@/components/sidebar";
 import { Footer } from "@/components/footer";
 
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <style>{`
           @keyframes scrollHint {
@@ -29,24 +28,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             100% { transform: translateY(200%); opacity: 0; }
           }
         `}</style>
-        {/* Apply saved color theme before first paint — prevents flash */}
+        {/* Clear stale theme/color localStorage keys from old theme switcher */}
         <script dangerouslySetInnerHTML={{ __html: `
           try {
-            var c = localStorage.getItem('thien-color');
-            if (c && c !== 'amber') document.documentElement.setAttribute('data-color', c);
+            localStorage.removeItem('thien-color');
+            localStorage.removeItem('theme');
           } catch(e) {}
         `}} />
       </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="flex min-h-screen">
-            <Sidebar />
-            <main className="flex-1 md:ml-56 min-h-screen flex flex-col">
-              <div className="flex-1 w-full">{children}</div>
-              <Footer />
-            </main>
-          </div>
-        </ThemeProvider>
+        <div className="flex min-h-screen">
+          <Sidebar />
+          <main className="flex-1 md:ml-56 min-h-screen flex flex-col">
+            <div className="flex-1 w-full">{children}</div>
+            <Footer />
+          </main>
+        </div>
       </body>
     </html>
   );

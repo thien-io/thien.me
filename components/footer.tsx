@@ -13,19 +13,18 @@ function VenmoIcon({ className }: { className?: string }) {
 const links = [
   { label: "Home",      href: "/" },
   { label: "About",     href: "/about" },
-  { label: "Blog",      href: "/blog" },
   { label: "Guestbook", href: "/guestbook" },
 ];
 
 const coachingLinks = [
-  { label: "Bookings",   href: "/booking" },
-  { label: "Tennis",     href: "/coaching/tennis" },
-  { label: "Pickleball", href: "/coaching/pickleball" },
+  { label: "Bookings", href: "/booking" },
+  { label: "Pricing",  href: "/pricing" },
+  { label: "Ladder",   href: "/ladder" },
 ];
 
 const lifeLinks = [
-  { label: "Music",   href: "/music" },
-  { label: "Movies",  href: "/movies" },
+  { label: "Music",  href: "/music" },
+  { label: "Movies", href: "/movies" },
 ];
 
 export function Footer() {

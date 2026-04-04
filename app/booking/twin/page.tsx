@@ -43,6 +43,17 @@ export default function BookingTwinPage() {
 
       <div className='h-px bg-border/50 mx-8 md:mx-16' />
 
+      <section className='px-8 md:px-16 pt-8 pb-0'>
+        <ScrollReveal>
+          <Link
+            href='/pricing'
+            className='inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary transition-colors'
+          >
+            View pricing →
+          </Link>
+        </ScrollReveal>
+      </section>
+
       <section className='px-4 md:px-8 py-8 md:py-12'>
         <CalEmbed calLink={CAL_LINK} />
       </section>

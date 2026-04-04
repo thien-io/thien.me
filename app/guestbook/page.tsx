@@ -22,10 +22,21 @@ const NAME_COLORS = [
   "text-pink-500",
 ];
 
-function nameColor(id: string) {
+const AVATAR_COLORS = [
+  "bg-amber-100 text-amber-700",
+  "bg-rose-100 text-rose-600",
+  "bg-violet-100 text-violet-700",
+  "bg-teal-100 text-teal-700",
+  "bg-blue-100 text-blue-700",
+  "bg-orange-100 text-orange-600",
+  "bg-emerald-100 text-emerald-700",
+  "bg-pink-100 text-pink-600",
+];
+
+function hashIndex(id: string) {
   let h = 0;
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
-  return NAME_COLORS[h % NAME_COLORS.length];
+  return h % NAME_COLORS.length;
 }
 
 
@@ -179,22 +190,30 @@ export default function GuestbookPage() {
             </p>
           </div>
         ) : (
-          <div className='space-y-4 max-w-md'>
-            {entries.map((entry) => (
-              <div key={entry.id} className='p-6 rounded-xl border border-border bg-card'>
-                <p className='text-sm leading-relaxed text-foreground/75 mb-5'>
-                  "{entry.message}"
-                </p>
-                <div className='border-t border-border pt-4 flex items-center justify-between'>
-                  <span className={`font-medium text-sm ${nameColor(entry.id)}`}>
-                    {entry.name}
-                  </span>
-                  <span className='font-mono text-[10px] text-muted-foreground'>
-                    {formatDistanceToNow(new Date(entry.created_at), { addSuffix: true })}
-                  </span>
+          <div className='rounded-xl border border-border bg-card overflow-hidden divide-y divide-border max-w-lg'>
+            {entries.map((entry) => {
+              const idx = hashIndex(entry.id);
+              return (
+                <div key={entry.id} className='flex gap-4 px-5 py-4 hover:bg-accent/40 transition-colors'>
+                  <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 mt-0.5 ${AVATAR_COLORS[idx]}`}>
+                    {entry.name.charAt(0).toUpperCase()}
+                  </div>
+                  <div className='min-w-0'>
+                    <div className='flex items-baseline gap-2'>
+                      <span className={`font-semibold text-sm ${NAME_COLORS[idx]}`}>
+                        {entry.name}
+                      </span>
+                      <span className='font-mono text-[10px] text-muted-foreground'>
+                        {formatDistanceToNow(new Date(entry.created_at), { addSuffix: true })}
+                      </span>
+                    </div>
+                    <p className='text-sm text-foreground/80 leading-relaxed mt-0.5'>
+                      {entry.message}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </section>

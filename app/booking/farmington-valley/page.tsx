@@ -110,6 +110,15 @@ export default function BookingFarmingtonPage() {
           </div>
         </ScrollReveal>
 
+        <ScrollReveal delay={120}>
+          <Link
+            href='/pricing'
+            className='inline-flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground hover:text-primary transition-colors mt-6'
+          >
+            View pricing →
+          </Link>
+        </ScrollReveal>
+
         <ScrollReveal delay={160}>
           <div className='mt-10 pt-8 border-t border-border/50'>
             <p className='font-mono text-[9px] uppercase tracking-widest text-muted-foreground mb-4'>

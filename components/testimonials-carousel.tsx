@@ -21,10 +21,21 @@ const NAME_COLORS = [
   "text-pink-500",
 ];
 
-function nameColor(id: string) {
+const AVATAR_COLORS = [
+  "bg-amber-100 text-amber-700",
+  "bg-rose-100 text-rose-600",
+  "bg-violet-100 text-violet-700",
+  "bg-teal-100 text-teal-700",
+  "bg-blue-100 text-blue-700",
+  "bg-orange-100 text-orange-600",
+  "bg-emerald-100 text-emerald-700",
+  "bg-pink-100 text-pink-600",
+];
+
+function hashIndex(id: string) {
   let h = 0;
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
-  return NAME_COLORS[h % NAME_COLORS.length];
+  return h % NAME_COLORS.length;
 }
 
 export function TestimonialsCarousel() {
@@ -40,9 +51,9 @@ export function TestimonialsCarousel() {
   if (!entries.length) return null;
 
   return (
-    <section className="px-8 md:px-16 py-16 md:py-32">
+    <section className="px-8 md:px-16 py-16 md:py-24">
       <ScrollReveal>
-        <div className="mb-10 flex items-end justify-between">
+        <div className="mb-8 flex items-end justify-between">
           <div>
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
               Guestbook
@@ -60,21 +71,27 @@ export function TestimonialsCarousel() {
         </div>
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {entries.map((entry, i) => (
-          <ScrollReveal key={entry.id} delay={i * 80}>
-            <div className="flex flex-col p-6 rounded-xl border border-border bg-card h-full gap-5">
-              <p className="flex-1 text-sm leading-relaxed text-foreground/75">
-                "{entry.message}"
-              </p>
-              <div className="border-t border-border pt-4">
-                <span className={`font-medium text-sm ${nameColor(entry.id)}`}>
-                  {entry.name}
-                </span>
+      <div className="rounded-xl border border-border bg-card overflow-hidden divide-y divide-border">
+        {entries.map((entry, i) => {
+          const idx = hashIndex(entry.id);
+          return (
+            <ScrollReveal key={entry.id} delay={i * 80}>
+              <div className="flex gap-4 px-5 py-4 hover:bg-accent/40 transition-colors">
+                <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 mt-0.5 ${AVATAR_COLORS[idx]}`}>
+                  {entry.name.charAt(0).toUpperCase()}
+                </div>
+                <div className="min-w-0">
+                  <span className={`font-semibold text-sm ${NAME_COLORS[idx]}`}>
+                    {entry.name}
+                  </span>
+                  <p className="text-sm text-foreground/80 leading-relaxed mt-0.5">
+                    {entry.message}
+                  </p>
+                </div>
               </div>
-            </div>
-          </ScrollReveal>
-        ))}
+            </ScrollReveal>
+          );
+        })}
       </div>
     </section>
   );

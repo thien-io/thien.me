@@ -6,7 +6,7 @@ import { useState } from "react";
 import {
   Home, BookOpen, Users, Menu, X, Mail,
   Music, Film, ChevronDown, CalendarCheck,
-  Trophy,
+  Trophy, CircleDollarSign,
 } from "lucide-react";
 
 // Tennis ball icon — provided by user
@@ -49,6 +49,13 @@ const coachingLinks = [
     pickleIcon: false,
   },
   {
+    href: '/pricing',
+    label: 'Pricing',
+    icon: CircleDollarSign,
+    custom: false,
+    pickleIcon: false,
+  },
+  {
     href: '/ladder',
     label: 'Ladder',
     icon: Trophy,
@@ -87,7 +94,7 @@ function CollapsibleSection({
 export function Sidebar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [lifeOpen, setLifeOpen]       = useState(true);
+  const [lifeOpen, setLifeOpen]       = useState(false);
 const [coachingOpen, setCoachingOpen] = useState(true);
 
   const isActive = (href: string) =>

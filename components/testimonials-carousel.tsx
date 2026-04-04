@@ -10,25 +10,21 @@ interface Entry {
   message: string;
 }
 
-const COLORS = [
-  { name: "text-rose-700 dark:text-rose-300",       border: "border-rose-200 dark:border-rose-800",       bg: "bg-rose-50 dark:bg-rose-900/20"       },
-  { name: "text-violet-700 dark:text-violet-300",   border: "border-violet-200 dark:border-violet-800",   bg: "bg-violet-50 dark:bg-violet-900/20"   },
-  { name: "text-blue-700 dark:text-blue-300",       border: "border-blue-200 dark:border-blue-800",       bg: "bg-blue-50 dark:bg-blue-900/20"       },
-  { name: "text-teal-700 dark:text-teal-300",       border: "border-teal-200 dark:border-teal-800",       bg: "bg-teal-50 dark:bg-teal-900/20"       },
-  { name: "text-amber-700 dark:text-amber-300",     border: "border-amber-200 dark:border-amber-800",     bg: "bg-amber-50 dark:bg-amber-900/20"     },
-  { name: "text-emerald-700 dark:text-emerald-300", border: "border-emerald-200 dark:border-emerald-800", bg: "bg-emerald-50 dark:bg-emerald-900/20" },
-  { name: "text-fuchsia-700 dark:text-fuchsia-300", border: "border-fuchsia-200 dark:border-fuchsia-800", bg: "bg-fuchsia-50 dark:bg-fuchsia-900/20" },
-  { name: "text-orange-700 dark:text-orange-300",   border: "border-orange-200 dark:border-orange-800",   bg: "bg-orange-50 dark:bg-orange-900/20"   },
-  { name: "text-indigo-700 dark:text-indigo-300",   border: "border-indigo-200 dark:border-indigo-800",   bg: "bg-indigo-50 dark:bg-indigo-900/20"   },
-  { name: "text-sky-700 dark:text-sky-300",         border: "border-sky-200 dark:border-sky-800",         bg: "bg-sky-50 dark:bg-sky-900/20"         },
-  { name: "text-pink-700 dark:text-pink-300",       border: "border-pink-200 dark:border-pink-800",       bg: "bg-pink-50 dark:bg-pink-900/20"       },
-  { name: "text-green-700 dark:text-green-300",     border: "border-green-200 dark:border-green-800",     bg: "bg-green-50 dark:bg-green-900/20"     },
+const NAME_COLORS = [
+  "text-amber-600",
+  "text-rose-500",
+  "text-violet-600",
+  "text-teal-600",
+  "text-blue-600",
+  "text-orange-500",
+  "text-emerald-600",
+  "text-pink-500",
 ];
 
-function hashColor(id: string) {
+function nameColor(id: string) {
   let h = 0;
   for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
-  return COLORS[h % COLORS.length];
+  return NAME_COLORS[h % NAME_COLORS.length];
 }
 
 export function TestimonialsCarousel() {
@@ -65,21 +61,20 @@ export function TestimonialsCarousel() {
       </ScrollReveal>
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        {entries.map((entry, i) => {
-          const color = hashColor(entry.id);
-          return (
-            <ScrollReveal key={entry.id} delay={i * 80}>
-              <div className={`p-6 rounded-xl border h-full ${color.border} ${color.bg}`}>
-                <p className="text-sm text-foreground/80 leading-relaxed mb-5">
-                  {entry.message}
-                </p>
-                <span className={`font-mono text-[10px] uppercase tracking-wider ${color.name}`}>
+        {entries.map((entry, i) => (
+          <ScrollReveal key={entry.id} delay={i * 80}>
+            <div className="flex flex-col p-6 rounded-xl border border-border bg-card h-full gap-5">
+              <p className="flex-1 text-sm leading-relaxed text-foreground/75">
+                "{entry.message}"
+              </p>
+              <div className="border-t border-border pt-4">
+                <span className={`font-medium text-sm ${nameColor(entry.id)}`}>
                   {entry.name}
                 </span>
               </div>
-            </ScrollReveal>
-          );
-        })}
+            </div>
+          </ScrollReveal>
+        ))}
       </div>
     </section>
   );

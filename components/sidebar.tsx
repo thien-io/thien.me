@@ -39,8 +39,6 @@ const mainLinks = [
 const lifeLinks = [
   { href: '/music', label: 'Music', icon: Music },
   { href: '/movies', label: 'Movies', icon: Film },
-  { href: '/books', label: 'Library', icon: Library },
-  { href: '/blog', label: 'Blog', icon: PenLine, custom: false },
 ];
 
 const gameLinks = [

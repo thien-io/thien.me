@@ -49,10 +49,10 @@ export function TestimonialsCarousel() {
         <div className="mb-10 flex items-end justify-between">
           <div>
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
-              Testimonials
+              Guestbook
             </p>
             <h2 className="font-display text-3xl font-light text-foreground">
-              What students say
+              Recent Messages
             </h2>
           </div>
           <Link

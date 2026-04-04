@@ -33,13 +33,14 @@ const mainLinks = [
   { href: "/",          label: "Home",      icon: Home,     custom: false },
   { href: "/about",     label: "About",     icon: BookOpen, custom: false },
   { href: "/guestbook", label: "Guestbook", icon: Users,    custom: false },
-  { href: "/blog",      label: "Blog",      icon: PenLine,  custom: false },
+
 ];
 
 const lifeLinks = [
-  { href: "/music",  label: "Music",   icon: Music   },
-  { href: "/movies", label: "Movies",  icon: Film    },
-  { href: "/books",  label: "Library", icon: Library },
+  { href: '/music', label: 'Music', icon: Music },
+  { href: '/movies', label: 'Movies', icon: Film },
+  { href: '/books', label: 'Library', icon: Library },
+  { href: '/blog', label: 'Blog', icon: PenLine, custom: false },
 ];
 
 const gameLinks = [
@@ -61,20 +62,6 @@ const coachingLinks = [
     icon: Trophy,
     custom: false,
     pickleIcon: false,
-  },
-  {
-    href: '/coaching/tennis',
-    label: 'Tennis',
-    icon: null,
-    custom: true,
-    pickleIcon: false,
-  },
-  {
-    href: '/coaching/pickleball',
-    label: 'Pickleball',
-    icon: null,
-    custom: false,
-    pickleIcon: true,
   },
 ];
 
@@ -182,16 +169,7 @@ export function Sidebar() {
           ))}
         </CollapsibleSection>
 
-        {/* Games section */}
-        <CollapsibleSection label="Games" open={gamesOpen} onToggle={() => setGamesOpen(o => !o)}>
-          {gameLinks.map(({ href, label, icon: Icon }) => (
-            <Link key={href} href={href} onClick={() => setMobileOpen(false)}
-              className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
-              <Icon className="h-3.5 w-3.5 shrink-0" />
-              <span className="text-[13px]">{label}</span>
-            </Link>
-          ))}
-        </CollapsibleSection>
+
       </nav>
 
       {/* Footer */}

@@ -63,20 +63,7 @@ export default function AboutPage() {
 
       <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
-      {/* Timeline */}
-      <section className="px-8 md:px-16 py-10 md:py-36">
-        <ScrollReveal className="mb-14">
-          <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
-            Timeline
-          </p>
-          <h2 className="font-display text-3xl md:text-4xl font-light text-foreground">
-            Where I've been
-          </h2>
-        </ScrollReveal>
-        <div className="max-w-lg">
-          <ScrollTimeline />
-        </div>
-      </section>
+
     </div>
   );
 }

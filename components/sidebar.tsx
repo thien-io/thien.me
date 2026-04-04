@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
   Home, BookOpen, Users, Menu, X, Moon, Sun, Mail,
-  Music, Film, Library, PenLine, ChevronDown, Gamepad2, CalendarCheck,
-  Trophy, Settings,
+  Music, Film, ChevronDown, CalendarCheck,
+  Trophy,
 } from "lucide-react";
 import { ColorPicker } from "@/components/color-picker";
 import { useTheme } from "next-themes";
@@ -41,10 +41,6 @@ const lifeLinks = [
   { href: '/movies', label: 'Movies', icon: Film },
 ];
 
-const gameLinks = [
-  { href: "/game",         label: "Brick Breaker", icon: Gamepad2 },
-  { href: "/snake",        label: "Snake",         icon: Gamepad2 },
-];
 
 const coachingLinks = [
   {
@@ -107,8 +103,7 @@ export function Sidebar() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [lifeOpen, setLifeOpen]       = useState(true);
-  const [gamesOpen, setGamesOpen]     = useState(false);
-  const [coachingOpen, setCoachingOpen] = useState(true);
+const [coachingOpen, setCoachingOpen] = useState(true);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);

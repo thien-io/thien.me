@@ -25,64 +25,6 @@ CREATE POLICY "Allow public insert"
 -- 5. Optional: Create an index for faster ordering
 CREATE INDEX guestbook_created_at_idx ON guestbook (created_at DESC);
 
--- ── Brick Breaker Leaderboard ──────────────────────────────────────────
-
-CREATE TABLE IF NOT EXISTS leaderboard (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name TEXT NOT NULL CHECK (char_length(name) >= 1 AND char_length(name) <= 30),
-  score INTEGER NOT NULL CHECK (score > 0),
-  level INTEGER NOT NULL DEFAULT 1,
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-ALTER TABLE leaderboard ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Allow public read leaderboard"
-  ON leaderboard FOR SELECT USING (true);
-
-CREATE POLICY "Allow public insert leaderboard"
-  ON leaderboard FOR INSERT WITH CHECK (true);
-
-CREATE INDEX leaderboard_score_idx ON leaderboard (score DESC);
-
--- ── Pong Leaderboard ───────────────────────────────────────────────────────────
-
-CREATE TABLE IF NOT EXISTS pong_leaderboard (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name TEXT NOT NULL CHECK (char_length(name) >= 1 AND char_length(name) <= 30),
-  score INTEGER NOT NULL CHECK (score >= 0),
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-ALTER TABLE pong_leaderboard ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Allow public read pong"
-  ON pong_leaderboard FOR SELECT USING (true);
-
-CREATE POLICY "Allow public insert pong"
-  ON pong_leaderboard FOR INSERT WITH CHECK (true);
-
-CREATE INDEX pong_score_idx ON pong_leaderboard (score DESC);
-
--- ── Snake Leaderboard ──────────────────────────────────────────────────────────
-
-CREATE TABLE IF NOT EXISTS snake_leaderboard (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name TEXT NOT NULL CHECK (char_length(name) >= 1 AND char_length(name) <= 30),
-  score INTEGER NOT NULL CHECK (score > 0),
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-ALTER TABLE snake_leaderboard ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Allow public read snake"
-  ON snake_leaderboard FOR SELECT USING (true);
-
-CREATE POLICY "Allow public insert snake"
-  ON snake_leaderboard FOR INSERT WITH CHECK (true);
-
-CREATE INDEX snake_score_idx ON snake_leaderboard (score DESC);
-
 -- ── Ladder ────────────────────────────────────────────────────────────────────
 
 CREATE TABLE IF NOT EXISTS ladder_locations (
@@ -154,44 +96,6 @@ BEGIN
   UPDATE ladder_players SET losses = losses + 1 WHERE id = player_id;
 END;
 $$;
-
--- ── Ball Rush Leaderboard ─────────────────────────────────────────────────────
-
-CREATE TABLE IF NOT EXISTS ballrush_leaderboard (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name TEXT NOT NULL CHECK (char_length(name) >= 1 AND char_length(name) <= 30),
-  score INTEGER NOT NULL CHECK (score > 0),
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-ALTER TABLE ballrush_leaderboard ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Allow public read ballrush"
-  ON ballrush_leaderboard FOR SELECT USING (true);
-
-CREATE POLICY "Allow public insert ballrush"
-  ON ballrush_leaderboard FOR INSERT WITH CHECK (true);
-
-CREATE INDEX ballrush_score_idx ON ballrush_leaderboard (score DESC);
-
--- ── Tennis Tanks Leaderboard ───────────────────────────────────────────────────
-
-CREATE TABLE IF NOT EXISTS tennistanks_leaderboard (
-  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
-  name TEXT NOT NULL CHECK (char_length(name) >= 1 AND char_length(name) <= 30),
-  score INTEGER NOT NULL CHECK (score >= 0),
-  created_at TIMESTAMPTZ DEFAULT NOW()
-);
-
-ALTER TABLE tennistanks_leaderboard ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Allow public read tennistanks"
-  ON tennistanks_leaderboard FOR SELECT USING (true);
-
-CREATE POLICY "Allow public insert tennistanks"
-  ON tennistanks_leaderboard FOR INSERT WITH CHECK (true);
-
-CREATE INDEX tennistanks_score_idx ON tennistanks_leaderboard (score DESC);
 
 -- ── Site Likes ─────────────────────────────────────────────────────────────────
 

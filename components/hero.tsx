@@ -129,9 +129,11 @@ export function Hero() {
         </h1>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-sm md:max-w-md mb-12 hero-item"
            style={{ animationDelay: "400ms" }}>
-          Welcome. I&apos;m a tennis coach based in Connecticut.
-          This is where I share what I&apos;m playing, reading, watching,
-          and thinking about — on and off the court.
+          RPSA certified tennis coach based in Connecticut.
+          Currently coaching at{" "}
+          <a href="/booking/twin" className="text-foreground underline underline-offset-4 decoration-border hover:text-primary transition-colors">Twin Lakes Beach Club</a>
+          {" "}and{" "}
+          <a href="/booking/lakeridge" className="text-foreground underline underline-offset-4 decoration-border hover:text-primary transition-colors">Lakeridge</a>.
         </p>
         <div className="flex items-center gap-5 hero-item pointer-events-auto select-auto"
              style={{ animationDelay: "540ms" }}>

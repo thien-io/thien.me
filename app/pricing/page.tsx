@@ -9,12 +9,6 @@ export const metadata: Metadata = {
 
 const tennisPricing = [
   {
-    label: "Trial Session",
-    duration: "60 min",
-    price: "$75",
-    desc: "First time working together. Includes a full assessment of your game.",
-  },
-  {
     label: "Single Session",
     duration: "60 min",
     price: "$100",

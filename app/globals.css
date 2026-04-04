@@ -58,7 +58,7 @@ body {
 
 /* Sidebar links */
 .sidebar-link {
-  @apply flex items-center gap-3 px-3 py-2 rounded-md text-sm text-muted-foreground
+  @apply flex items-center gap-3 px-3 py-2.5 rounded-md text-base text-muted-foreground
          hover:text-primary hover:bg-primary/10 transition-all duration-200;
 }
 .sidebar-link.active { @apply text-primary bg-primary/10; }

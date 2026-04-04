@@ -83,8 +83,8 @@ function CollapsibleSection({
   return (
     <div className="pt-3">
       <button onClick={onToggle} className="flex items-center gap-2 px-3 py-1.5 w-full text-left">
-        <span className="font-mono text-[9px] text-muted-foreground uppercase tracking-[0.2em] flex-1">{label}</span>
-        <ChevronDown className={`h-3 w-3 text-muted-foreground transition-transform duration-200 ${open ? "" : "-rotate-90"}`} />
+        <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-[0.2em] flex-1">{label}</span>
+        <ChevronDown className={`h-3.5 w-3.5 text-muted-foreground transition-transform duration-200 ${open ? "" : "-rotate-90"}`} />
       </button>
       {open && <div className="space-y-0.5 mt-0.5">{children}</div>}
     </div>
@@ -105,10 +105,10 @@ const [coachingOpen, setCoachingOpen] = useState(true);
       {/* Logo */}
       <div className="mb-10 px-2">
         <Link href="/" onClick={() => setMobileOpen(false)}>
-          <p className="font-display text-xl font-light text-foreground tracking-wide">
+          <p className="font-display text-2xl font-light text-foreground tracking-wide">
             <span className="text-primary">thien</span><span className="text-foreground italic">.me</span>
           </p>
-          <p className="font-mono text-[9px] text-muted-foreground mt-1 tracking-[0.2em] uppercase">
+          <p className="font-mono text-[10px] text-muted-foreground mt-1 tracking-[0.2em] uppercase">
             Coach · CT
           </p>
         </Link>
@@ -120,9 +120,9 @@ const [coachingOpen, setCoachingOpen] = useState(true);
           <Link key={href} href={href} onClick={() => setMobileOpen(false)}
             className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
             {custom
-              ? <TennisBallIcon className="h-3.5 w-3.5 shrink-0" />
-              : Icon && <Icon className="h-3.5 w-3.5 shrink-0" />}
-            <span className="text-[13px]">{label}</span>
+              ? <TennisBallIcon className="h-4 w-4 shrink-0" />
+              : Icon && <Icon className="h-4 w-4 shrink-0" />}
+            <span>{label}</span>
           </Link>
         ))}
 
@@ -132,13 +132,13 @@ const [coachingOpen, setCoachingOpen] = useState(true);
             <Link key={href} href={href} onClick={() => setMobileOpen(false)}
               className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
               {pickleIcon
-                ? <PickleballIcon className="h-3.5 w-3.5 shrink-0" />
+                ? <PickleballIcon className="h-4 w-4 shrink-0" />
                 : custom
-                  ? <TennisBallIcon className="h-3.5 w-3.5 shrink-0" />
+                  ? <TennisBallIcon className="h-4 w-4 shrink-0" />
                   : Icon
-                    ? <Icon className="h-3.5 w-3.5 shrink-0" />
-                    : <span className="h-3.5 w-3.5 shrink-0" />}
-              <span className="text-[13px]">{label}</span>
+                    ? <Icon className="h-4 w-4 shrink-0" />
+                    : <span className="h-4 w-4 shrink-0" />}
+              <span>{label}</span>
             </Link>
           ))}
         </CollapsibleSection>
@@ -148,8 +148,8 @@ const [coachingOpen, setCoachingOpen] = useState(true);
           {lifeLinks.map(({ href, label, icon: Icon }) => (
             <Link key={href} href={href} onClick={() => setMobileOpen(false)}
               className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
-              <Icon className="h-3.5 w-3.5 shrink-0" />
-              <span className="text-[13px]">{label}</span>
+              <Icon className="h-4 w-4 shrink-0" />
+              <span>{label}</span>
             </Link>
           ))}
         </CollapsibleSection>
@@ -162,7 +162,7 @@ const [coachingOpen, setCoachingOpen] = useState(true);
         <div className="px-1">
           <a href="mailto:hello@thien.me" aria-label="Email"
             className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all inline-flex">
-            <Mail className="h-3.5 w-3.5" />
+            <Mail className="h-4 w-4" />
           </a>
         </div>
       </div>

@@ -51,7 +51,7 @@ export function LadderPreview() {
         </ScrollReveal>
 
         <ScrollReveal delay={80}>
-          <div className="rounded-xl border border-border bg-card overflow-hidden divide-y divide-border max-w-sm mb-5">
+          <div className="rounded-xl border border-border bg-card overflow-hidden divide-y divide-border mb-5">
             {players.map((p, i) => (
               <div
                 key={p.id}
@@ -85,8 +85,11 @@ export function LadderPreview() {
         <ScrollReveal delay={160}>
           <button
             onClick={() => setShowModal(true)}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border bg-card hover:border-primary/40 hover:bg-primary/10 transition-all font-mono text-sm text-foreground"
+            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-card text-sm font-medium text-foreground hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all"
           >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-4 h-4">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
             Submit a score
           </button>
         </ScrollReveal>

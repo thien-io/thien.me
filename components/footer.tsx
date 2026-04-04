@@ -34,24 +34,24 @@ export function Footer() {
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-12 max-w-full">
           {/* Brand */}
           <div className="col-span-2 sm:col-span-1">
-            <p className="font-display text-xl font-light text-foreground mb-1">
+            <p className="font-display text-2xl font-light text-foreground mb-1">
               <span className="text-primary">thien</span><span className="text-foreground italic">.me</span>
             </p>
-            <p className="font-mono text-[10px] text-muted-foreground tracking-widest uppercase">
+            <p className="font-mono text-[11px] text-muted-foreground tracking-widest uppercase">
               Coach · CT
             </p>
-            <div className="mt-4 space-y-2">
-              <a href="mailto:hello@thien.me" className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors">
-                <Mail className="w-3 h-3 shrink-0" />
+            <div className="mt-4 space-y-2.5">
+              <a href="mailto:hello@thien.me" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Mail className="w-3.5 h-3.5 shrink-0" />
                 hello@thien.me
               </a>
               <a
                 href="https://venmo.com/thienmtran"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
               >
-                <VenmoIcon className="w-3 h-3 shrink-0" />
+                <VenmoIcon className="w-3.5 h-3.5 shrink-0" />
                 @thienmtran
               </a>
             </div>
@@ -59,11 +59,11 @@ export function Footer() {
 
           {/* Pages */}
           <div>
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Pages</p>
-            <ul className="space-y-2">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Pages</p>
+            <ul className="space-y-2.5">
               {links.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                  <Link href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -73,11 +73,11 @@ export function Footer() {
 
           {/* Coaching */}
           <div>
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Coaching</p>
-            <ul className="space-y-2">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Coaching</p>
+            <ul className="space-y-2.5">
               {coachingLinks.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                  <Link href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -87,11 +87,11 @@ export function Footer() {
 
           {/* Life */}
           <div>
-            <p className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Life</p>
-            <ul className="space-y-2">
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Life</p>
+            <ul className="space-y-2.5">
               {lifeLinks.map(l => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-xs text-muted-foreground hover:text-primary transition-colors">
+                  <Link href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
                     {l.label}
                   </Link>
                 </li>
@@ -101,7 +101,7 @@ export function Footer() {
         </div>
 
         <div className="border-t border-border/50 pt-6 flex items-center justify-between max-w-full">
-          <p className="font-mono text-[10px] text-muted-foreground/50" suppressHydrationWarning>
+          <p className="font-mono text-xs text-muted-foreground/50" suppressHydrationWarning>
             © {new Date().getFullYear()} Thien.
           </p>
           <LikeButton />

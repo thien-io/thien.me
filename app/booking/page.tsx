@@ -12,7 +12,7 @@ const locations = [
     href: "/booking/twin",
     name: "Twin Lakes Beach Club",
     address: "Salisbury, CT",
-    desc: "Outdoor grass courts. Great for all levels — beginners to competitive players.",
+    desc: "Private outdoor courts. For TLBC members and their guests.",
     tag: "tennis",
     offSeason: false,
   },

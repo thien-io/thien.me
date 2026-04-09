@@ -35,8 +35,8 @@ export default function BookingTwinPage() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className='text-muted-foreground leading-relaxed max-w-md'>
-            Outdoor grass courts. Pick a time below — sessions are 60 min.
-            Provide your phone number in the notes.
+            Pick a time below — sessions are 60 min.
+            Provide your phone number in the notes. I’ll text you to coordinate the details.
           </p>
         </ScrollReveal>
       </section>

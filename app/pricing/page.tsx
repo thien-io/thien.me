@@ -48,7 +48,6 @@ const pickleballPricing = [
 const included = [
   "Personalized drill plan for your level",
   "Video feedback on request",
-  "Between-session notes & homework",
   "Flexible rescheduling (24h notice)",
 ];
 

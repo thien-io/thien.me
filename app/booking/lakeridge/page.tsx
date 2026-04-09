@@ -35,9 +35,8 @@ export default function BookingLakeridgePage() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className='text-muted-foreground leading-relaxed max-w-md'>
-            Well-maintained indoor and outdor hard courts in a quiet setting.
-            Pick a time below — sessions are 60 min. Provide your phone number
-            in the notes.
+            Well-maintained indoor and outdo0r hard courts in a quiet setting.
+            Pick a time below — sessions are 60 min. Provide your phone number, I’ll text you to coordinate the details.
           </p>
         </ScrollReveal>
       </section>

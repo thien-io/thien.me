@@ -35,7 +35,7 @@ export default function AboutPage() {
           <ScrollReveal delay={160}>
             <div className="space-y-5 text-muted-foreground leading-relaxed max-w-md">
               <p>
-                I&apos;m an RPSA certified tennis coach based in Connecticut,
+                I&apos;m an RSPA certified tennis coach based in Connecticut,
                 currently coaching at Twin Lakes Beach Club and Lakeridge.
                 I work with players of all levels — from beginners picking up
                 a racket for the first time to competitive players looking to

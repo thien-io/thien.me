@@ -143,17 +143,6 @@ const [coachingOpen, setCoachingOpen] = useState(true);
           ))}
         </CollapsibleSection>
 
-        {/* Life section */}
-        <CollapsibleSection label="Life" open={lifeOpen} onToggle={() => setLifeOpen(o => !o)}>
-          {lifeLinks.map(({ href, label, icon: Icon }) => (
-            <Link key={href} href={href} onClick={() => setMobileOpen(false)}
-              className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
-              <Icon className="h-4 w-4 shrink-0" />
-              <span>{label}</span>
-            </Link>
-          ))}
-        </CollapsibleSection>
-
 
       </nav>
 

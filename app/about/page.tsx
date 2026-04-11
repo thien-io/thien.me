@@ -48,8 +48,7 @@ export default function AboutPage() {
                 game — the kind of habits that hold up when it matters.
               </p>
               <p>
-                Off the court: good coffee, long bike rides, and building things
-                like this website.
+                Off the court: I enjoy hiking, traveling, and trying to keep my plants alive.
               </p>
             </div>
           </ScrollReveal>

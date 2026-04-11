@@ -85,19 +85,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Life */}
-          <div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground mb-4">Life</p>
-            <ul className="space-y-2.5">
-              {lifeLinks.map(l => (
-                <li key={l.href}>
-                  <Link href={l.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          
         </div>
 
         <div className="border-t border-border/50 pt-6 flex items-center justify-between max-w-full">

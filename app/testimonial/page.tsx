@@ -40,7 +40,7 @@ function hashIndex(id: string) {
 }
 
 
-export default function GuestbookPage() {
+export default function TestimonialPage() {
   const [entries, setEntries] = useState<GuestbookEntry[]>([]);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
@@ -102,7 +102,7 @@ export default function GuestbookPage() {
 
         <div className='relative z-10'>
           <p className='font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8'>
-            Guestbook
+            Testimonial
           </p>
           <h1 className='font-display text-5xl md:text-6xl font-light leading-tight mb-6'>
             Leave a<br />

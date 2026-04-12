@@ -32,21 +32,13 @@ export function LadderPreview() {
     <>
       <section className="px-8 md:px-16 py-16 md:py-24">
         <ScrollReveal>
-          <div className="mb-8 flex items-end justify-between">
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
-                Ladder · Twin Lakes Beach Club
-              </p>
-              <h2 className="font-display text-3xl font-light text-foreground">
-                Current Rankings
-              </h2>
-            </div>
-            <Link
-              href="/ladder/twin-lakes"
-              className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors mb-1 shrink-0"
-            >
-              Full ladder →
-            </Link>
+          <div className="mb-8">
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
+              Ladder · Twin Lakes Beach Club
+            </p>
+            <h2 className="font-display text-3xl font-light text-foreground">
+              Current Rankings
+            </h2>
           </div>
         </ScrollReveal>
 
@@ -83,15 +75,23 @@ export function LadderPreview() {
         </ScrollReveal>
 
         <ScrollReveal delay={160}>
-          <button
-            onClick={() => setShowModal(true)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-card text-sm font-medium text-foreground hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-4 h-4">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-            </svg>
-            Submit a score
-          </button>
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setShowModal(true)}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-card text-sm font-medium text-foreground hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+              Submit a score
+            </button>
+            <Link
+              href="/ladder/twin-lakes"
+              className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
+            >
+              Full ladder →
+            </Link>
+          </div>
         </ScrollReveal>
       </section>
 

@@ -70,7 +70,7 @@ function WriteMessageModal({ onClose, onSuccess }: { onClose: () => void; onSucc
       <div className="relative w-full max-w-md bg-card border border-border rounded-2xl shadow-2xl p-7">
         <div className="flex items-start justify-between mb-6">
           <div>
-            <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground mb-1">Guestbook</p>
+            <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground mb-1">Testimonial</p>
             <h2 className="font-display text-2xl font-light text-foreground">Leave a message</h2>
           </div>
           <button onClick={onClose} className="text-muted-foreground hover:text-foreground transition-colors p-1 -mt-1 -mr-1">
@@ -84,7 +84,7 @@ function WriteMessageModal({ onClose, onSuccess }: { onClose: () => void; onSucc
           <div className="text-center py-6">
             <p className="text-2xl mb-3">✓</p>
             <p className="font-medium text-foreground mb-1">Message posted!</p>
-            <p className="text-sm text-muted-foreground mb-6">Thanks for signing the guestbook.</p>
+            <p className="text-sm text-muted-foreground mb-6">Thanks for leaving a testimonial.</p>
             <button
               onClick={onClose}
               className="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 transition-opacity"
@@ -157,21 +157,13 @@ export function TestimonialsCarousel() {
     <>
       <section className="px-8 md:px-16 py-16 md:py-24">
         <ScrollReveal>
-          <div className="mb-8 flex items-end justify-between">
-            <div>
-              <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
-                Guestbook
-              </p>
-              <h2 className="font-display text-3xl font-light text-foreground">
-                Recent Messages
-              </h2>
-            </div>
-            <Link
-              href="/guestbook"
-              className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors mb-1 shrink-0"
-            >
-              View all →
-            </Link>
+          <div className="mb-8">
+            <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">
+              Testimonials
+            </p>
+            <h2 className="font-display text-3xl font-light text-foreground">
+              What others are saying.
+            </h2>
           </div>
         </ScrollReveal>
 
@@ -201,15 +193,23 @@ export function TestimonialsCarousel() {
         )}
 
         <ScrollReveal delay={160}>
-          <button
-            onClick={() => setShowModal(true)}
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-card text-sm font-medium text-foreground hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all"
-          >
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-4 h-4">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487z" />
-            </svg>
-            Write a message
-          </button>
+          <div className="flex items-center justify-between">
+            <button
+              onClick={() => setShowModal(true)}
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-card text-sm font-medium text-foreground hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-4 h-4">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487z" />
+              </svg>
+              Write a message
+            </button>
+            <Link
+              href="/testimonial"
+              className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
+            >
+              View all →
+            </Link>
+          </div>
         </ScrollReveal>
       </section>
 

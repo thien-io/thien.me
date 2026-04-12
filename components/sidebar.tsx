@@ -30,7 +30,7 @@ function TennisBallIcon({ className }: { className?: string }) {
 const mainLinks = [
   { href: "/",          label: "Home",      icon: Home,     custom: false },
   { href: "/about",     label: "About",     icon: BookOpen, custom: false },
-  { href: "/guestbook", label: "Guestbook", icon: Users,    custom: false },
+  { href: "/testimonial", label: "Testimonial", icon: Users,    custom: false },
 
 ];
 
@@ -142,8 +142,6 @@ const [coachingOpen, setCoachingOpen] = useState(true);
             </Link>
           ))}
         </CollapsibleSection>
-
-
       </nav>
 
       {/* Footer */}

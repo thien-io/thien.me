@@ -4,7 +4,7 @@ import { LikeButton } from "@/components/like-button";
 
 function VenmoIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+    <svg viewBox="2 2 18 13" fill="#3D95CE" className={className} aria-hidden="true">
       <path d="M19.07 2C19.54 2.78 19.75 3.58 19.75 4.6c0 3.17-2.71 7.29-4.91 10.18H9.94L7.76 2.97l4.67-.45 1.12 8.96c1.04-1.7 2.33-4.38 2.33-6.2 0-.99-.17-1.67-.44-2.23L19.07 2z"/>
     </svg>
   );

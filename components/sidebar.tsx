@@ -124,10 +124,16 @@ const [coachingOpen, setCoachingOpen] = useState(true);
 
       {/* Footer */}
       <div className="border-t border-border pt-4 mt-4">
-        <div className="px-1">
+        <div className="px-1 flex items-center gap-1">
           <a href="mailto:hello@thien.me" aria-label="Email"
             className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all inline-flex">
             <Mail className="h-4 w-4" />
+          </a>
+          <a href="https://venmo.com/thienmtran" target="_blank" rel="noopener noreferrer" aria-label="Venmo"
+            className="p-2 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all inline-flex">
+            <svg viewBox="2 2 18 13" fill="#3D95CE" className="h-4 w-4">
+              <path d="M19.07 2C19.54 2.78 19.75 3.58 19.75 4.6c0 3.17-2.71 7.29-4.91 10.18H9.94L7.76 2.97l4.67-.45 1.12 8.96c1.04-1.7 2.33-4.38 2.33-6.2 0-.99-.17-1.67-.44-2.23L19.07 2z"/>
+            </svg>
           </a>
         </div>
       </div>

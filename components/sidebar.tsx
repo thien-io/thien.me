@@ -31,17 +31,7 @@ const mainLinks = [
   { href: "/",          label: "Home",      icon: Home,     custom: false },
   { href: "/about",     label: "About",     icon: BookOpen, custom: false },
   { href: "/testimonial", label: "Testimonial", icon: Users,    custom: false },
-
-];
-
-const lifeLinks = [
-  { href: '/music', label: 'Music', icon: Music },
-  { href: '/movies', label: 'Movies', icon: Film },
-];
-
-
-const coachingLinks = [
-  {
+    {
     href: '/booking',
     label: 'Bookings',
     icon: CalendarCheck,
@@ -62,7 +52,10 @@ const coachingLinks = [
     custom: false,
     pickleIcon: false,
   },
+
 ];
+
+
 
 function PickleballIcon({ className }: { className?: string }) {
   return (
@@ -126,22 +119,7 @@ const [coachingOpen, setCoachingOpen] = useState(true);
           </Link>
         ))}
 
-        {/* Coaching section */}
-        <CollapsibleSection label="Coaching" open={coachingOpen} onToggle={() => setCoachingOpen(o => !o)}>
-          {coachingLinks.map(({ href, label, icon: Icon, custom, pickleIcon }) => (
-            <Link key={href} href={href} onClick={() => setMobileOpen(false)}
-              className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
-              {pickleIcon
-                ? <PickleballIcon className="h-4 w-4 shrink-0" />
-                : custom
-                  ? <TennisBallIcon className="h-4 w-4 shrink-0" />
-                  : Icon
-                    ? <Icon className="h-4 w-4 shrink-0" />
-                    : <span className="h-4 w-4 shrink-0" />}
-              <span>{label}</span>
-            </Link>
-          ))}
-        </CollapsibleSection>
+
       </nav>
 
       {/* Footer */}

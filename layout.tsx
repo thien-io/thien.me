@@ -4,11 +4,11 @@ import { Sidebar } from "@/components/sidebar";
 
 export const metadata: Metadata = {
   title: "Thien · Tennis Coach",
-  description: "Tennis coaching, bookings, and ladder. Based in Connecticut.",
+  description: "Tennis coaching and bookings. Based in Connecticut.",
   metadataBase: new URL("https://thien.me"),
   openGraph: {
     title: "Thien · Tennis Coach",
-    description: "Tennis coaching, bookings, and ladder.",
+    description: "Tennis coaching and bookings.",
     url: "https://thien.me",
     siteName: "thien.me",
     locale: "en_US",

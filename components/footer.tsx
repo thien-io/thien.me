@@ -19,7 +19,6 @@ const links = [
 const coachingLinks = [
   { label: "Bookings", href: "/booking" },
   { label: "Pricing",  href: "/pricing" },
-  { label: "Ladder",   href: "/ladder" },
 ];
 
 const lifeLinks = [

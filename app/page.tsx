@@ -3,7 +3,6 @@
 import { Hero } from '@/components/hero';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { TestimonialsCarousel } from '@/components/testimonials-carousel';
-import { LadderPreview } from '@/components/ladder-preview';
 import Link from 'next/link';
 
 export default function Home() {
@@ -17,11 +16,6 @@ export default function Home() {
         <TestimonialsCarousel />
         <div className='h-px bg-border/50 mx-8 md:mx-16' />
 
-        <div className='pt-6'>
-          <LadderPreview />
-        </div>
-
-        <div className='h-px bg-border/50 mx-8 md:mx-16' />
 
         {/* Contact */}
         <section className='px-8 md:px-16 py-16 md:py-24'>

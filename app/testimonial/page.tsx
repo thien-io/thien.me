@@ -135,7 +135,7 @@ export default function TestimonialPage() {
           <button
             type='submit'
             disabled={submitting || !name.trim() || !message.trim()}
-            className='px-6 py-3 rounded-xl bg-primary text-white font-mono text-xs tracking-wide hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed'
+            className='px-6 py-3 rounded-xl bg-primary text-white text-sm font-semibold hover:opacity-90 transition-opacity disabled:opacity-40 disabled:cursor-not-allowed'
           >
             {submitting ? 'Posting...' : 'Post message'}
           </button>

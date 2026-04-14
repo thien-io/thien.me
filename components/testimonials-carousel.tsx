@@ -97,13 +97,13 @@ function WriteMessageModal({ onClose, onSuccess }: { onClose: () => void; onSucc
               <button
                 onClick={submit}
                 disabled={submitting || !name.trim() || !message.trim()}
-                className="flex-1 py-2.5 rounded-xl bg-primary text-primary-foreground font-mono text-xs tracking-wide hover:opacity-90 disabled:opacity-40 transition-opacity"
+                className="flex-1 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 disabled:opacity-40 transition-opacity"
               >
                 {submitting ? "Posting…" : "Post message"}
               </button>
               <button
                 onClick={onClose}
-                className="px-4 py-2.5 rounded-xl border border-border font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
+                className="px-4 py-2.5 rounded-xl border border-border text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 Cancel
               </button>

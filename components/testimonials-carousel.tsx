@@ -10,33 +10,8 @@ interface Entry {
   message: string;
 }
 
-const NAME_COLORS = [
-  "text-amber-600",
-  "text-rose-500",
-  "text-violet-600",
-  "text-teal-600",
-  "text-blue-600",
-  "text-orange-500",
-  "text-emerald-600",
-  "text-pink-500",
-];
-
-const AVATAR_COLORS = [
-  "bg-amber-100 text-amber-700",
-  "bg-rose-100 text-rose-600",
-  "bg-violet-100 text-violet-700",
-  "bg-teal-100 text-teal-700",
-  "bg-blue-100 text-blue-700",
-  "bg-orange-100 text-orange-600",
-  "bg-emerald-100 text-emerald-700",
-  "bg-pink-100 text-pink-600",
-];
-
-function hashIndex(id: string) {
-  let h = 0;
-  for (let i = 0; i < id.length; i++) h = (h * 31 + id.charCodeAt(i)) >>> 0;
-  return h % NAME_COLORS.length;
-}
+const NAME_COLOR = "text-primary";
+const AVATAR_COLOR = "bg-primary/10 text-primary";
 
 function WriteMessageModal({ onClose, onSuccess }: { onClose: () => void; onSuccess: () => void }) {
   const [name, setName]       = useState("");
@@ -169,16 +144,14 @@ export function TestimonialsCarousel() {
 
         {entries.length > 0 && (
           <div className="rounded-xl border border-border bg-card overflow-hidden divide-y divide-border mb-5">
-            {entries.map((entry, i) => {
-              const idx = hashIndex(entry.id);
-              return (
+            {entries.map((entry, i) => (
                 <ScrollReveal key={entry.id} delay={i * 80}>
                   <div className="flex gap-4 px-5 py-4 hover:bg-accent/40 transition-colors">
-                    <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 mt-0.5 ${AVATAR_COLORS[idx]}`}>
+                    <div className={`w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold shrink-0 mt-0.5 ${AVATAR_COLOR}`}>
                       {entry.name.charAt(0).toUpperCase()}
                     </div>
                     <div className="min-w-0">
-                      <span className={`font-semibold text-sm ${NAME_COLORS[idx]}`}>
+                      <span className={`font-semibold text-sm ${NAME_COLOR}`}>
                         {entry.name}
                       </span>
                       <p className="text-sm text-foreground/80 leading-relaxed mt-0.5">
@@ -187,8 +160,7 @@ export function TestimonialsCarousel() {
                     </div>
                   </div>
                 </ScrollReveal>
-              );
-            })}
+            ))}
           </div>
         )}
 

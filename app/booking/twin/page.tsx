@@ -35,7 +35,7 @@ export default function BookingTwinPage() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className='text-muted-foreground leading-relaxed max-w-md'>
-            Pick a time below — sessions are 60 min. I will text you to coordinate the details.
+            Pick a time below — sessions are 60 min. I will text you to to confirm or if there are any changes.
           </p>
         </ScrollReveal>
       </section>

@@ -10,25 +10,24 @@ export default function Icon() {
         width: 32,
         height: 32,
         borderRadius: "50%",
-        background: "#c8e03c",
+        background: "transparent",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        border: "2.5px solid #a0b82a",
+        border: "2.5px solid #c89520",
       }}
     >
       <span
         style={{
           fontFamily: "Georgia, serif",
-          fontSize: 19,
+          fontSize: 20,
           fontWeight: 700,
-          color: "#1e2a00",
-          fontStyle: "italic",
+          color: "#c89520",
           lineHeight: 1,
           marginTop: 1,
         }}
       >
-        T
+        t
       </span>
     </div>,
     { ...size }

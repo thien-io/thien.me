@@ -94,8 +94,8 @@ export function Hero() {
     };
   }, []);
 
+
   const handleClick = (e: React.MouseEvent<HTMLElement>) => {
-    // Don't spawn a ball when clicking a link
     if ((e.target as HTMLElement).closest("a")) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = Math.max(R, Math.min(wRef.current - R, e.clientX - rect.left));
@@ -127,7 +127,7 @@ export function Hero() {
           <span className="block text-[clamp(2.8rem,7vw,7rem)] italic text-primary hero-item"
                 style={{ animationDelay: "260ms" }}>Thien.</span>
         </h1>
-        <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-sm md:max-w-md mb-12 hero-item"
+        <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-sm md:max-w-md mb-12 hero-item pointer-events-auto"
            style={{ animationDelay: "400ms" }}>
           RPSA certified tennis coach based in Connecticut.
           Currently coaching at{" "}

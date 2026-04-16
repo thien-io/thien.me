@@ -3,8 +3,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Pricing — Thien",
-  description: "Session rates for tennis and pickleball coaching with Thien.",
+  title: "Pricing",
+  description:
+    "Tennis lesson rates from $100/session. Pickleball from $80/session. Save with 5 and 10-session packs. Connecticut private coaching.",
 };
 
 const tennisPricing = [

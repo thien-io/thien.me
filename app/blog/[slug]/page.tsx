@@ -1,9 +1,28 @@
 import { getAllPosts, getPost } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 
 export async function generateStaticParams() {
   return getAllPosts().map(p => ({ slug: p.slug }));
+}
+
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  try {
+    const post = getPost(params.slug);
+    return {
+      title: post.title,
+      description: post.summary,
+      openGraph: {
+        title: post.title,
+        description: post.summary,
+        type: "article",
+        publishedTime: post.date,
+      },
+    };
+  } catch {
+    return {};
+  }
 }
 
 function renderMdx(content: string) {

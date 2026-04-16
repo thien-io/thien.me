@@ -3,7 +3,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Farmington Valley Racquet Club — Thien",
+  title: "Farmington Valley Racquet Club",
   description: "Coaching sessions at Farmington Valley Racquet Club, CT. Opening when the season starts.",
 };
 

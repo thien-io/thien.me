@@ -4,8 +4,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Book at Twin Lakes — Thien",
-  description: "Book a coaching session at Twin Lakes Tennis Club, CT.",
+  title: "Book at Twin Lakes Beach Club",
+  description:
+    "Book a private tennis lesson at Twin Lakes Beach Club in Salisbury, CT. 60-minute sessions with online scheduling.",
 };
 
 // TODO: replace with your Cal.com username/event-type slug for Twin Lakes
@@ -35,7 +36,7 @@ export default function BookingTwinPage() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className='text-muted-foreground leading-relaxed max-w-md'>
-            Pick a time below — sessions are 60 min. I will text you to to confirm or if there are any changes.
+            Pick a time below — sessions are 60 min. I will text you to confirm or if there are any changes.
           </p>
         </ScrollReveal>
       </section>

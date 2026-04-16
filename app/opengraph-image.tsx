@@ -98,7 +98,7 @@ export default function OGImage() {
           lineHeight: 1.5,
         }}
       >
-        RPSA certified tennis coach based in Connecticut.
+        RSPA certified tennis coach based in Connecticut.
       </div>
 
       {/* URL */}

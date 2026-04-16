@@ -129,7 +129,7 @@ export function Hero() {
         </h1>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-sm md:max-w-md mb-12 hero-item pointer-events-auto"
            style={{ animationDelay: "400ms" }}>
-          RPSA certified tennis coach based in Connecticut.
+          RSPA certified tennis coach based in Connecticut.
           Currently coaching at{" "}
           <a href="/booking/twin" className="text-foreground underline underline-offset-4 decoration-border hover:text-primary transition-colors">Twin Lakes Beach Club</a>
           {" "}and{" "}

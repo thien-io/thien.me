@@ -3,8 +3,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Book a Session — Thien",
-  description: "Book a tennis or pickleball coaching session with Thien.",
+  title: "Book a Session",
+  description:
+    "Book a private tennis or pickleball lesson in Connecticut. Available at Twin Lakes Beach Club and Lakeridge.",
 };
 
 const locations = [

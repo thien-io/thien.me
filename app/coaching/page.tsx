@@ -1,6 +1,13 @@
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParallaxSection } from "@/components/parallax-section";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Coaching",
+  description:
+    "Private tennis and pickleball coaching in Connecticut. RSPA certified, all skill levels. Technique, mental game, and match strategy.",
+};
 
 export default function CoachingPage() {
   return (
@@ -44,7 +51,7 @@ export default function CoachingPage() {
                 Tennis
               </h2>
               <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                Technique, mental game, all levels. RPSA certified.
+                Technique, mental game, all levels. RSPA certified.
               </p>
               <span className="font-mono text-[11px] uppercase tracking-wider text-primary">
                 View pricing →

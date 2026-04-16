@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { Settings } from "lucide-react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ladder Rankings",
+  description:
+    "Tennis and pickleball ladder rankings at Twin Lakes Beach Club and Lakeridge in Connecticut.",
+};
 
 const LADDERS = [
   {

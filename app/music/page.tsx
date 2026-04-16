@@ -89,7 +89,7 @@ export default function MusicPage() {
               What I&apos;m<br /><em className="text-primary">listening to.</em>
             </h1>
             <p className="text-muted-foreground max-w-sm leading-relaxed">
-              All-time favourites and the playlists I actually use.
+              All-time favorites and the playlists I actually use.
             </p>
           </ScrollReveal>
         </div>
@@ -158,7 +158,7 @@ export default function MusicPage() {
         <ScrollReveal delay={200} className="mt-4">
           <p className="font-mono text-[10px] text-muted-foreground/40 flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-primary/50 inline-block" />
-            All-time favourites · click any cover for details
+            All-time favorites · click any cover for details
           </p>
         </ScrollReveal>
       </section>

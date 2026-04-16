@@ -1,6 +1,13 @@
 import { ScrollTimeline } from "@/components/scroll-timeline";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParallaxSection } from "@/components/parallax-section";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "RSPA certified tennis coach with 8+ years experience. 4.5 USTA rating, 4.4 DUPR pickleball. Coaching all levels in Connecticut.",
+};
 
 export default function AboutPage() {
   return (

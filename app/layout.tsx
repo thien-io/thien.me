@@ -4,16 +4,27 @@ import { Sidebar } from "@/components/sidebar";
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Thien",
-  description: "Tennis and pickleball coach based in Connecticut.",
+  title: {
+    default: "Thien — Tennis & Pickleball Coach in Connecticut",
+    template: "%s — Thien",
+  },
+  description:
+    "RSPA certified tennis and pickleball coach in Connecticut. Private lessons at Twin Lakes Beach Club and Lakeridge. All levels welcome.",
   metadataBase: new URL("https://thien.me"),
   openGraph: {
-    title: "Thien",
-    description: "Tennis and pickleball coach based in Connecticut.",
+    title: "Thien — Tennis & Pickleball Coach in Connecticut",
+    description:
+      "RSPA certified tennis and pickleball coach in Connecticut. Private lessons at Twin Lakes Beach Club and Lakeridge.",
     url: "https://thien.me",
     siteName: "thien.me",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  alternates: {
+    canonical: "https://thien.me",
   },
 };
 

@@ -2,6 +2,13 @@ import { getAllPosts } from "@/lib/posts";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParallaxSection } from "@/components/parallax-section";
 import { BlogList } from "@/components/blog-list";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Writing on tennis, coaching, mindset, and life. Tips, stories, and thoughts from a Connecticut tennis coach.",
+};
 
 export default function BlogPage() {
   const posts = getAllPosts();

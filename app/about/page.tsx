@@ -1,4 +1,3 @@
-import { ScrollTimeline } from "@/components/scroll-timeline";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ParallaxSection } from "@/components/parallax-section";
 import type { Metadata } from "next";
@@ -42,7 +41,7 @@ export default function AboutPage() {
           <ScrollReveal delay={160}>
             <div className="space-y-5 text-muted-foreground leading-relaxed max-w-md">
               <p>
-                I&apos;m an RSPA certified tennis coach based in Connecticut,
+                I&apos;m an <strong className="text-foreground font-medium">RSPA</strong> certified tennis and pickleball coach based in Connecticut,
                 currently coaching at Twin Lakes Beach Club and Lakeridge.
                 I work with players of all levels — from beginners picking up
                 a racket for the first time to competitive players looking to
@@ -63,41 +62,6 @@ export default function AboutPage() {
         
               </div>
       </section>
-      {/* Stats */}
-      <section className="relative px-8 md:px-16 py-16 md:py-32 overflow-hidden">
-        <ParallaxSection
-          speed={0.15}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
-        >
-          <span
-            className="font-display text-[20vw] font-light leading-none whitespace-nowrap opacity-[0.025]"
-          >
-            200+
-          </span>
-        </ParallaxSection>
-
-        <div className="relative z-10 grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-6 max-w-2xl">
-          {[
-            { value: "8+",   label: "Years coaching" },
-            { value: "200+", label: "Students" },
-            { value: "4.5",  label: "USTA tennis" },
-            { value: "4.4",  label: "DUPR pickleball" },
-            { value: "CT",   label: "Based in" },
-          ].map((stat, i) => (
-            <ScrollReveal key={stat.label} delay={i * 80}>
-              <div>
-                <p className="font-display text-4xl md:text-5xl font-light text-primary mb-1.5">
-                  {stat.value}
-                </p>
-                <p className="font-mono text-[10px] tracking-widest uppercase text-muted-foreground">
-                  {stat.label}
-                </p>
-              </div>
-            </ScrollReveal>
-          ))}
-        </div>
-      </section>
-      <div className="h-px bg-border/50 mx-8 md:mx-16" />
 
 
     </div>

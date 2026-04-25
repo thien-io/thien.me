@@ -60,8 +60,7 @@ export default function BookingPage() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className="text-muted-foreground leading-relaxed max-w-md">
-            Pick your location and choose a time that works. Sessions are one-on-one
-            and tailored to your level.
+            Pick your location and choose a time that works. I will text you to confirm or if there are any changes.
           </p>
         </ScrollReveal>
       </section>

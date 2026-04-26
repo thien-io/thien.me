@@ -2,11 +2,10 @@ import Link from "next/link";
 import { BauhausIcon, type BauhausIconKind } from "@/components/bauhaus-icon";
 
 const NAV_LINKS = [
-  { href: "/",           label: "home"        },
-  { href: "/about",      label: "about"       },
-  { href: "/testimonial", label: "testimonial" },
-  { href: "/booking",    label: "bookings"    },
-  { href: "/pricing",    label: "pricing"     },
+  { href: "/",        label: "home"     },
+  { href: "/about",   label: "about"    },
+  { href: "/booking", label: "bookings" },
+  { href: "/pricing", label: "pricing"  },
 ];
 
 export function Footer() {

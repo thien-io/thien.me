@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Tennis lesson rates from $100/session. Pickleball from $80/session. Save with 5 and 10-session packs. Connecticut private coaching.",
+    "Tennis lesson rates from $100/session. Private coaching in Connecticut.",
 };
 
 const tennisPricing = [
@@ -13,19 +13,6 @@ const tennisPricing = [
     duration: "60 min",
     price: "$100",
     desc: "One-on-one court time. Focus on technique, footwork, or match strategy.",
-  },
-  {
-    label: "5-Session Pack",
-    duration: "60 min each",
-    price: "$450",
-    desc: "Save $50. Best for players building a consistent practice routine.",
-    tag: "popular",
-  },
-  {
-    label: "10-Session Pack",
-    duration: "60 min each",
-    price: "$850",
-    desc: "Save $150. Ideal for committed players targeting real improvement.",
   },
 ];
 
@@ -47,7 +34,7 @@ export default function PricingPage() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className="text-muted-foreground leading-relaxed max-w-md">
-            Pay per session or save with a pack. Venmo or cash accepted.
+            Venmo or cash accepted.
           </p>
         </ScrollReveal>
       </section>

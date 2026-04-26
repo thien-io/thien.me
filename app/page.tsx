@@ -2,7 +2,6 @@
 
 import { Hero } from '@/components/hero';
 import { ScrollReveal } from '@/components/scroll-reveal';
-import { TestimonialsCarousel } from '@/components/testimonials-carousel';
 import Link from 'next/link';
 
 export default function Home() {
@@ -11,9 +10,6 @@ export default function Home() {
       <Hero />
 
       <div className='content-wrap'>
-        <div className='h-px bg-border/50 mx-8 md:mx-16' />
-
-        <TestimonialsCarousel />
         <div className='h-px bg-border/50 mx-8 md:mx-16' />
 
 
@@ -29,7 +25,7 @@ export default function Home() {
             <p className='text-muted-foreground max-w-sm leading-relaxed mb-8'>
               Have a question, want to book a lesson, or just want to say hi.
             </p>
-            <div className='flex flex-col sm:flex-row gap-3'>
+            <div className='flex flex-row gap-3'>
               <Link
                 href='/booking'
                 className='inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-border bg-card text-sm font-medium text-foreground hover:border-primary/40 hover:bg-primary/5 hover:text-primary transition-all'

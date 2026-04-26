@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Tennis lesson rates from $100/session. Private coaching in Connecticut.",
 };
 
-const tennisPricing = [
+const tennisPricing: { label: string; duration: string; price: string; desc: string; tag?: string }[] = [
   {
     label: "Single Session",
     duration: "60 min",

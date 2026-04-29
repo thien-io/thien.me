@@ -1,6 +1,6 @@
 # thien.me — Tennis Coach Personal Site
 
-A minimal, elegant personal website built with Next.js 14, Tailwind CSS, Supabase, and Spotify integration.
+A minimal, elegant personal website built with Next.js 14, Tailwind CSS, and Spotify integration.
 
 ---
 
@@ -9,8 +9,6 @@ A minimal, elegant personal website built with Next.js 14, Tailwind CSS, Supabas
 - **Framework**: Next.js 14 (App Router)
 - **Styling**: Tailwind CSS + custom design tokens
 - **UI**: Radix UI + shadcn/ui primitives
-- **Backend**: Supabase (PostgreSQL)
-- **Auth/DB**: Supabase Row Level Security
 - **Music**: Spotify Web API
 - **Deployment**: Vercel (recommended)
 
@@ -37,32 +35,7 @@ Then fill in the values (instructions below).
 
 ---
 
-## 2. Supabase Setup
-
-### Step 1 — Create a project
-1. Go to [https://app.supabase.com](https://app.supabase.com)
-2. Click **New project**
-3. Name it `thien-me`, choose a region close to you (e.g. US East)
-4. Save your database password somewhere safe
-
-### Step 2 — Run the SQL
-1. In your Supabase dashboard, click **SQL Editor** in the left sidebar
-2. Click **New query**
-3. Paste the contents of `supabase-setup.sql` and click **Run**
-
-This creates the `guestbook` table with proper Row Level Security policies.
-
-### Step 3 — Get your keys
-1. In Supabase, go to **Settings → API**
-2. Copy:
-   - **Project URL** → `NEXT_PUBLIC_SUPABASE_URL`
-   - **anon / public key** → `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-
-Paste both into your `.env.local`.
-
----
-
-## 3. Spotify Setup
+## 2. Spotify Setup
 
 This lets your site show what you're currently listening to.
 
@@ -112,7 +85,7 @@ The response will contain a `refresh_token`. Copy it into your `.env.local` as `
 
 ---
 
-## 4. Run locally
+## 3. Run locally
 
 ```bash
 npm run dev
@@ -122,7 +95,7 @@ Visit [http://localhost:3000](http://localhost:3000)
 
 ---
 
-## 5. Deploy to Vercel
+## 4. Deploy to Vercel
 
 ### Option A — Vercel CLI
 ```bash
@@ -144,7 +117,7 @@ vercel
 
 ---
 
-## 6. Customizing the site
+## 5. Customizing the site
 
 | File | What to change |
 |------|---------------|
@@ -168,19 +141,21 @@ The site uses **Cormorant Garamond** (display) and **DM Mono** (monospace). To s
 thien-me/
 ├── app/
 │   ├── api/
-│   │   ├── guestbook/route.ts   ← Supabase CRUD
-│   │   └── spotify/route.ts     ← Spotify now-playing
+│   │   ├── movies/route.ts      ← TMDB poster lookup
+│   │   └── spotify/             ← Spotify now-playing & top tracks
 │   ├── about/page.tsx
+│   ├── blog/
+│   ├── booking/
 │   ├── coaching/page.tsx
-│   ├── guestbook/page.tsx
+│   ├── movies/page.tsx
+│   ├── music/page.tsx
+│   ├── pricing/page.tsx
 │   ├── globals.css
 │   ├── layout.tsx
 │   └── page.tsx
 ├── components/
-│   ├── sidebar.tsx              ← Nav + theme toggle
-│   ├── spotify-widget.tsx       ← Now playing widget
-│   └── theme-provider.tsx
-├── supabase-setup.sql           ← Run this in Supabase
+│   ├── sidebar.tsx              ← Nav
+│   └── spotify-widget.tsx       ← Now playing widget
 ├── .env.local.example
 └── README.md
 ```

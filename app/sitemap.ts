@@ -18,8 +18,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "https://thien.me/booking/twin", priority: 0.8, changeFrequency: "weekly" as const },
     { url: "https://thien.me/booking/lakeridge", priority: 0.8, changeFrequency: "weekly" as const },
     { url: "https://thien.me/blog", priority: 0.7, changeFrequency: "weekly" as const },
-    { url: "https://thien.me/testimonial", priority: 0.5, changeFrequency: "weekly" as const },
-    { url: "https://thien.me/ladder", priority: 0.5, changeFrequency: "daily" as const },
   ].map((route) => ({ ...route, lastModified: new Date() }));
 
   return [...routes, ...posts];

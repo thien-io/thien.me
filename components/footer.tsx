@@ -1,5 +1,32 @@
 import Link from "next/link";
-import { BauhausIcon, type BauhausIconKind } from "@/components/bauhaus-icon";
+
+function PetalMark({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 680 680"
+      width={size}
+      height={size}
+      aria-hidden="true"
+      style={{ display: "block", flexShrink: 0 }}
+    >
+      <g transform="translate(340,340)" fill="currentColor">
+        <g transform="translate(0,-30)">
+          <path d="M 0,0 C -92,-34 -86,-135 0,-182 C 86,-135 92,-34 0,0" />
+        </g>
+        <g transform="rotate(90) translate(0,-30)">
+          <path d="M 0,0 C -92,-34 -86,-135 0,-182 C 86,-135 92,-34 0,0" />
+        </g>
+        <g transform="rotate(180) translate(0,-30)">
+          <path d="M 0,0 C -92,-34 -86,-135 0,-182 C 86,-135 92,-34 0,0" />
+        </g>
+        <g transform="rotate(270) translate(0,-30)">
+          <path d="M 0,0 C -92,-34 -86,-135 0,-182 C 86,-135 92,-34 0,0" />
+        </g>
+      </g>
+    </svg>
+  );
+}
 
 const NAV_LINKS = [
   { href: "/",        label: "home"     },
@@ -35,16 +62,14 @@ export function Footer() {
           </nav>
         </div>
 
-        {/* Bottom row: site name + year | Bauhaus glyphs */}
+        {/* Bottom row: site name + year | petal mark */}
         <div className="flex items-center justify-between gap-4 pt-4 border-t border-border text-muted-foreground">
           <span className="font-mono text-[11px] uppercase tracking-widest flex items-center gap-3" suppressHydrationWarning>
             <span>thien.me</span>
             <span>© {new Date().getFullYear()}</span>
           </span>
-          <span className="flex items-center gap-2" aria-hidden="true">
-            {(["redTriangle", "blueSquare", "yellowCircle", "greenSquare", "purpleCircle"] as BauhausIconKind[]).map((kind) => (
-              <BauhausIcon key={kind} kind={kind} size={10} />
-            ))}
+          <span className="text-primary" aria-hidden="true">
+            <PetalMark size={18} />
           </span>
         </div>
       </div>

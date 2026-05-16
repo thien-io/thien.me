@@ -5,42 +5,41 @@ export const contentType = "image/png";
 
 export default function AppleIcon() {
   return new ImageResponse(
-    <div
-      style={{
-        width: 180,
-        height: 180,
-        background: "#000",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    (
       <div
         style={{
-          width: 140,
-          height: 140,
+          width: 180,
+          height: 180,
           borderRadius: "50%",
-          background: "transparent",
+          background: "#000",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          border: "11px solid #c89520",
         }}
       >
-        <span
-          style={{
-            fontFamily: "Georgia, serif",
-            fontSize: 92,
-            fontWeight: 700,
-            color: "#c89520",
-            lineHeight: 1,
-            marginTop: 4,
-          }}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 680 680"
+          width={120}
+          height={120}
         >
-          t
-        </span>
+          <g transform="translate(340,340)" fill="#fff">
+            <g transform="translate(0,-30)">
+              <path d="M 0,0 C -92,-34 -86,-135 0,-182 C 86,-135 92,-34 0,0" />
+            </g>
+            <g transform="rotate(90) translate(0,-30)">
+              <path d="M 0,0 C -92,-34 -86,-135 0,-182 C 86,-135 92,-34 0,0" />
+            </g>
+            <g transform="rotate(180) translate(0,-30)">
+              <path d="M 0,0 C -92,-34 -86,-135 0,-182 C 86,-135 92,-34 0,0" />
+            </g>
+            <g transform="rotate(270) translate(0,-30)">
+              <path d="M 0,0 C -92,-34 -86,-135 0,-182 C 86,-135 92,-34 0,0" />
+            </g>
+          </g>
+        </svg>
       </div>
-    </div>,
+    ),
     { ...size }
   );
 }

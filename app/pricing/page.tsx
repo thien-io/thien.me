@@ -4,14 +4,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Tennis lesson rates from $100/session. Private coaching in Connecticut.",
+    "Tennis lesson rate is $100/hr. Private coaching in Connecticut.",
 };
 
 const tennisPricing: { label: string; duration: string; price: string; desc: string; tag?: string }[] = [
   {
-    label: "Single Session",
-    duration: "60 min",
-    price: "$100",
+    label: "Private Session",
+    duration: "60 or 90 min",
+    price: "$100/hr",
     desc: "One-on-one court time. Focus on technique, footwork, or match strategy.",
   },
 ];
@@ -34,7 +34,16 @@ export default function PricingPage() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className="text-muted-foreground leading-relaxed max-w-md">
-            Venmo or cash accepted.
+            $100/hr — sessions are 60 or 90 min.{" "}
+            <a
+              href="https://venmo.com/thienmtran"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline underline-offset-4 hover:no-underline"
+            >
+              Venmo
+            </a>{" "}
+            or cash accepted.
           </p>
         </ScrollReveal>
       </section>

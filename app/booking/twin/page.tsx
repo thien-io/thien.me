@@ -6,7 +6,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Book at Twin Lakes Beach Club",
   description:
-    "Book a private tennis lesson at Twin Lakes Beach Club in Salisbury, CT. 60-minute sessions with online scheduling.",
+    "Book a private tennis lesson at Twin Lakes Beach Club in Salisbury, CT. 60 or 90 minute sessions with online scheduling.",
 };
 
 // TODO: replace with your Cal.com username/event-type slug for Twin Lakes
@@ -36,7 +36,7 @@ export default function BookingTwinPage() {
         </ScrollReveal>
         <ScrollReveal delay={160}>
           <p className='text-muted-foreground leading-relaxed max-w-md'>
-            Pick a time below — sessions are 60 min. I will text you to confirm or if there are any changes.
+            Pick a time below — sessions are 60 or 90 min. I will text you to confirm or if there are any changes.
           </p>
         </ScrollReveal>
       </section>

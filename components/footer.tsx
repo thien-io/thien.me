@@ -10,23 +10,14 @@ function PetalMark({ size = 18 }: { size?: number }) {
       aria-hidden="true"
       style={{ display: "block", flexShrink: 0 }}
     >
-      <defs>
-        <linearGradient id="footer-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#4338CA"/>
-          <stop offset="33%" stopColor="#7C3AED"/>
-          <stop offset="66%" stopColor="#A21CAF"/>
-          <stop offset="100%" stopColor="#DB2777"/>
-        </linearGradient>
-      </defs>
-      <rect width="1000" height="1000" rx="220" fill="url(#footer-bg)"/>
       <g transform="translate(500,500) scale(1.11) translate(-500,-500)" fill="none">
         <path
           d="M 679 321 A 180 180 0 1 0 321 321 A 180 180 0 1 0 321 679 A 180 180 0 1 0 679 679 A 180 180 0 1 0 679 321 Z"
-          stroke="white"
+          stroke="currentColor"
           strokeWidth="50"
           strokeLinejoin="round"
         />
-        <g fill="white">
+        <g fill="currentColor">
           <path d="M 500 290 Q 575 380 500 465 Q 425 380 500 290 Z"/>
           <path d="M 710 500 Q 620 575 535 500 Q 620 425 710 500 Z"/>
           <path d="M 500 710 Q 575 620 500 535 Q 425 620 500 710 Z"/>
@@ -78,7 +69,9 @@ export function Footer() {
             <span>thien.me</span>
             <span>© {new Date().getFullYear()}</span>
           </span>
-          <PetalMark size={18} />
+          <span className="text-muted-foreground" aria-hidden="true">
+            <PetalMark size={18} />
+          </span>
         </div>
       </div>
     </footer>

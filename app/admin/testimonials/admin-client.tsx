@@ -40,6 +40,10 @@ export function AdminTestimonialsClient() {
     });
     if (res.ok) {
       setTestimonials((prev) => prev.map((t) => (t.id === id ? { ...t, hidden } : t)));
+      setError("");
+    } else {
+      const data = await res.json();
+      setError(data.error || "Failed to update testimonial");
     }
   }
 
@@ -52,6 +56,10 @@ export function AdminTestimonialsClient() {
     });
     if (res.ok) {
       setTestimonials((prev) => prev.filter((t) => t.id !== id));
+      setError("");
+    } else {
+      const data = await res.json();
+      setError(data.error || "Failed to delete testimonial");
     }
   }
 
@@ -83,6 +91,7 @@ export function AdminTestimonialsClient() {
   return (
     <div className="px-8 md:px-16 py-16">
       <h1 className="font-display text-3xl font-light mb-8">Testimonials ({testimonials.length})</h1>
+      {error && <p className="text-sm text-red-600 mb-4">{error}</p>}
       <div className="space-y-3 max-w-2xl">
         {testimonials.map((t) => (
           <div key={t.id} className="p-4 border border-border rounded-xl bg-card flex items-start justify-between gap-4">

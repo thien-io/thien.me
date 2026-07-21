@@ -30,10 +30,11 @@ function PetalMark({ size = 18 }: { size?: number }) {
 }
 
 const NAV_LINKS = [
-  { href: "/",        label: "home"     },
-  { href: "/about",   label: "about"    },
-  { href: "/booking", label: "bookings" },
-  { href: "/pricing", label: "pricing"  },
+  { href: "/",             label: "home"         },
+  { href: "/about",        label: "about"        },
+  { href: "/testimonials", label: "testimonials" },
+  { href: "/booking",      label: "bookings"     },
+  { href: "/pricing",      label: "pricing"      },
 ];
 
 export function Footer() {

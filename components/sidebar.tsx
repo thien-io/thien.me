@@ -6,7 +6,7 @@ import { useState } from "react";
 import {
   Home, BookOpen, Menu, X, Mail,
   ChevronDown, CalendarCheck,
-  CircleDollarSign,
+  CircleDollarSign, Quote,
 } from "lucide-react";
 
 // Tennis ball icon — provided by user
@@ -28,8 +28,9 @@ function TennisBallIcon({ className }: { className?: string }) {
 }
 
 const mainLinks = [
-  { href: "/",          label: "Home",      icon: Home,     custom: false },
-  { href: "/about",     label: "About",     icon: BookOpen, custom: false },
+  { href: "/",             label: "Home",         icon: Home,     custom: false },
+  { href: "/about",        label: "About",        icon: BookOpen, custom: false },
+  { href: "/testimonials", label: "Testimonials", icon: Quote,    custom: false },
   {
     href: '/booking',
     label: 'Bookings',

@@ -10,10 +10,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
-  const { name, context, quote, website } = body as Record<string, unknown>;
+  const { name, context, quote, hp_token: hpToken } = body as Record<string, unknown>;
 
   // Honeypot: bots fill hidden fields, real visitors never see this one.
-  if (typeof website === "string" && website.length > 0) {
+  if (typeof hpToken === "string" && hpToken.length > 0) {
     return NextResponse.json({ ok: true });
   }
 

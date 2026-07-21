@@ -8,7 +8,7 @@ export function TestimonialForm() {
   const [name, setName] = useState("");
   const [context, setContext] = useState("");
   const [quote, setQuote] = useState("");
-  const [website, setWebsite] = useState("");
+  const [hpToken, setHpToken] = useState("");
   const [status, setStatus] = useState<"idle" | "pending" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -21,7 +21,7 @@ export function TestimonialForm() {
       const res = await fetch("/api/testimonials", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, context, quote, website }),
+        body: JSON.stringify({ name, context, quote, hp_token: hpToken }),
       });
       const data = await res.json();
 
@@ -45,15 +45,15 @@ export function TestimonialForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
       <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
-        <label htmlFor="website">Website</label>
+        <label htmlFor="hp_token">Reference code</label>
         <input
-          id="website"
-          name="website"
+          id="hp_token"
+          name="hp_token"
           type="text"
           tabIndex={-1}
           autoComplete="off"
-          value={website}
-          onChange={(e) => setWebsite(e.target.value)}
+          value={hpToken}
+          onChange={(e) => setHpToken(e.target.value)}
         />
       </div>
 

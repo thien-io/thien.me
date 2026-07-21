@@ -1,10 +1,14 @@
-'use client';
-
 import { Hero } from '@/components/hero';
 import { ScrollReveal } from '@/components/scroll-reveal';
+import { TestimonialCard } from '@/components/testimonial-card';
+import { getVisibleTestimonials } from '@/lib/supabase/testimonials';
 import Link from 'next/link';
 
-export default function Home() {
+export const dynamic = 'force-dynamic';
+
+export default async function Home() {
+  const testimonials = await getVisibleTestimonials(3);
+
   return (
     <div>
       <Hero />
@@ -12,6 +16,35 @@ export default function Home() {
       <div className='content-wrap'>
         <div className='h-px bg-border/50 mx-8 md:mx-16' />
 
+        {testimonials.length > 0 && (
+          <>
+            <section className='px-8 md:px-16 py-16 md:py-24'>
+              <ScrollReveal>
+                <p className='font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8'>
+                  Testimonials
+                </p>
+                <h2 className='font-display text-3xl md:text-4xl font-light text-foreground mb-10'>
+                  What players say.
+                </h2>
+              </ScrollReveal>
+              <div className='grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8'>
+                {testimonials.map((t) => (
+                  <ScrollReveal key={t.id}>
+                    <TestimonialCard testimonial={t} />
+                  </ScrollReveal>
+                ))}
+              </div>
+              <Link
+                href='/testimonials'
+                className='font-mono text-[11px] uppercase tracking-wider text-primary hover:underline'
+              >
+                Read more →
+              </Link>
+            </section>
+
+            <div className='h-px bg-border/50 mx-8 md:mx-16' />
+          </>
+        )}
 
         {/* Contact */}
         <section className='px-8 md:px-16 py-16 md:py-24'>

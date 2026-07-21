@@ -21,6 +21,7 @@
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-tooltip": "^1.1.2",
+    "@supabase/supabase-js": "^2.110.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
@@ -35,6 +36,7 @@
     "react-dom": "^18",
     "rehype-highlight": "^7.0.0",
     "remark-gfm": "^4.0.0",
+    "server-only": "^0.0.1",
     "tailwind-merge": "^2.4.0",
     "tailwindcss-animate": "^1.0.7"
   },

@@ -18,14 +18,6 @@ export default async function TestimonialsPage() {
   return (
     <div>
       <section className="relative px-8 md:px-16 pt-28 pb-14 md:pt-32 md:pb-20 overflow-hidden">
-        <ParallaxSection
-          speed={0.12}
-          className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden"
-        >
-          <span className="font-display text-[22vw] font-light leading-none whitespace-nowrap opacity-[0.03]">
-            Testimonials
-          </span>
-        </ParallaxSection>
 
         <div className="relative z-10">
           <ScrollReveal>

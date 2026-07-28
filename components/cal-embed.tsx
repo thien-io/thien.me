@@ -19,7 +19,7 @@ export function CalEmbed({ calLink }: { calLink: string }) {
     <Cal
       calLink={calLink}
       style={{ width: "100%", height: "100%", minHeight: "600px", overflow: "scroll" }}
-      config={{ layout: "month_view" }}
+      config={{ layout: "month_view", theme: "light" }}
     />
   );
 }

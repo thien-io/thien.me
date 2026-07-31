@@ -2,29 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap");
 
 :root {
-  --font-display: "Cormorant Garamond", serif;
+  --font-heading: "Bebas Neue", "DM Sans", system-ui, sans-serif;
   --font-sans: "DM Sans", system-ui, sans-serif;
   --font-mono: "DM Mono", monospace;
 
-  --background: 38 18% 96%;
-  --foreground: 28 12% 10%;
-  --card: 38 18% 98%;
-  --card-foreground: 28 12% 10%;
-  --border: 32 12% 86%;
-  --input: 32 12% 86%;
-  --primary: 46 75% 36%;
-  --primary-foreground: 38 18% 96%;
-  --secondary: 46 20% 91%;
-  --secondary-foreground: 28 12% 18%;
-  --muted: 46 14% 92%;
-  --muted-foreground: 28 8% 48%;
-  --accent: 46 60% 91%;
-  --accent-foreground: 46 75% 22%;
-  --ring: 46 75% 36%;
-  --radius: 0.4rem;
+  --background: 0 0% 100%;
+  --foreground: 240 6% 7%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 6% 7%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+  --primary: 219 75% 48%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 96%;
+  --secondary-foreground: 240 6% 7%;
+  --muted: 0 0% 96%;
+  --muted-foreground: 0 0% 42%;
+  --accent: 0 0% 96%;
+  --accent-foreground: 240 6% 7%;
+  --ring: 219 75% 48%;
+  --radius: 0.5rem;
+
+  --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 * { border-color: hsl(var(--border)); }
@@ -48,7 +50,7 @@ body {
   overflow-x: hidden;
 }
 
-.font-display { font-family: var(--font-display); }
+.font-heading { font-family: var(--font-heading); letter-spacing: 0.01em; }
 .font-mono    { font-family: var(--font-mono); }
 
 /* Scrollbar */
@@ -115,18 +117,20 @@ body {
   margin-bottom: 1.25rem;
 }
 .prose-thien h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.75rem;
-  font-weight: 300;
+  font-weight: 400;
+  text-transform: uppercase;
   color: hsl(var(--foreground));
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
 .prose-thien h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-heading);
   font-size: 1.35rem;
   font-weight: 400;
+  text-transform: uppercase;
   color: hsl(var(--foreground));
   margin-top: 2rem;
   margin-bottom: 0.5rem;

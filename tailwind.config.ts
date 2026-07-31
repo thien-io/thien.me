@@ -16,7 +16,7 @@ const config: Config = {
       fontFamily: {
         sans:    ["DM Sans", "system-ui", "sans-serif"],
         mono:    ["DM Mono", "monospace"],
-        display: ["Cormorant Garamond", "serif"],
+        heading: ["Bebas Neue", "DM Sans", "sans-serif"],
       },
       colors: {
         border:     "hsl(var(--border))",
@@ -58,6 +58,9 @@ const config: Config = {
       },
       animation: {
         "fade-in": "fade-in 0.5s ease forwards",
+      },
+      transitionTimingFunction: {
+        apple: "cubic-bezier(0.32, 0.72, 0, 1)",
       },
     },
   },

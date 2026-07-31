@@ -58,13 +58,6 @@ body {
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
 
-/* Sidebar links */
-.sidebar-link {
-  @apply flex items-center gap-3 px-3 py-2.5 rounded-md text-base text-muted-foreground
-         hover:text-primary hover:bg-primary/10 transition-all duration-200;
-}
-.sidebar-link.active { @apply text-primary bg-primary/10; }
-
 /* Spotify EQ bars */
 .spotify-bar { animation: spotify-eq 1.2s ease-in-out infinite; }
 .spotify-bar:nth-child(2) { animation-delay: 0.2s; }
@@ -181,4 +174,9 @@ body {
 }
 .marquee-running {
   animation: marqueeScroll 3.5s ease-in-out infinite alternate;
+}
+
+/* Clear the fixed mobile tab bar */
+@media (max-width: 767px) {
+  body { padding-bottom: 76px; }
 }

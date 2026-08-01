@@ -272,7 +272,7 @@ export default function MoviesPage() {
           <span className="font-mono text-[9px] text-muted-foreground/50 uppercase tracking-widest mr-1">Sort</span>
           {(["year","rating","title"] as SortKey[]).map(k => (
             <button key={k} onClick={() => toggleMovieSort(k)}
-              className={`font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 rounded-lg border transition-all ${movieSort === k ? "border-primary bg-primary text-primary-foreground" : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
+              className={`font-mono text-[10px] uppercase tracking-wider px-3 py-1.5 border transition-all ${movieSort === k ? "border-primary bg-primary text-primary-foreground" : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
               {k}{movieSort === k ? (movieDir === "desc" ? " ↓" : " ↑") : ""}
             </button>
           ))}
@@ -281,7 +281,7 @@ export default function MoviesPage() {
         <div className="flex flex-wrap gap-1.5">
           {MOVIE_FILTERS.map(f => (
             <button key={f} onClick={() => setMovieFilter(f)}
-              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${movieFilter === f ? "border-foreground bg-foreground text-background" : (f !== "All" && GENRE_COLORS[f]) ? GENRE_COLORS[f] : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
+              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 border transition-all ${movieFilter === f ? "border-foreground bg-foreground text-background" : (f !== "All" && GENRE_COLORS[f]) ? GENRE_COLORS[f] : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
               {f}
             </button>
           ))}
@@ -294,9 +294,9 @@ export default function MoviesPage() {
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-1">
           {movieList.map(movie => (
             <button key={movie.id} onClick={() => open(movie)}
-              className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+              className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary "
               aria-label={movie.title}>
-              <div className="relative w-full rounded-sm overflow-hidden border border-border/30 bg-muted shadow-sm" style={{ paddingBottom: "150%" }}>
+              <div className="relative w-full overflow-hidden border border-border/30 bg-muted shadow-sm" style={{ paddingBottom: "150%" }}>
                 <div className="absolute inset-0">
                   {posterUrl(movie, "w342") ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -325,7 +325,7 @@ export default function MoviesPage() {
         <div className="flex flex-wrap gap-1.5">
           {TV_FILTERS.map(f => (
             <button key={f} onClick={() => setTvFilter(f)}
-              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${tvFilter === f ? "border-foreground bg-foreground text-background" : (f !== "All" && GENRE_COLORS[f]) ? GENRE_COLORS[f] : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
+              className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 border transition-all ${tvFilter === f ? "border-foreground bg-foreground text-background" : (f !== "All" && GENRE_COLORS[f]) ? GENRE_COLORS[f] : "border-border text-muted-foreground hover:text-primary hover:border-primary/30"}`}>
               {f}
             </button>
           ))}
@@ -337,9 +337,9 @@ export default function MoviesPage() {
         <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-1">
           {tvList.map(show => (
             <button key={show.id} onClick={() => open(show)}
-              className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+              className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary "
               aria-label={show.title}>
-              <div className="relative w-full rounded-sm overflow-hidden border border-border/30 bg-muted shadow-sm" style={{ paddingBottom: "150%" }}>
+              <div className="relative w-full overflow-hidden border border-border/30 bg-muted shadow-sm" style={{ paddingBottom: "150%" }}>
                 <div className="absolute inset-0">
                   {posterUrl(show, "w342") ? (
                     // eslint-disable-next-line @next/next/no-img-element
@@ -382,7 +382,7 @@ export default function MoviesPage() {
               }}
             >
               {/* FRONT — full poster */}
-              <div className="card-face rounded-2xl overflow-hidden border border-border shadow-2xl bg-muted">
+              <div className="card-face overflow-hidden border border-border shadow-2xl bg-muted">
                 {posterUrl(active, "w500") ? (
                   // eslint-disable-next-line @next/next/no-img-element
                   <img
@@ -392,13 +392,13 @@ export default function MoviesPage() {
                   />
                 ) : (
                   <div className="w-full h-full bg-muted flex items-center justify-center">
-                    <div className="w-10 h-10 rounded-full bg-muted-foreground/20" />
+                    <div className="w-10 h-10 bg-muted-foreground/20" />
                   </div>
                 )}
               </div>
 
               {/* BACK — info */}
-              <div className="card-face card-back rounded-2xl overflow-hidden border border-border shadow-2xl bg-card flex flex-col p-6 md:p-7">
+              <div className="card-face card-back overflow-hidden border border-border shadow-2xl bg-card flex flex-col p-6 md:p-7">
                 <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em] mb-2">
                   {active.year} · {active.genre}
                 </p>
@@ -413,7 +413,7 @@ export default function MoviesPage() {
                 </p>
                 <div className="flex flex-wrap gap-1.5 mt-4 pt-4 border-t border-border/40">
                   {active.genres.map(g => (
-                    <span key={g} className={`font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 rounded-md border ${GENRE_COLORS[g] ?? "text-muted-foreground bg-muted border-border/50"}`}>
+                    <span key={g} className={`font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 border ${GENRE_COLORS[g] ?? "text-muted-foreground bg-muted border-border/50"}`}>
                       {g}
                     </span>
                   ))}
@@ -423,7 +423,7 @@ export default function MoviesPage() {
 
             {/* Close */}
             <button onClick={close}
-              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/30 flex items-center justify-center transition-all font-mono text-sm shadow-lg z-10">
+              className="absolute -top-3 -right-3 w-8 h-8 bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/30 flex items-center justify-center transition-all font-mono text-sm shadow-lg z-10">
               ✕
             </button>
           </div>

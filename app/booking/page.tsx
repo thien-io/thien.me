@@ -78,7 +78,7 @@ export default function BookingPage() {
             <ScrollReveal key={loc.href} delay={i * 100}>
               <Link
                 href={loc.href}
-                className="block group p-7 rounded-md border border-border bg-card transition-colors hover:border-primary/50"
+                className="block group p-7 border border-border bg-card transition-colors hover:border-primary/50"
               >
                 <p className="font-mono text-[9px] uppercase tracking-widest text-primary mb-3">
                   {loc.tag}
@@ -116,13 +116,13 @@ export default function BookingPage() {
             <ScrollReveal key={loc.href} delay={i * 100}>
               <Link
                 href={loc.href}
-                className="block group p-7 rounded-md border border-border/60 bg-card/50 transition-colors hover:border-primary/50"
+                className="block group p-7 border border-border/60 bg-card/50 transition-colors hover:border-primary/50"
               >
                 <div className="flex items-center justify-between mb-3">
                   <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60">
                     {loc.tag}
                   </p>
-                  <span className="font-mono text-[8px] uppercase tracking-widest text-amber-500/80 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+                  <span className="font-mono text-[8px] uppercase tracking-widest text-amber-500/80 bg-amber-500/10 px-2 py-0.5 border border-amber-500/20">
                     Off season
                   </span>
                 </div>

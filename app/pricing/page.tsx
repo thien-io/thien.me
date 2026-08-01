@@ -60,9 +60,9 @@ export default function PricingPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
           {tennisPricing.map((item, i) => (
             <ScrollReveal key={item.label} delay={i * 80}>
-              <div className="relative p-6 rounded-md border border-border bg-card transition-colors hover:border-primary/50 h-full flex flex-col">
+              <div className="relative p-6 border border-border bg-card transition-colors hover:border-primary/50 h-full flex flex-col">
                 {item.tag && (
-                  <span className="absolute top-4 right-4 font-mono text-[9px] uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20">
+                  <span className="absolute top-4 right-4 font-mono text-[9px] uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 border border-primary/20">
                     {item.tag}
                   </span>
                 )}

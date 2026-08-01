@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap");
+/* Fonts are loaded via next/font in app/layout.tsx (exposes the CSS vars below). */
 
 :root {
-  --font-heading: "Bebas Neue", "DM Sans", system-ui, sans-serif;
-  --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-mono: "DM Mono", monospace;
+  --font-heading: var(--font-bebas), "DM Sans", system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), monospace;
 
   --background: 0 0% 100%;
   --foreground: 240 6% 7%;
@@ -24,7 +24,7 @@
   --accent: 0 0% 96%;
   --accent-foreground: 240 6% 7%;
   --ring: 219 75% 48%;
-  --radius: 0.5rem;
+  --radius: 0;
 
   --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
 }
@@ -56,7 +56,7 @@ body {
 /* Scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 0; }
 
 /* Spotify EQ bars */
 .spotify-bar { animation: spotify-eq 1.2s ease-in-out infinite; }
@@ -160,7 +160,7 @@ body {
   font-size: 0.8125rem;
   background: hsl(var(--muted));
   padding: 0.15rem 0.4rem;
-  border-radius: 0.25rem;
+  border-radius: 0;
   color: hsl(var(--primary));
 }
 

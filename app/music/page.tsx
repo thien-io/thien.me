@@ -25,13 +25,13 @@ function PlaylistArt({ src, name }: { src: string; name: string }) {
   const [err, setErr] = useState(false);
   if (!src || err) {
     return (
-      <div className="w-14 h-14 rounded-xl shrink-0 bg-muted border border-border/50 flex items-center justify-center">
-        <div className="w-4 h-4 rounded-full bg-muted-foreground/20" />
+      <div className="w-14 h-14 shrink-0 bg-muted border border-border/50 flex items-center justify-center">
+        <div className="w-4 h-4 bg-muted-foreground/20" />
       </div>
     );
   }
   return (
-    <div className="w-14 h-14 rounded-xl shrink-0 overflow-hidden border border-border/30">
+    <div className="w-14 h-14 shrink-0 overflow-hidden border border-border/30">
       <Image src={src} alt={name} width={56} height={56}
         className="w-full h-full object-cover" onError={() => setErr(true)} unoptimized />
     </div>
@@ -119,7 +119,7 @@ export default function MusicPage() {
         {top100Loading ? (
           <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-1">
             {Array.from({ length: 100 }).map((_, i) => (
-              <div key={i} className="aspect-square rounded-sm bg-muted animate-pulse" />
+              <div key={i} className="aspect-square bg-muted animate-pulse" />
             ))}
           </div>
         ) : (
@@ -128,7 +128,7 @@ export default function MusicPage() {
               <button
                 key={track.rank}
                 onClick={() => setActiveTrack(track)}
-                className="group relative aspect-square rounded-sm overflow-hidden border border-border/30 bg-muted shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary tile-fade"
+                className="group relative aspect-square overflow-hidden border border-border/30 bg-muted shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary tile-fade"
                 style={{ animationDelay: `${i * 12}ms` }}
                 aria-label={`${track.title} by ${track.artist}`}
               >
@@ -143,7 +143,7 @@ export default function MusicPage() {
                   />
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-4 h-4 rounded-full bg-muted-foreground/20" />
+                    <div className="w-4 h-4 bg-muted-foreground/20" />
                   </div>
                 )}
                 <div className="absolute inset-0 bg-black/65 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center gap-0.5 px-1">
@@ -157,7 +157,7 @@ export default function MusicPage() {
 
         <ScrollReveal delay={200} className="mt-4">
           <p className="font-mono text-[10px] text-muted-foreground/40 flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 inline-block" />
+            <span className="w-1.5 h-1.5 bg-primary/50 inline-block" />
             All-time favorites · click any cover for details
           </p>
         </ScrollReveal>
@@ -175,7 +175,7 @@ export default function MusicPage() {
         {playlistsLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="p-4 rounded-md border border-border bg-card animate-pulse h-[88px]" />
+              <div key={i} className="p-4 border border-border bg-card animate-pulse h-[88px]" />
             ))}
           </div>
         ) : playlists.length === 0 ? (
@@ -188,7 +188,7 @@ export default function MusicPage() {
               <ScrollReveal key={pl.id} delay={i * 50}>
                 <a
                   href={pl.url} target="_blank" rel="noopener noreferrer"
-                  className="flex gap-4 p-4 rounded-md border border-border bg-card transition-colors hover:border-primary/50 group items-start"
+                  className="flex gap-4 p-4 border border-border bg-card transition-colors hover:border-primary/50 group items-start"
                 >
                   <PlaylistArt src={pl.image} name={pl.name} />
                   <div className="flex-1 min-w-0">
@@ -219,7 +219,7 @@ export default function MusicPage() {
         >
           <div className="relative w-full max-w-3xl" onClick={e => e.stopPropagation()}>
             <div
-              className="flex flex-col md:flex-row rounded-2xl overflow-hidden border border-border shadow-2xl bg-card"
+              className="flex flex-col md:flex-row overflow-hidden border border-border shadow-2xl bg-card"
               style={{ maxHeight: "88vh" }}
             >
               <div className="md:w-[280px] shrink-0 aspect-square md:aspect-auto relative bg-muted">
@@ -239,7 +239,7 @@ export default function MusicPage() {
                 <p className="font-mono text-xs text-muted-foreground mb-8">{activeTrack.album}</p>
                 <a
                   href={activeTrack.url} target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1DB954] text-black text-sm font-medium hover:bg-[#1ed760] transition-colors w-fit"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#1DB954] text-black text-sm font-medium hover:bg-[#1ed760] transition-colors w-fit"
                 >
                   <SpotifyLogo />
                   Listen on Spotify
@@ -248,7 +248,7 @@ export default function MusicPage() {
             </div>
             <button
               onClick={() => setActiveTrack(null)}
-              className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/30 flex items-center justify-center transition-all font-mono text-sm shadow-lg"
+              className="absolute -top-3 -right-3 w-8 h-8 bg-card border border-border text-muted-foreground hover:text-primary hover:border-primary/30 flex items-center justify-center transition-all font-mono text-sm shadow-lg"
             >
               ✕
             </button>

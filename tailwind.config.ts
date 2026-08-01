@@ -14,9 +14,9 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans:    ["DM Sans", "system-ui", "sans-serif"],
-        mono:    ["DM Mono", "monospace"],
-        heading: ["Bebas Neue", "DM Sans", "sans-serif"],
+        sans:    ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+        mono:    ["var(--font-dm-mono)", "monospace"],
+        heading: ["var(--font-bebas)", "var(--font-dm-sans)", "sans-serif"],
       },
       colors: {
         border:     "hsl(var(--border))",

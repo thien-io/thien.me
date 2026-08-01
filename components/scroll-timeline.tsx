@@ -136,13 +136,13 @@ export function ScrollTimeline() {
                 /* "Now" dot — pulsating ring */
                 <span data-dot className="block relative w-2.5 h-2.5">
                   {/* Pulse ring — always visible */}
-                  <span className="absolute inset-0 rounded-full bg-primary/30 animate-[nowPulse_2s_ease-in-out_infinite]" />
+                  <span className="absolute inset-0 bg-primary/30 animate-[nowPulse_2s_ease-in-out_infinite]" />
                   {/* Inner solid dot — fills when reached */}
-                  <span className="dot-inner absolute inset-[1px] rounded-full border border-primary bg-background transition-colors duration-300" />
+                  <span className="dot-inner absolute inset-[1px] border border-primary bg-background transition-colors duration-300" />
                 </span>
               ) : (
                 /* Normal dot */
-                <span data-dot className="dot-wrap block w-2 h-2 rounded-full border border-primary bg-background transition-colors duration-300" />
+                <span data-dot className="dot-wrap block w-2 h-2 border border-primary bg-background transition-colors duration-300" />
               )}
             </div>
 

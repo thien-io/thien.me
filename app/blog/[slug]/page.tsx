@@ -90,7 +90,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           {post.tags.map(tag => (
             <span
               key={tag}
-              className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground bg-muted px-2 py-0.5 rounded-sm"
+              className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground bg-muted px-2 py-0.5 "
             >
               {tag}
             </span>

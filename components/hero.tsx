@@ -138,7 +138,7 @@ export function Hero() {
         <div className="flex items-center gap-5 hero-item pointer-events-auto select-auto"
              style={{ animationDelay: "540ms" }}>
           <Link href="/booking"
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+            className="inline-flex items-center gap-2 bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
             Book a session
           </Link>
         </div>

@@ -1,8 +1,17 @@
 import type { Metadata } from "next";
+import { Bebas_Neue, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
 import { TabBar } from "@/components/tab-bar";
 import { Footer } from "@/components/footer";
+
+const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-bebas" });
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-dm-sans",
+});
+const dmMono = DM_Mono({ subsets: ["latin"], weight: ["300", "400", "500"], variable: "--font-dm-mono" });
 
 export const metadata: Metadata = {
   title: {
@@ -31,7 +40,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${bebas.variable} ${dmSans.variable} ${dmMono.variable}`}>
       <head>
         <style>{`
           @keyframes scrollHint {

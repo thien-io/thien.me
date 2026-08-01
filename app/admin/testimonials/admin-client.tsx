@@ -73,13 +73,13 @@ export function AdminTestimonialsClient() {
             value={secret}
             onChange={(e) => setSecret(e.target.value)}
             placeholder="Admin secret"
-            className="w-full px-4 py-2.5 rounded-md border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary transition-colors"
+            className="w-full px-4 py-2.5 border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary transition-colors"
           />
           {error && <p className="text-sm text-red-600">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
+            className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
           >
             {loading ? "Checking…" : "Enter"}
           </button>
@@ -94,7 +94,7 @@ export function AdminTestimonialsClient() {
       {error && <p className="text-sm text-red-600 mb-4">{error}</p>}
       <div className="space-y-3 max-w-2xl">
         {testimonials.map((t) => (
-          <div key={t.id} className="p-4 rounded-md border border-border bg-card transition-colors hover:border-primary/50 flex items-start justify-between gap-4">
+          <div key={t.id} className="p-4 border border-border bg-card transition-colors hover:border-primary/50 flex items-start justify-between gap-4">
             <div>
               <p className="text-sm text-foreground mb-1">{t.quote}</p>
               <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
@@ -104,13 +104,13 @@ export function AdminTestimonialsClient() {
             <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => toggleHidden(t.id, !t.hidden)}
-                className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
+                className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1.5 border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
               >
                 {t.hidden ? "Unhide" : "Hide"}
               </button>
               <button
                 onClick={() => remove(t.id)}
-                className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-full border border-border text-muted-foreground hover:text-red-600 hover:border-red-600/30 transition-colors"
+                className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1.5 border border-border text-muted-foreground hover:text-red-600 hover:border-red-600/30 transition-colors"
               >
                 Delete
               </button>

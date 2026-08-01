@@ -301,7 +301,7 @@ export default function MoviesPage() {
                   {posterUrl(movie, "w342") ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={posterUrl(movie, "w342")} alt={movie.title}
-                      className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.02]" loading="lazy" />
+                      className="w-full h-full object-cover transition-transform duration-500 ease-apple group-hover:scale-[1.02]" loading="lazy" />
                   ) : (
                     <div className="w-full h-full bg-muted animate-pulse" />
                   )}
@@ -344,7 +344,7 @@ export default function MoviesPage() {
                   {posterUrl(show, "w342") ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={posterUrl(show, "w342")} alt={show.title}
-                      className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.02]" loading="lazy" />
+                      className="w-full h-full object-cover transition-transform duration-500 ease-apple group-hover:scale-[1.02]" loading="lazy" />
                   ) : (
                     <div className="w-full h-full bg-muted animate-pulse" />
                   )}

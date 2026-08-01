@@ -137,7 +137,7 @@ export default function MusicPage() {
                     src={track.albumArtSmall}
                     alt={track.album}
                     fill
-                    className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.02]"
+                    className="object-cover transition-transform duration-500 ease-apple group-hover:scale-[1.02]"
                     sizes="(max-width: 640px) 33vw, (max-width: 768px) 20vw, (max-width: 1024px) 12vw, 10vw"
                     unoptimized
                   />

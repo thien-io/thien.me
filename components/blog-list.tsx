@@ -36,7 +36,7 @@ export function BlogList({ posts, tags }: { posts: PostMeta[]; tags: string[] })
           <button
             key={tag}
             onClick={() => setActive(tag)}
-            className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border transition-all ${
+            className={`font-mono text-[9px] uppercase tracking-wider px-2.5 py-1.5 rounded-full border transition-colors ${
               active === tag
                 ? "border-foreground bg-foreground text-background"
                 : (tag !== "All" && TAG_COLORS[tag])
@@ -56,7 +56,7 @@ export function BlogList({ posts, tags }: { posts: PostMeta[]; tags: string[] })
             <ScrollReveal key={post.slug} delay={i * 30}>
               <Link
                 href={`/blog/${post.slug}`}
-                className="block group py-5 border-b border-border/40 hover:bg-primary/10 -mx-3 px-3 rounded-xl transition-colors"
+                className="block group py-5 border-b border-border/40 hover:bg-primary/10 -mx-3 px-3 rounded-md transition-colors"
               >
                 <div className="flex items-start justify-between gap-4 mb-1.5">
                   <h2 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors leading-snug">

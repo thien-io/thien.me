@@ -97,7 +97,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
           ))}
         </div>
 
-        <h1 className="font-display text-4xl md:text-5xl font-light leading-tight mb-4 text-foreground">
+        <h1 className="font-heading uppercase text-4xl md:text-5xl leading-[0.9] tracking-[0.01em] mb-4 text-foreground">
           {post.title}
         </h1>
         <p className="font-mono text-[11px] text-muted-foreground tracking-wide">

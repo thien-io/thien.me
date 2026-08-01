@@ -66,20 +66,20 @@ export function AdminTestimonialsClient() {
   if (!authed) {
     return (
       <div className="px-8 md:px-16 py-16 max-w-sm">
-        <h1 className="font-display text-3xl font-light mb-6">Admin</h1>
+        <h1 className="font-heading uppercase text-3xl md:text-4xl leading-[0.9] tracking-[0.01em] mb-6">Admin</h1>
         <form onSubmit={handleLogin} className="space-y-4">
           <input
             type="password"
             value={secret}
             onChange={(e) => setSecret(e.target.value)}
             placeholder="Admin secret"
-            className="w-full px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary/40 transition-all"
+            className="w-full px-4 py-2.5 rounded-md border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary transition-colors"
           />
           {error && <p className="text-sm text-red-600">{error}</p>}
           <button
             type="submit"
             disabled={loading}
-            className="px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-all disabled:opacity-50"
+            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50"
           >
             {loading ? "Checking…" : "Enter"}
           </button>
@@ -90,11 +90,11 @@ export function AdminTestimonialsClient() {
 
   return (
     <div className="px-8 md:px-16 py-16">
-      <h1 className="font-display text-3xl font-light mb-8">Testimonials ({testimonials.length})</h1>
+      <h1 className="font-heading uppercase text-3xl md:text-4xl leading-[0.9] tracking-[0.01em] mb-8">Testimonials ({testimonials.length})</h1>
       {error && <p className="text-sm text-red-600 mb-4">{error}</p>}
       <div className="space-y-3 max-w-2xl">
         {testimonials.map((t) => (
-          <div key={t.id} className="p-4 border border-border rounded-xl bg-card flex items-start justify-between gap-4">
+          <div key={t.id} className="p-4 rounded-md border border-border bg-card transition-colors hover:border-primary/50 flex items-start justify-between gap-4">
             <div>
               <p className="text-sm text-foreground mb-1">{t.quote}</p>
               <p className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
@@ -104,13 +104,13 @@ export function AdminTestimonialsClient() {
             <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={() => toggleHidden(t.id, !t.hidden)}
-                className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-all"
+                className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-full border border-border text-muted-foreground hover:text-primary hover:border-primary/30 transition-colors"
               >
                 {t.hidden ? "Unhide" : "Hide"}
               </button>
               <button
                 onClick={() => remove(t.id)}
-                className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-lg border border-border text-muted-foreground hover:text-red-600 hover:border-red-600/30 transition-all"
+                className="font-mono text-[10px] uppercase tracking-wider px-2.5 py-1.5 rounded-full border border-border text-muted-foreground hover:text-red-600 hover:border-red-600/30 transition-colors"
               >
                 Delete
               </button>

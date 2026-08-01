@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Bebas_Neue, DM_Sans, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteNav } from "@/components/site-nav";
-import { TabBar } from "@/components/tab-bar";
 import { Footer } from "@/components/footer";
 
 const bebas = Bebas_Neue({ subsets: ["latin"], weight: "400", variable: "--font-bebas" });
@@ -61,7 +60,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteNav />
         <main className="min-h-screen">{children}</main>
         <Footer />
-        <TabBar />
       </body>
     </html>
   );

@@ -15,7 +15,7 @@
   --card-foreground: 240 6% 7%;
   --border: 0 0% 90%;
   --input: 0 0% 90%;
-  --primary: 219 75% 48%;
+  --primary: 145 55% 32%;
   --primary-foreground: 0 0% 100%;
   --secondary: 0 0% 96%;
   --secondary-foreground: 240 6% 7%;
@@ -23,7 +23,7 @@
   --muted-foreground: 0 0% 42%;
   --accent: 0 0% 96%;
   --accent-foreground: 240 6% 7%;
-  --ring: 219 75% 48%;
+  --ring: 145 55% 32%;
   --radius: 0;
 
   --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
@@ -39,6 +39,28 @@ html { scroll-behavior: smooth; font-size: 17px; }
   max-width: 64rem; /* 1024px — matches max-w-4xl */
   margin-left: auto;
   margin-right: auto;
+}
+
+/* Center all page content on desktop; keep form fields left-aligned */
+@media (min-width: 768px) {
+  main {
+    text-align: center;
+  }
+  main .max-w-sm,
+  main .max-w-md,
+  main .max-w-lg,
+  main .max-w-xl,
+  main .max-w-2xl,
+  main .max-w-3xl {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  main input,
+  main textarea,
+  main select,
+  main .prose-thien {
+    text-align: left;
+  }
 }
 
 body {
@@ -174,9 +196,4 @@ body {
 }
 .marquee-running {
   animation: marqueeScroll 3.5s ease-in-out infinite alternate;
-}
-
-/* Clear the fixed mobile tab bar */
-@media (max-width: 767px) {
-  body { padding-bottom: 76px; }
 }

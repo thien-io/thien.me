@@ -58,7 +58,7 @@ export default async function Home() {
             <p className='text-muted-foreground max-w-sm leading-relaxed mb-8'>
               Have a question, want to book a lesson, or just want to say hi.
             </p>
-            <div className='flex flex-row gap-3'>
+            <div className='flex flex-row gap-3 md:justify-center'>
               <Link
                 href='/booking'
                 className='inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90'

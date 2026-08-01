@@ -45,26 +45,18 @@ export function MobileMenu() {
             Menu
           </Dialog.Title>
 
-          <nav aria-label="Mobile" className="mt-6 flex flex-col">
+          <nav aria-label="Mobile" className="mt-6 flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="border-b border-border py-3.5 text-[15px] font-bold uppercase tracking-[0.02em] transition-colors hover:text-primary"
+                className="py-3 text-[15px] font-bold uppercase tracking-[0.02em] transition-colors hover:text-primary"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
-
-          <Link
-            href="/booking"
-            onClick={() => setOpen(false)}
-            className="mt-auto bg-primary px-5 py-3 text-center text-[12px] font-bold uppercase tracking-[0.06em] text-primary-foreground transition-colors hover:bg-primary/90"
-          >
-            Book a session
-          </Link>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>

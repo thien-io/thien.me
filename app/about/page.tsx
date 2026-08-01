@@ -18,7 +18,7 @@ export default function AboutPage() {
           className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden"
         >
           <span
-            className="font-display text-[22vw] font-light leading-none whitespace-nowrap opacity-[0.03]"
+            className="font-heading text-[22vw] uppercase leading-[0.9] tracking-[0.01em] whitespace-nowrap opacity-[0.03]"
           >
             story
           </span>
@@ -33,9 +33,9 @@ export default function AboutPage() {
             </p>
           </ScrollReveal>
           <ScrollReveal delay={80}>
-            <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-10">
+            <h1 className="font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-10">
               The story<br />
-              <em className="text-primary">so far.</em>
+              <em className="text-primary not-italic">so far.</em>
             </h1>
           </ScrollReveal>
           <ScrollReveal delay={160}>

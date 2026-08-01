@@ -27,9 +27,9 @@ export default function PricingPage() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={80}>
-          <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-4">
+          <h1 className="font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-4">
             Simple<br />
-            <em className="text-primary">rates.</em>
+            <em className="text-primary not-italic">rates.</em>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={160}>
@@ -60,7 +60,7 @@ export default function PricingPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl">
           {tennisPricing.map((item, i) => (
             <ScrollReveal key={item.label} delay={i * 80}>
-              <div className="relative p-6 rounded-xl border border-border bg-card h-full flex flex-col">
+              <div className="relative p-6 rounded-md border border-border bg-card transition-colors hover:border-primary/50 h-full flex flex-col">
                 {item.tag && (
                   <span className="absolute top-4 right-4 font-mono text-[9px] uppercase tracking-widest text-primary bg-primary/10 px-2 py-0.5 rounded-full border border-primary/20">
                     {item.tag}
@@ -71,7 +71,7 @@ export default function PricingPage() {
                     <p className="font-medium text-foreground">{item.label}</p>
                     <p className="font-mono text-[10px] text-muted-foreground mt-0.5">{item.duration}</p>
                   </div>
-                  <p className="font-display text-2xl font-light text-primary">{item.price}</p>
+                  <p className="font-heading text-2xl text-primary">{item.price}</p>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed flex-1">{item.desc}</p>
               </div>

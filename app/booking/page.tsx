@@ -53,9 +53,9 @@ export default function BookingPage() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={80}>
-          <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-4">
+          <h1 className="font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-4">
             Book a<br />
-            <em className="text-primary">session.</em>
+            <em className="text-primary not-italic">session.</em>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={160}>
@@ -78,12 +78,12 @@ export default function BookingPage() {
             <ScrollReveal key={loc.href} delay={i * 100}>
               <Link
                 href={loc.href}
-                className="block group p-7 rounded-2xl border border-border bg-card hover:border-primary/30 hover:bg-primary/10 transition-all"
+                className="block group p-7 rounded-md border border-border bg-card transition-colors hover:border-primary/50"
               >
                 <p className="font-mono text-[9px] uppercase tracking-widest text-primary mb-3">
                   {loc.tag}
                 </p>
-                <h2 className="font-display text-2xl font-light text-foreground group-hover:text-primary transition-colors mb-1">
+                <h2 className="font-heading uppercase text-2xl leading-[0.9] tracking-[0.01em] text-foreground group-hover:text-primary transition-colors mb-1">
                   {loc.name}
                 </h2>
                 <p className="font-mono text-[10px] text-muted-foreground/60 tracking-wide mb-4">
@@ -116,7 +116,7 @@ export default function BookingPage() {
             <ScrollReveal key={loc.href} delay={i * 100}>
               <Link
                 href={loc.href}
-                className="block group p-7 rounded-2xl border border-border/60 bg-card/50 hover:border-border hover:bg-card transition-all"
+                className="block group p-7 rounded-md border border-border/60 bg-card/50 transition-colors hover:border-primary/50"
               >
                 <div className="flex items-center justify-between mb-3">
                   <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60">
@@ -126,7 +126,7 @@ export default function BookingPage() {
                     Off season
                   </span>
                 </div>
-                <h2 className="font-display text-2xl font-light text-muted-foreground group-hover:text-foreground transition-colors mb-1">
+                <h2 className="font-heading uppercase text-2xl leading-[0.9] tracking-[0.01em] text-muted-foreground group-hover:text-foreground transition-colors mb-1">
                   {loc.name}
                 </h2>
                 <p className="font-mono text-[10px] text-muted-foreground/40 tracking-wide mb-4">

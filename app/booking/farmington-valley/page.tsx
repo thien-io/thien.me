@@ -28,10 +28,10 @@ export default function BookingFarmingtonPage() {
               Off season
             </span>
           </div>
-          <h1 className='font-display text-5xl md:text-6xl font-light leading-tight mb-4'>
+          <h1 className='font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-4'>
             Farmington Valley
             <br />
-            <em className='text-muted-foreground'>Racquet Club.</em>
+            <em className='text-muted-foreground not-italic'>Racquet Club.</em>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={160}>
@@ -48,7 +48,7 @@ export default function BookingFarmingtonPage() {
       <section className='px-8 md:px-16 py-12 md:py-16 max-w-xl'>
         <ScrollReveal>
           {/* Off-season notice card */}
-          <div className='rounded-2xl border border-amber-500/20 bg-amber-500/5 p-7 mb-8'>
+          <div className='rounded-md border border-amber-500/20 bg-amber-500/5 p-7 mb-8'>
             <div className='flex items-start gap-4'>
               <div className='shrink-0 w-9 h-9 rounded-full bg-amber-500/15 flex items-center justify-center mt-0.5'>
                 <svg
@@ -118,7 +118,7 @@ export default function BookingFarmingtonPage() {
             <div className='flex flex-col gap-3'>
               <Link
                 href='/booking/twin'
-                className='flex items-center justify-between p-4 rounded-xl border border-border bg-card hover:border-primary/30 hover:bg-primary/10 transition-all group'
+                className='flex items-center justify-between p-4 rounded-md border border-border bg-card transition-colors hover:border-primary/50 group'
               >
                 <div>
                   <p className='text-sm font-medium text-foreground group-hover:text-primary transition-colors'>
@@ -134,7 +134,7 @@ export default function BookingFarmingtonPage() {
               </Link>
               <Link
                 href='/booking/lakeridge'
-                className='flex items-center justify-between p-4 rounded-xl border border-border bg-card hover:border-primary/30 hover:bg-primary/10 transition-all group'
+                className='flex items-center justify-between p-4 rounded-md border border-border bg-card transition-colors hover:border-primary/50 group'
               >
                 <div>
                   <p className='text-sm font-medium text-foreground group-hover:text-primary transition-colors'>

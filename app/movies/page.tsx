@@ -251,12 +251,12 @@ export default function MoviesPage() {
       {/* ── Hero ────────────────────────────────────────────────────────────── */}
       <section className="relative px-8 md:px-16 pt-28 pb-10 md:pt-32 md:pb-20 overflow-hidden">
         <div className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden">
-          <span className="font-display text-[22vw] font-light leading-none whitespace-nowrap opacity-[0.03]">watch</span>
+          <span className="font-heading text-[22vw] uppercase leading-[0.9] tracking-[0.01em] whitespace-nowrap opacity-[0.03]">watch</span>
         </div>
         <div className="relative z-10">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">Movies & TV</p>
-          <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">
-            Films I&apos;ve<br /><em className="text-primary">loved.</em>
+          <h1 className="font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-6">
+            Films I&apos;ve<br /><em className="text-primary not-italic">loved.</em>
           </h1>
           <p className="text-muted-foreground max-w-sm leading-relaxed">
             Films and shows I keep coming back to.
@@ -291,17 +291,17 @@ export default function MoviesPage() {
 
       {/* ── Movie grid ──────────────────────────────────────────────────────── */}
       <div className="px-8 md:px-16 py-8">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3 md:gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-1">
           {movieList.map(movie => (
             <button key={movie.id} onClick={() => open(movie)}
-              className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+              className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
               aria-label={movie.title}>
-              <div className="relative w-full rounded-lg overflow-hidden border border-border/30 bg-muted shadow-sm" style={{ paddingBottom: "150%" }}>
+              <div className="relative w-full rounded-sm overflow-hidden border border-border/30 bg-muted shadow-sm" style={{ paddingBottom: "150%" }}>
                 <div className="absolute inset-0">
                   {posterUrl(movie, "w342") ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={posterUrl(movie, "w342")} alt={movie.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy" />
+                      className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.02]" loading="lazy" />
                   ) : (
                     <div className="w-full h-full bg-muted animate-pulse" />
                   )}
@@ -334,17 +334,17 @@ export default function MoviesPage() {
       </div>
 
       <div className="px-8 md:px-16 py-8 pb-20">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-3 md:gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-7 gap-1">
           {tvList.map(show => (
             <button key={show.id} onClick={() => open(show)}
-              className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-lg"
+              className="group text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
               aria-label={show.title}>
-              <div className="relative w-full rounded-lg overflow-hidden border border-border/30 bg-muted shadow-sm" style={{ paddingBottom: "150%" }}>
+              <div className="relative w-full rounded-sm overflow-hidden border border-border/30 bg-muted shadow-sm" style={{ paddingBottom: "150%" }}>
                 <div className="absolute inset-0">
                   {posterUrl(show, "w342") ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={posterUrl(show, "w342")} alt={show.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]" loading="lazy" />
+                      className="w-full h-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.02]" loading="lazy" />
                   ) : (
                     <div className="w-full h-full bg-muted animate-pulse" />
                   )}
@@ -402,7 +402,7 @@ export default function MoviesPage() {
                 <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em] mb-2">
                   {active.year} · {active.genre}
                 </p>
-                <h2 className="font-display text-2xl md:text-3xl font-light text-foreground mb-2 leading-tight">
+                <h2 className="font-heading uppercase text-2xl md:text-3xl leading-[0.9] tracking-[0.01em] text-foreground mb-2">
                   {active.title}
                 </h2>
                 <p className="font-mono text-sm text-primary mb-4">

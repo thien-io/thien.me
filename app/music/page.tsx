@@ -78,15 +78,15 @@ export default function MusicPage() {
           speed={0.12}
           className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden"
         >
-          <span className="font-display text-[22vw] font-light leading-none whitespace-nowrap opacity-[0.03]">
+          <span className="font-heading text-[22vw] uppercase leading-[0.9] tracking-[0.01em] whitespace-nowrap opacity-[0.03]">
             listen
           </span>
         </ParallaxSection>
         <div className="relative z-10">
           <ScrollReveal>
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">Music</p>
-            <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">
-              What I&apos;m<br /><em className="text-primary">listening to.</em>
+            <h1 className="font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-6">
+              What I&apos;m<br /><em className="text-primary not-italic">listening to.</em>
             </h1>
             <p className="text-muted-foreground max-w-sm leading-relaxed">
               All-time favorites and the playlists I actually use.
@@ -113,22 +113,22 @@ export default function MusicPage() {
       <section className="px-8 md:px-16 py-8 md:py-16">
         <ScrollReveal className="mb-8">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">All-time</p>
-          <h2 className="font-display text-3xl font-light">Top 100 tracks</h2>
+          <h2 className="font-heading uppercase text-3xl md:text-4xl leading-[0.9] tracking-[0.01em]">Top 100 tracks</h2>
         </ScrollReveal>
 
         {top100Loading ? (
-          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-2 md:gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-1">
             {Array.from({ length: 100 }).map((_, i) => (
-              <div key={i} className="aspect-square rounded-xl bg-muted animate-pulse" />
+              <div key={i} className="aspect-square rounded-sm bg-muted animate-pulse" />
             ))}
           </div>
         ) : (
-          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-2 md:gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-5 md:grid-cols-8 lg:grid-cols-10 gap-1">
             {top100.map((track, i) => (
               <button
                 key={track.rank}
                 onClick={() => setActiveTrack(track)}
-                className="group relative aspect-square rounded-xl overflow-hidden border border-border/30 bg-muted shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary tile-fade"
+                className="group relative aspect-square rounded-sm overflow-hidden border border-border/30 bg-muted shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-primary tile-fade"
                 style={{ animationDelay: `${i * 12}ms` }}
                 aria-label={`${track.title} by ${track.artist}`}
               >
@@ -137,7 +137,7 @@ export default function MusicPage() {
                     src={track.albumArtSmall}
                     alt={track.album}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+                    className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-[1.02]"
                     sizes="(max-width: 640px) 33vw, (max-width: 768px) 20vw, (max-width: 1024px) 12vw, 10vw"
                     unoptimized
                   />
@@ -169,13 +169,13 @@ export default function MusicPage() {
       <section className="px-8 md:px-16 py-16">
         <ScrollReveal className="mb-8">
           <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-3">Playlists</p>
-          <h2 className="font-display text-3xl font-light">My playlists</h2>
+          <h2 className="font-heading uppercase text-3xl md:text-4xl leading-[0.9] tracking-[0.01em]">My playlists</h2>
         </ScrollReveal>
 
         {playlistsLoading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl">
             {Array.from({ length: 6 }).map((_, i) => (
-              <div key={i} className="p-4 rounded-2xl border border-border bg-card animate-pulse h-[88px]" />
+              <div key={i} className="p-4 rounded-md border border-border bg-card animate-pulse h-[88px]" />
             ))}
           </div>
         ) : playlists.length === 0 ? (
@@ -188,7 +188,7 @@ export default function MusicPage() {
               <ScrollReveal key={pl.id} delay={i * 50}>
                 <a
                   href={pl.url} target="_blank" rel="noopener noreferrer"
-                  className="flex gap-4 p-4 rounded-2xl border border-border bg-card hover:border-primary/40 hover:bg-primary/10 transition-all group items-start"
+                  className="flex gap-4 p-4 rounded-md border border-border bg-card transition-colors hover:border-primary/50 group items-start"
                 >
                   <PlaylistArt src={pl.image} name={pl.name} />
                   <div className="flex-1 min-w-0">
@@ -232,7 +232,7 @@ export default function MusicPage() {
                 <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-[0.2em] mb-3">
                   #{activeTrack.rank} · {activeTrack.duration}
                 </p>
-                <h2 className="font-display text-3xl md:text-4xl font-light text-foreground mb-2 leading-tight">
+                <h2 className="font-heading uppercase text-3xl md:text-4xl leading-[0.9] tracking-[0.01em] text-foreground mb-2">
                   {activeTrack.title}
                 </h2>
                 <p className="font-mono text-sm text-primary mb-1">{activeTrack.artist}</p>

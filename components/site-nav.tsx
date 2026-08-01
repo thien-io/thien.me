@@ -16,7 +16,7 @@ export function SiteNav() {
       {/* Desktop */}
       <div className="mx-auto hidden h-16 max-w-5xl items-center justify-between px-8 md:flex md:px-16">
         <Link href="/" className="flex items-center">
-          <span className="font-heading text-2xl leading-none tracking-[0.02em]">THIEN</span>
+          <span className="font-heading text-2xl leading-none tracking-[0.02em]">THIEN<span className="text-primary">.ME</span></span>
         </Link>
         <nav aria-label="Primary" className="flex items-center gap-7">
           {NAV_ITEMS.map((item) => (
@@ -38,7 +38,7 @@ export function SiteNav() {
       {/* Mobile top bar */}
       <div className="flex h-14 items-center justify-between px-5 md:hidden">
         <Link href="/" className="flex items-center">
-          <span className="font-heading text-xl leading-none tracking-[0.02em]">THIEN</span>
+          <span className="font-heading text-xl leading-none tracking-[0.02em]">THIEN<span className="text-primary">.ME</span></span>
         </Link>
         <MobileMenu />
       </div>

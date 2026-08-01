@@ -78,7 +78,7 @@ export default function BookingPage() {
             <ScrollReveal key={loc.href} delay={i * 100}>
               <Link
                 href={loc.href}
-                className="block group p-7 border border-border bg-card transition-colors hover:border-primary/50"
+                className="block group p-7 border border-primary/30 bg-primary/5 transition-colors hover:border-primary/60 hover:bg-primary/10"
               >
                 <p className="font-mono text-[9px] uppercase tracking-widest text-primary mb-3">
                   {loc.tag}

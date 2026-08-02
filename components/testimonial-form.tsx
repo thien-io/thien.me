@@ -67,7 +67,7 @@ export function TestimonialForm() {
           maxLength={80}
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full px-4 py-2.5 border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary transition-colors"
+          className="w-full px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary/40 transition-all"
         />
       </div>
 
@@ -81,7 +81,7 @@ export function TestimonialForm() {
           maxLength={120}
           value={context}
           onChange={(e) => setContext(e.target.value)}
-          className="w-full px-4 py-2.5 border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary transition-colors"
+          className="w-full px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary/40 transition-all"
         />
       </div>
 
@@ -96,7 +96,7 @@ export function TestimonialForm() {
           rows={4}
           value={quote}
           onChange={(e) => setQuote(e.target.value)}
-          className="w-full px-4 py-2.5 border border-border bg-card text-sm text-foreground leading-relaxed focus:outline-none focus:border-primary transition-colors resize-none"
+          className="w-full px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground leading-relaxed focus:outline-none focus:border-primary/40 transition-all resize-none"
         />
       </div>
 
@@ -106,7 +106,7 @@ export function TestimonialForm() {
       <button
         type="submit"
         disabled={status === "pending"}
-        className="inline-flex items-center gap-2 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status === "pending" ? "Submitting…" : "Submit testimonial"}
       </button>

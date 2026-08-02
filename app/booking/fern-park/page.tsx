@@ -24,14 +24,14 @@ export default function BookingFernParkPage() {
             <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60">
               Connecticut
             </p>
-            <span className="font-mono text-[8px] uppercase tracking-widest text-amber-500/80 bg-amber-500/10 px-2 py-0.5 border border-amber-500/20">
+            <span className="font-mono text-[8px] uppercase tracking-widest text-amber-500/80 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
               Off season
             </span>
           </div>
-          <h1 className="font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-4">
+          <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-4">
             Fern Park
             <br />
-            <em className="text-muted-foreground not-italic">Tennis Association.</em>
+            <em className="text-muted-foreground">Tennis Association.</em>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={160}>
@@ -48,9 +48,9 @@ export default function BookingFernParkPage() {
       <section className="px-8 md:px-16 py-12 md:py-16 max-w-xl">
         <ScrollReveal>
           {/* Off-season notice card */}
-          <div className="border border-amber-500/20 bg-amber-500/5 p-7 mb-8">
+          <div className="rounded-2xl border border-amber-500/20 bg-amber-500/5 p-7 mb-8">
             <div className="flex items-start gap-4">
-              <div className="shrink-0 w-9 h-9 bg-amber-500/15 flex items-center justify-center mt-0.5">
+              <div className="shrink-0 w-9 h-9 rounded-full bg-amber-500/15 flex items-center justify-center mt-0.5">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="w-4 h-4 text-amber-500">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m6-2a10 10 0 1 1-20 0 10 10 0 0 1 20 0z" />
                 </svg>
@@ -107,7 +107,7 @@ export default function BookingFernParkPage() {
             <div className="flex flex-col gap-3">
               <Link
                 href="/booking/twin"
-                className="flex items-center justify-between p-4 border border-border bg-card transition-colors hover:border-primary/50 group"
+                className="flex items-center justify-between p-4 rounded-xl border border-border bg-card hover:border-primary/30 hover:bg-primary/10 transition-all group"
               >
                 <div>
                   <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Twin Lakes Beach Club</p>
@@ -117,7 +117,7 @@ export default function BookingFernParkPage() {
               </Link>
               <Link
                 href="/booking/lakeridge"
-                className="flex items-center justify-between p-4 border border-border bg-card transition-colors hover:border-primary/50 group"
+                className="flex items-center justify-between p-4 rounded-xl border border-border bg-card hover:border-primary/30 hover:bg-primary/10 transition-all group"
               >
                 <div>
                   <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">Lakeridge</p>

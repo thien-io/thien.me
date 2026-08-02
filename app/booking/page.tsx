@@ -53,9 +53,9 @@ export default function BookingPage() {
           </p>
         </ScrollReveal>
         <ScrollReveal delay={80}>
-          <h1 className="font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-4">
+          <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-4">
             Book a<br />
-            <em className="text-primary not-italic">session.</em>
+            <em className="text-primary">session.</em>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={160}>
@@ -78,12 +78,12 @@ export default function BookingPage() {
             <ScrollReveal key={loc.href} delay={i * 100}>
               <Link
                 href={loc.href}
-                className="block group p-7 border border-primary/30 bg-primary/5 transition-colors hover:border-primary/60 hover:bg-primary/10"
+                className="block group p-7 rounded-2xl border border-border bg-card hover:border-primary/30 hover:bg-primary/10 transition-all"
               >
                 <p className="font-mono text-[9px] uppercase tracking-widest text-primary mb-3">
                   {loc.tag}
                 </p>
-                <h2 className="font-heading uppercase text-2xl leading-[0.9] tracking-[0.01em] text-foreground group-hover:text-primary transition-colors mb-1">
+                <h2 className="font-display text-2xl font-light text-foreground group-hover:text-primary transition-colors mb-1">
                   {loc.name}
                 </h2>
                 <p className="font-mono text-[10px] text-muted-foreground/60 tracking-wide mb-4">
@@ -116,17 +116,17 @@ export default function BookingPage() {
             <ScrollReveal key={loc.href} delay={i * 100}>
               <Link
                 href={loc.href}
-                className="block group p-7 border border-border/60 bg-card/50 transition-colors hover:border-primary/50"
+                className="block group p-7 rounded-2xl border border-border/60 bg-card/50 hover:border-border hover:bg-card transition-all"
               >
                 <div className="flex items-center justify-between mb-3">
                   <p className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground/60">
                     {loc.tag}
                   </p>
-                  <span className="font-mono text-[8px] uppercase tracking-widest text-amber-500/80 bg-amber-500/10 px-2 py-0.5 border border-amber-500/20">
+                  <span className="font-mono text-[8px] uppercase tracking-widest text-amber-500/80 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
                     Off season
                   </span>
                 </div>
-                <h2 className="font-heading uppercase text-2xl leading-[0.9] tracking-[0.01em] text-muted-foreground group-hover:text-foreground transition-colors mb-1">
+                <h2 className="font-display text-2xl font-light text-muted-foreground group-hover:text-foreground transition-colors mb-1">
                   {loc.name}
                 </h2>
                 <p className="font-mono text-[10px] text-muted-foreground/40 tracking-wide mb-4">

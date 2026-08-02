@@ -22,7 +22,7 @@ export default function BlogPage() {
           className="absolute inset-0 flex items-start justify-end pointer-events-none select-none pr-6 md:pr-12 pt-12 overflow-hidden"
         >
           <span
-            className="font-heading uppercase text-[22vw] leading-none whitespace-nowrap opacity-[0.03]"
+            className="font-display text-[22vw] font-light leading-none whitespace-nowrap opacity-[0.03]"
           >
             write
           </span>
@@ -31,8 +31,8 @@ export default function BlogPage() {
         <div className="relative z-10">
           <ScrollReveal>
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">Blog</p>
-            <h1 className="font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-6">
-              Writing on<br /><em className="text-primary not-italic">tennis & life.</em>
+            <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">
+              Writing on<br /><em className="text-primary">tennis & life.</em>
             </h1>
             <p className="text-muted-foreground max-w-sm leading-relaxed">
               Things I've been thinking about — on the court and off it. Pull up a chair.

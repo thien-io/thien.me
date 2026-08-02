@@ -121,11 +121,11 @@ export function Hero() {
            style={{ animationDelay: "0ms" }}>
           Tennis Coach · Connecticut
         </p>
-        <h1 className="font-heading uppercase leading-[0.9] mb-10">
-          <span className="block text-[clamp(3.5rem,10vw,9rem)] text-foreground hero-item"
-                style={{ animationDelay: "130ms" }}>Thien</span>
-          <span className="block text-[clamp(3.5rem,10vw,9rem)] text-primary hero-item"
-                style={{ animationDelay: "260ms" }}>Tran</span>
+        <h1 className="font-display font-light leading-[0.9] mb-10">
+          <span className="block text-[clamp(2.8rem,7vw,7rem)] text-foreground hero-item"
+                style={{ animationDelay: "130ms" }}>Hey, I&apos;m</span>
+          <span className="block text-[clamp(2.8rem,7vw,7rem)] italic text-primary hero-item"
+                style={{ animationDelay: "260ms" }}>Thien.</span>
         </h1>
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-sm md:max-w-md mb-12 hero-item pointer-events-auto"
            style={{ animationDelay: "400ms" }}>
@@ -135,10 +135,10 @@ export function Hero() {
           {" "}and{" "}
           <a href="/booking/lakeridge" className="text-foreground underline underline-offset-4 decoration-border hover:text-primary transition-colors">Lakeridge</a>.
         </p>
-        <div className="flex items-center gap-5 md:justify-center hero-item pointer-events-auto select-auto"
+        <div className="flex items-center gap-5 hero-item pointer-events-auto select-auto"
              style={{ animationDelay: "540ms" }}>
           <Link href="/booking"
-            className="inline-flex items-center gap-2 bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90">
+            className="px-6 py-3 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity">
             Book a session
           </Link>
         </div>

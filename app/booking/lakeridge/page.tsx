@@ -28,10 +28,10 @@ export default function BookingLakeridgePage() {
           <p className='font-mono text-[9px] uppercase tracking-widest text-primary mb-3'>
             Torrington · CT
           </p>
-          <h1 className='font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-4'>
+          <h1 className='font-display text-5xl md:text-6xl font-light leading-tight mb-4'>
             Lakeridge
             <br />
-            <em className='text-primary not-italic'>Living.</em>
+            <em className='text-primary'>Living.</em>
           </h1>
         </ScrollReveal>
         <ScrollReveal delay={160}>

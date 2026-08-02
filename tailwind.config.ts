@@ -14,9 +14,9 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans:    ["var(--font-dm-sans)", "system-ui", "sans-serif"],
-        mono:    ["var(--font-dm-mono)", "monospace"],
-        heading: ["var(--font-bebas)", "var(--font-dm-sans)", "sans-serif"],
+        sans:    ["DM Sans", "system-ui", "sans-serif"],
+        mono:    ["DM Mono", "monospace"],
+        display: ["Cormorant Garamond", "serif"],
       },
       colors: {
         border:     "hsl(var(--border))",
@@ -58,9 +58,6 @@ const config: Config = {
       },
       animation: {
         "fade-in": "fade-in 0.5s ease forwards",
-      },
-      transitionTimingFunction: {
-        apple: "cubic-bezier(0.32, 0.72, 0, 1)",
       },
     },
   },

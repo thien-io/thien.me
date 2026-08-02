@@ -2,31 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fonts are loaded via next/font in app/layout.tsx (exposes the CSS vars below). */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Mono:wght@300;400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap");
 
 :root {
-  --font-heading: var(--font-bebas), "DM Sans", system-ui, sans-serif;
-  --font-sans: var(--font-dm-sans), system-ui, sans-serif;
-  --font-mono: var(--font-dm-mono), monospace;
+  --font-display: "Cormorant Garamond", serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", monospace;
 
-  --background: 0 0% 100%;
-  --foreground: 240 6% 7%;
-  --card: 0 0% 100%;
-  --card-foreground: 240 6% 7%;
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
-  --primary: 145 55% 32%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 0 0% 96%;
-  --secondary-foreground: 240 6% 7%;
-  --muted: 0 0% 96%;
-  --muted-foreground: 0 0% 42%;
-  --accent: 0 0% 96%;
-  --accent-foreground: 240 6% 7%;
-  --ring: 145 55% 32%;
-  --radius: 0;
-
-  --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
+  --background: 38 18% 96%;
+  --foreground: 28 12% 10%;
+  --card: 38 18% 98%;
+  --card-foreground: 28 12% 10%;
+  --border: 32 12% 86%;
+  --input: 32 12% 86%;
+  --primary: 46 75% 36%;
+  --primary-foreground: 38 18% 96%;
+  --secondary: 46 20% 91%;
+  --secondary-foreground: 28 12% 18%;
+  --muted: 46 14% 92%;
+  --muted-foreground: 28 8% 48%;
+  --accent: 46 60% 91%;
+  --accent-foreground: 46 75% 22%;
+  --ring: 46 75% 36%;
+  --radius: 0.4rem;
 }
 
 * { border-color: hsl(var(--border)); }
@@ -41,28 +39,6 @@ html { scroll-behavior: smooth; font-size: 17px; }
   margin-right: auto;
 }
 
-/* Center all page content on desktop; keep form fields left-aligned */
-@media (min-width: 768px) {
-  main {
-    text-align: center;
-  }
-  main .max-w-sm,
-  main .max-w-md,
-  main .max-w-lg,
-  main .max-w-xl,
-  main .max-w-2xl,
-  main .max-w-3xl {
-    margin-left: auto;
-    margin-right: auto;
-  }
-  main input,
-  main textarea,
-  main select,
-  main .prose-thien {
-    text-align: left;
-  }
-}
-
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
@@ -72,13 +48,20 @@ body {
   overflow-x: hidden;
 }
 
-.font-heading { font-family: var(--font-heading); letter-spacing: 0.01em; }
+.font-display { font-family: var(--font-display); }
 .font-mono    { font-family: var(--font-mono); }
 
 /* Scrollbar */
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 0; }
+::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 4px; }
+
+/* Sidebar links */
+.sidebar-link {
+  @apply flex items-center gap-3 px-3 py-2.5 rounded-md text-base text-muted-foreground
+         hover:text-primary hover:bg-primary/10 transition-all duration-200;
+}
+.sidebar-link.active { @apply text-primary bg-primary/10; }
 
 /* Spotify EQ bars */
 .spotify-bar { animation: spotify-eq 1.2s ease-in-out infinite; }
@@ -132,20 +115,18 @@ body {
   margin-bottom: 1.25rem;
 }
 .prose-thien h2 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: 1.75rem;
-  font-weight: 400;
-  text-transform: uppercase;
+  font-weight: 300;
   color: hsl(var(--foreground));
   margin-top: 2.5rem;
   margin-bottom: 0.75rem;
   line-height: 1.2;
 }
 .prose-thien h3 {
-  font-family: var(--font-heading);
+  font-family: var(--font-display);
   font-size: 1.35rem;
   font-weight: 400;
-  text-transform: uppercase;
   color: hsl(var(--foreground));
   margin-top: 2rem;
   margin-bottom: 0.5rem;
@@ -182,7 +163,7 @@ body {
   font-size: 0.8125rem;
   background: hsl(var(--muted));
   padding: 0.15rem 0.4rem;
-  border-radius: 0;
+  border-radius: 0.25rem;
   color: hsl(var(--primary));
 }
 

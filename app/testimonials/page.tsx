@@ -24,8 +24,8 @@ export default async function TestimonialsPage() {
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">
               Testimonials
             </p>
-            <h1 className="font-heading uppercase text-5xl md:text-6xl leading-[0.9] tracking-[0.01em] mb-6">
-              What players<br /><em className="text-primary not-italic">say.</em>
+            <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">
+              What players<br /><em className="text-primary">say.</em>
             </h1>
           </ScrollReveal>
         </div>
@@ -55,7 +55,7 @@ export default async function TestimonialsPage() {
         <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">
           Share yours
         </p>
-        <h2 className="font-heading uppercase text-3xl md:text-4xl leading-[0.9] tracking-[0.01em] text-foreground mb-8">
+        <h2 className="font-display text-3xl md:text-4xl font-light text-foreground mb-8">
           Leave a testimonial.
         </h2>
         <TestimonialForm />

@@ -32,8 +32,8 @@ function PetalMark({ size = 18 }: { size?: number }) {
 const NAV_LINKS = [
   { href: "/",             label: "home"         },
   { href: "/about",        label: "about"        },
-  { href: "/testimonials", label: "messages"     },
   { href: "/booking",      label: "bookings"     },
+  { href: "/testimonials", label: "messages"     },
   { href: "/pricing",      label: "pricing"      },
 ];
 

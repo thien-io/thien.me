@@ -30,7 +30,7 @@ function TennisBallIcon({ className }: { className?: string }) {
 const mainLinks = [
   { href: "/",             label: "Home",         icon: Home,     custom: false },
   { href: "/about",        label: "About",        icon: BookOpen, custom: false },
-  { href: "/testimonials", label: "Testimonials", icon: Quote,    custom: false },
+  { href: "/testimonials", label: "Messages",     icon: Quote,    custom: false },
   {
     href: '/booking',
     label: 'Bookings',

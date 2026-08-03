@@ -6,8 +6,8 @@ import { TestimonialForm } from "@/components/testimonial-form";
 import { getVisibleTestimonials } from "@/lib/supabase/testimonials";
 
 export const metadata: Metadata = {
-  title: "Testimonials",
-  description: "What players I've coached have to say about their time on court.",
+  title: "Messages",
+  description: "Kind words and notes from people I've hit with. Leave one if you'd like.",
 };
 
 export const dynamic = "force-dynamic";
@@ -22,10 +22,10 @@ export default async function TestimonialsPage() {
         <div className="relative z-10">
           <ScrollReveal>
             <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">
-              Testimonials
+              Messages
             </p>
             <h1 className="font-display text-5xl md:text-6xl font-light leading-tight mb-6">
-              What players<br /><em className="text-primary">say.</em>
+              What people<br /><em className="text-primary">say.</em>
             </h1>
           </ScrollReveal>
         </div>
@@ -44,7 +44,7 @@ export default async function TestimonialsPage() {
           </div>
         ) : (
           <p className="text-muted-foreground mb-16">
-            No testimonials yet — be the first to share your experience.
+            No messages yet — be the first to leave one.
           </p>
         )}
       </section>
@@ -53,10 +53,10 @@ export default async function TestimonialsPage() {
 
       <section className="px-8 md:px-16 py-16">
         <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-8">
-          Share yours
+          Say hi
         </p>
         <h2 className="font-display text-3xl md:text-4xl font-light text-foreground mb-8">
-          Leave a testimonial.
+          Leave a message.
         </h2>
         <TestimonialForm />
       </section>

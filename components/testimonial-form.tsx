@@ -87,7 +87,7 @@ export function TestimonialForm() {
 
       <div>
         <label htmlFor="quote" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5 block">
-          Your testimonial
+          Your message
         </label>
         <textarea
           id="quote"
@@ -101,14 +101,14 @@ export function TestimonialForm() {
       </div>
 
       {status === "error" && <p className="text-sm text-red-600">{errorMessage}</p>}
-      {status === "success" && <p className="text-sm text-primary">Thanks for sharing — your testimonial is live.</p>}
+      {status === "success" && <p className="text-sm text-primary">Thanks! Your message is up.</p>}
 
       <button
         type="submit"
         disabled={status === "pending"}
         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {status === "pending" ? "Submitting…" : "Submit testimonial"}
+        {status === "pending" ? "Sending…" : "Send message"}
       </button>
     </form>
   );

@@ -40,7 +40,7 @@ const NAV_LINKS = [
 export function Footer() {
   return (
     <footer className="border-t border-border">
-      <div className="w-full max-w-5xl mx-auto px-8 md:px-16 pt-16 sm:pt-20 pb-20 flex flex-col gap-9">
+      <div className="w-full max-w-5xl mr-auto px-8 md:px-16 pt-16 sm:pt-20 pb-20 flex flex-col gap-9">
         {/* Top row: nav links */}
         <nav className="flex flex-wrap items-baseline gap-x-6 gap-y-2">
           {NAV_LINKS.map((link) => (

@@ -31,11 +31,11 @@
 
 html { scroll-behavior: smooth; font-size: 17px; }
 
-/* Centered content container used by all pages except hero */
+/* Left-aligned content container used by all pages except hero */
 .content-wrap {
   width: 100%;
   max-width: 64rem; /* 1024px — matches max-w-4xl */
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
 }
 

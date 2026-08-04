@@ -115,7 +115,7 @@ export function Hero() {
     >
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
 
-      <div className="w-full max-w-[64rem] mx-auto px-8 md:px-16">
+      <div className="w-full max-w-[64rem] mr-auto px-8 md:px-16">
       <div className="relative z-10 pointer-events-none select-none">
         <p className="font-mono text-[10px] tracking-[0.25em] uppercase text-muted-foreground mb-10 hero-item"
            style={{ animationDelay: "0ms" }}>

@@ -3,29 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { LogoMark } from "@/components/logo-mark";
 import {
   Home, BookOpen, Menu, X, Mail,
   ChevronDown, CalendarCheck,
   CircleDollarSign, Quote,
 } from "lucide-react";
-
-// Tennis ball icon — provided by user
-function TennisBallIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 256 256"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className={className}
-    >
-      <path fill="currentColor" d="M201.57 54.46a104 104 0 1 0 0 147.08a103.4 103.4 0 0 0 0-147.08M65.75 65.77a87.63 87.63 0 0 1 53.66-25.31A87.3 87.3 0 0 1 94 94.06a87.42 87.42 0 0 1-53.62 25.35a87.58 87.58 0 0 1 25.37-53.64m-25.42 69.71a103.3 103.3 0 0 0 65-30.11a103.24 103.24 0 0 0 30.13-65a87.78 87.78 0 0 1 80.18 80.14a104 104 0 0 0-95.16 95.1a87.78 87.78 0 0 1-80.18-80.14Zm149.92 54.75a87.7 87.7 0 0 1-53.66 25.31a88 88 0 0 1 79-78.95a87.58 87.58 0 0 1-25.34 53.64"/>
-    </svg>
-  );
-}
 
 const mainLinks = [
   { href: "/",             label: "Home",         icon: Home,     custom: false },
@@ -106,7 +89,7 @@ const [coachingOpen, setCoachingOpen] = useState(true);
           <Link key={href} href={href} onClick={() => setMobileOpen(false)}
             className={`sidebar-link ${isActive(href) ? "active" : ""}`}>
             {custom
-              ? <TennisBallIcon className="h-4 w-4 shrink-0" />
+              ? <LogoMark className="h-4 w-4 shrink-0" />
               : Icon && <Icon className="h-4 w-4 shrink-0" />}
             <span>{label}</span>
           </Link>

@@ -45,7 +45,7 @@ export const COURTS: Court[] = [
     sports: "Tennis",
     surface: "Indoor hard courts",
     note: "Bookings open when the season starts.",
-    photo: "hardCourts",
+    photo: "indoorHard",
   },
   {
     id: "fern-park",
@@ -55,7 +55,7 @@ export const COURTS: Court[] = [
     sports: "Tennis",
     surface: "Outdoor club courts",
     note: "Bookings open when the season starts.",
-    photo: "net",
+    photo: "clayPark",
   },
   {
     id: "east-hartford",
@@ -63,9 +63,9 @@ export const COURTS: Court[] = [
     short: "East Hartford",
     town: "East Hartford",
     sports: "Tennis",
-    surface: "Club courts",
+    surface: "Indoor hard courts",
     note: "Bookings open when the season starts.",
-    photo: "hardCourts",
+    photo: "indoorClub",
   },
 ];
 
@@ -81,6 +81,9 @@ export type PhotoId =
   | "twinCourt"
   | "twinEvening"
   | "stillwater"
+  | "indoorHard"
+  | "indoorClub"
+  | "clayPark"
   | "hardCourts"
   | "net"
   | "ball"
@@ -143,6 +146,36 @@ export const PHOTOS: Record<PhotoId, Photo> = {
     credit: "John Phelan, CC BY 4.0",
     page: "https://commons.wikimedia.org/wiki/File:Stillwater_Pond,_Torrington_CT.jpg",
     position: "40% 50%",
+  },
+  indoorHard: {
+    src: "/images/indoor-hard-courts.jpg",
+    width: 1920,
+    height: 1246,
+    alt: "A row of indoor hard tennis courts under a high lit roof",
+    caption: "Indoor hard courts",
+    credit: "Adrian Pingstone, public domain",
+    page: "https://commons.wikimedia.org/wiki/File:Universityofbath_indoor_tennis_courts_arp.jpg",
+    position: "50% 60%",
+  },
+  indoorClub: {
+    src: "/images/indoor-club-courts.jpg",
+    width: 1920,
+    height: 1440,
+    alt: "Indoor club tennis courts under a pitched roof with skylights",
+    caption: "Indoor club courts",
+    credit: "Bryn Holmes, CC BY-SA 2.0",
+    page: "https://commons.wikimedia.org/wiki/File:Indoor_courts,_Nottingham_Tennis_Centre_-_geograph.org.uk_-_7416678.jpg",
+    position: "50% 60%",
+  },
+  clayPark: {
+    src: "/images/clay-courts-park.jpg",
+    width: 1920,
+    height: 886,
+    alt: "Outdoor clay tennis courts in a leafy park, seen from a path under the trees",
+    caption: "Outdoor clay courts in a park",
+    credit: "Towner868, CC BY-SA 4.0",
+    page: "https://commons.wikimedia.org/wiki/File:Riverside_Clay_Tennis_Courts.jpg",
+    position: "45% 60%",
   },
   hardCourts: {
     src: "/images/hard-courts.jpg",

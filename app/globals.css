@@ -191,25 +191,11 @@ html.js .reveal:not([data-in]) { opacity: 0; translate: 0 24px; }
 html.js .reveal-line:not([data-in]) .line-mask > span { translate: 0 110%; }
 .reveal-line .line-mask > span { transition: translate 1s var(--ease-expo) var(--d, 0s); }
 
-/* The hero name rises out of its own baseline; a paper-coloured copy covers the
-   part of it that lies over the stage photograph. */
+/* The hero name rises out of its own baseline. */
 .wordmark {
   overflow: clip;
   padding-block: 0.06em 0.14em;
-  /* Below the photo on small screens, clear the font's ascent from the picture. */
-  margin-block: 0.06em -0.14em;
-}
-@media (min-width: 1024px) {
-  .wordmark { margin-top: -0.06em; }
-}
-.wordmark::after {
-  content: attr(data-text);
-  position: absolute;
-  inset: 0.06em 0 0.14em 0;
-  color: var(--paper);
-  clip-path: inset(-20% calc(100% - var(--overlap, 0px)) -20% 0);
-  pointer-events: none;
-  animation: name-rise 0.95s var(--ease-expo) both;
+  margin-block: -0.02em -0.14em;
 }
 .hero-rise { animation: name-rise 0.95s var(--ease-expo) both; }
 @keyframes name-rise {

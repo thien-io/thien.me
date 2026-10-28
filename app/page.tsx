@@ -8,7 +8,7 @@ import type { PhotoId } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
-const STAGE_PHOTOS: PhotoId[] = ["twinLakes", "twinView", "twinCourt", "stillwater", "hardCourts", "net", "felt", "twinEvening"];
+const STAGE_PHOTOS: PhotoId[] = ["twinView", "twinCourt", "stillwater", "hardCourts", "net", "felt", "twinEvening"];
 
 export default async function Home() {
   let testimonials: Testimonial[] = [];
@@ -20,7 +20,8 @@ export default async function Home() {
 
   return (
     <>
-      <StageProvider initial="twinLakes">
+      <Hero />
+      <StageProvider initial="twinView">
         <div className="lg:grid lg:grid-cols-[47%_53%]">
           <aside
             aria-hidden
@@ -29,7 +30,6 @@ export default async function Home() {
             <Stage photos={STAGE_PHOTOS} />
           </aside>
           <div data-reading-column className="min-w-0">
-            <Hero />
             <About />
             <Courts />
             <Rates />

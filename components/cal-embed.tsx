@@ -42,9 +42,9 @@ export function CalEmbed({
   }, [namespace, onBooked]);
 
   return (
-    <div className="relative h-full min-h-[560px]">
+    <div className="relative min-h-[520px]">
       <div
-        className={`absolute inset-0 flex flex-col items-center justify-center gap-5 transition-opacity duration-500 ${
+        className={`absolute inset-x-0 top-0 flex h-[420px] flex-col items-center justify-center gap-5 transition-opacity duration-500 ${
           ready ? "pointer-events-none opacity-0" : "opacity-100"
         }`}
         aria-hidden={ready}
@@ -55,8 +55,9 @@ export function CalEmbed({
       <Cal
         namespace={namespace}
         calLink={calLink}
-        className={`h-full transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}
-        style={{ width: "100%", height: "100%", minHeight: 560, overflow: "auto" }}
+        className={`transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}
+        // Cal sizes its iframe to the calendar's height, so the page scrolls once instead of twice.
+        style={{ width: "100%" }}
         config={{ layout: "month_view", theme: "light" }}
       />
     </div>

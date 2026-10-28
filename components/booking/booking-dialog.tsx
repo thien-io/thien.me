@@ -46,21 +46,25 @@ export function BookingDialog({
     <Dialog.Root open={open} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className="dialog-overlay fixed inset-0 z-[100] bg-[rgba(24,26,20,0.55)]" />
+        {/* Phones: the whole sheet is one scroll, with the court tabs pinned on top.
+            Desktop: a rail of tabs beside a scrolling calendar panel. */}
         <Dialog.Content
-          className="booking-panel fixed inset-x-0 bottom-0 z-[101] flex h-[94svh] flex-col overflow-hidden rounded-t-[22px] bg-paper shadow-[0_30px_80px_-20px_rgba(20,22,16,0.5)] focus:outline-none md:inset-auto md:left-1/2 md:top-1/2 md:h-[min(840px,92svh)] md:w-[min(1120px,calc(100vw-48px))] md:-translate-x-1/2 md:-translate-y-1/2 md:flex-row md:rounded-[22px]"
+          className="booking-panel fixed inset-0 z-[101] h-[100dvh] overflow-y-auto overscroll-contain bg-paper focus:outline-none md:inset-auto md:left-1/2 md:top-1/2 md:flex md:h-auto md:max-h-[94svh] md:min-h-[min(620px,94svh)] md:w-[min(1120px,calc(100vw-48px))] md:-translate-x-1/2 md:-translate-y-1/2 md:flex-row md:overflow-hidden md:rounded-[22px] md:shadow-[0_30px_80px_-20px_rgba(20,22,16,0.5)]"
           aria-describedby="booking-desc"
         >
           {/* Rail: court tabs */}
-          <div className="flex shrink-0 flex-col bg-surface md:w-[320px]">
-            <div className="flex items-start justify-between gap-4 px-5 pb-4 pt-5 md:px-7 md:pt-8">
+          <div className="sticky top-0 z-20 flex shrink-0 flex-col bg-surface md:static md:w-[300px]">
+            <div className="flex items-center justify-between gap-4 px-4 pb-2 pt-3 md:items-start md:px-7 md:pb-4 md:pt-8">
               <div>
-                <Dialog.Title className="t-h2 !text-[28px] md:!text-[34px]">Book a lesson</Dialog.Title>
-                <Dialog.Description id="booking-desc" className="t-small mt-2 text-soft">
-                  60 or 90 minutes, ${RATES.hourly} an hour. I text you to confirm.
+                <Dialog.Title className="font-serif text-[22px] font-semibold leading-tight tracking-[-0.02em] md:text-[34px]">
+                  Book a lesson
+                </Dialog.Title>
+                <Dialog.Description id="booking-desc" className="t-small mt-0.5 text-soft md:mt-2">
+                  ${RATES.hourly} an hour<span className="hidden md:inline">, 60 or 90 minutes. I text you to confirm</span>.
                 </Dialog.Description>
               </div>
               <Dialog.Close
-                className="press -mr-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-paper text-ink transition-colors hover:bg-white md:hidden"
+                className="press flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-paper text-ink transition-colors hover:bg-white md:hidden"
                 aria-label="Close booking"
               >
                 <X className="h-5 w-5" />
@@ -70,8 +74,7 @@ export function BookingDialog({
             <div
               role="tablist"
               aria-label="Courts"
-              aria-orientation="vertical"
-              className="no-scrollbar flex gap-1.5 overflow-x-auto px-5 pb-4 md:flex-col md:gap-1 md:overflow-visible md:px-4 md:pb-0"
+              className="no-scrollbar flex gap-1 overflow-x-auto px-4 pb-3 md:flex-col md:gap-1 md:overflow-visible md:px-4 md:pb-0"
             >
               {COURTS.map((c, i) => {
                 const selected = c.id === court;
@@ -86,16 +89,16 @@ export function BookingDialog({
                     tabIndex={selected ? 0 : -1}
                     onClick={() => onCourtChange(c.id)}
                     onKeyDown={(e) => onTabKey(e, i)}
-                    className="press group relative shrink-0 rounded-2xl px-4 py-3 text-left md:px-4 md:py-3.5"
+                    className="press group relative shrink-0 rounded-full px-3.5 py-2 text-left md:rounded-2xl md:px-4 md:py-3.5"
                   >
                     {selected && (
                       <motion.span
                         layoutId="court-tab-pill"
-                        className="absolute inset-0 rounded-2xl bg-paper"
+                        className="absolute inset-0 rounded-full bg-paper md:rounded-2xl"
                         transition={{ type: "spring", stiffness: 420, damping: 36 }}
                       />
                     )}
-                    <span className="relative flex items-center gap-2.5">
+                    <span className="relative flex items-center gap-2">
                       <span
                         className={`h-2 w-2 shrink-0 rounded-full transition-colors ${
                           c.calLink ? "bg-moss" : "bg-soft/40"
@@ -104,7 +107,7 @@ export function BookingDialog({
                       />
                       <span className="font-ui whitespace-nowrap text-[15px] font-medium text-ink">{c.short}</span>
                     </span>
-                    <span className="t-fine relative mt-0.5 hidden whitespace-nowrap pl-[18px] text-soft md:block">
+                    <span className="t-fine relative mt-0.5 hidden whitespace-nowrap pl-4 text-soft md:block">
                       {c.town} · {c.calLink ? c.sports : "Opens with the season"}
                     </span>
                   </button>
@@ -127,7 +130,7 @@ export function BookingDialog({
             id="court-panel"
             role="tabpanel"
             aria-labelledby={`court-tab-${active.id}`}
-            className="relative min-h-0 flex-1 overflow-y-auto"
+            className="relative md:min-h-0 md:flex-1 md:overflow-y-auto md:overscroll-contain"
           >
             <Dialog.Close
               className="press absolute right-5 top-5 z-10 hidden h-10 w-10 items-center justify-center rounded-full bg-surface text-ink transition-colors hover:bg-surface-2 md:flex"
@@ -143,9 +146,8 @@ export function BookingDialog({
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="flex h-full flex-col"
               >
-                <div className="px-5 pb-2 pt-1 md:px-10 md:pr-20 md:pt-9">
+                <div className="hidden px-10 pb-2 pr-20 pt-9 md:block">
                   <p className="font-ui text-[15px] font-medium text-ink">{active.name}</p>
                   <p className="t-small text-soft">
                     {active.town} · {active.surface} · {active.note}
@@ -153,7 +155,7 @@ export function BookingDialog({
                 </div>
 
                 {active.calLink ? (
-                  <div className="min-h-0 flex-1 px-1 md:px-4">
+                  <div className="pb-6 md:px-4">
                     <CalEmbed calLink={active.calLink} namespace={active.id} onBooked={onBooked} />
                   </div>
                 ) : (
@@ -183,12 +185,13 @@ function OffSeason({
     `Hi Thien,\n\nCould you let me know when lessons at ${courtName} open for the season?\n\nThanks,\n`,
   );
   return (
-    <div className="flex flex-1 flex-col gap-8 px-5 pb-8 pt-4 md:px-10 md:pt-6">
+    <div className="flex flex-col gap-6 px-4 pb-8 pt-4 md:gap-8 md:px-10 md:pt-6">
       <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[14px] bg-surface">
         <Image src={p.src} alt={p.alt} fill sizes="(min-width: 768px) 760px, 100vw" className="drift object-cover" style={{ objectPosition: p.position }} />
       </div>
       <div className="max-w-[34rem]">
-        <p className="t-statement">
+        <p className="font-ui text-[15px] font-medium text-ink md:hidden">{courtName}</p>
+        <p className="t-statement mt-1 md:mt-0">
           This calendar opens when the season starts. Send me a note and you will hear the day it goes live.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">

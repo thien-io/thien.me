@@ -84,7 +84,6 @@ export type PhotoId =
   | "hardCourts"
   | "net"
   | "ball"
-  | "felt"
   | "randsView";
 
 export interface Photo {
@@ -174,16 +173,6 @@ export const PHOTOS: Record<PhotoId, Photo> = {
     credit: "Santeri Viinamäki, CC BY-SA 4.0",
     page: "https://commons.wikimedia.org/wiki/File:Tennis_ball_on_tennis_court_20170619.jpg",
     position: "30% 60%",
-  },
-  felt: {
-    src: "/images/ball-felt.jpg",
-    width: 1920,
-    height: 979,
-    alt: "Rubber tennis ball halves beside finished balls covered in felt",
-    caption: "How a tennis ball is made",
-    credit: "Mx. Granger, CC0",
-    page: "https://commons.wikimedia.org/wiki/File:Tennis_ball_blanks_and_felt.jpg",
-    position: "70% 50%",
   },
   randsView: {
     src: "/images/rands-view-salisbury.jpg",

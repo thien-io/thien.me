@@ -69,9 +69,9 @@ export function About() {
 
 export function Rates() {
   return (
-    <StageSection id="rates" photo="felt" labelledBy="rates-title" className="section-pad">
+    <StageSection id="rates" photo="twinLakes" labelledBy="rates-title" className="section-pad">
       <Heading id="rates-title">${RATES.hourly} an hour.</Heading>
-      <InlinePhoto photo="felt" aspect="aspect-[3/2]" className="mt-8" />
+      <InlinePhoto photo="twinLakes" aspect="aspect-[3/2]" className="mt-8" />
       <p className="reveal mt-5 max-w-[40ch]" style={d(0.08)}>
         One rate for tennis and pickleball, at every court. Private lessons, one on one.
       </p>
@@ -149,7 +149,6 @@ const STRIP: { id: PhotoId; w: number }[] = [
   { id: "ball", w: 150 },
   { id: "stillwater", w: 112 },
   { id: "twinView", w: 200 },
-  { id: "felt", w: 150 },
   { id: "twinCourt", w: 200 },
   { id: "twinEvening", w: 200 },
   { id: "hardCourts", w: 225 },

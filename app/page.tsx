@@ -8,7 +8,7 @@ import type { PhotoId } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
-const STAGE_PHOTOS: PhotoId[] = ["twinView", "twinCourt", "stillwater", "hardCourts", "net", "felt", "twinEvening"];
+const STAGE_PHOTOS: PhotoId[] = ["twinView", "twinCourt", "stillwater", "hardCourts", "net", "twinLakes", "twinEvening"];
 
 export default async function Home() {
   let testimonials: Testimonial[] = [];

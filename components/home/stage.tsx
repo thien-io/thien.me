@@ -25,7 +25,6 @@ function useStage() {
 export function Stage({ photos }: { photos: PhotoId[] }) {
   const { photo } = useStage();
   const reduce = useReducedMotion();
-  const p = PHOTOS[photo];
 
   return (
     <div className="relative h-full w-full overflow-hidden rounded-[14px] bg-ink">
@@ -56,21 +55,6 @@ export function Stage({ photos }: { photos: PhotoId[] }) {
           </motion.div>
         );
       })}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-[rgba(20,22,16,0.28)] [mask-image:linear-gradient(to_top,black,transparent)]" />
-      <div className="absolute bottom-5 left-5 right-5 overflow-hidden">
-        <AnimatePresence mode="wait" initial={false}>
-          <motion.p
-            key={photo}
-            initial={{ y: "100%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: "-60%", opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="t-fine text-white"
-          >
-            {p.caption}
-          </motion.p>
-        </AnimatePresence>
-      </div>
     </div>
   );
 }
@@ -120,13 +104,11 @@ export function InlinePhoto({
   aspect = "aspect-[4/3]",
   className = "",
   priority = false,
-  caption = true,
 }: {
   photo: PhotoId;
   aspect?: string;
   className?: string;
   priority?: boolean;
-  caption?: boolean;
 }) {
   const p = PHOTOS[photo];
   return (
@@ -152,12 +134,6 @@ export function InlinePhoto({
             />
           </motion.div>
         </AnimatePresence>
-        {caption && (
-          <>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-16 bg-[rgba(20,22,16,0.3)] [mask-image:linear-gradient(to_top,black,transparent)]" />
-            <p className="t-fine absolute bottom-3 left-4 right-4 text-white">{p.caption}</p>
-          </>
-        )}
       </div>
     </figure>
   );

@@ -2,8 +2,13 @@
 
 import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import { Check } from "lucide-react";
 
-export function TestimonialForm() {
+const field =
+  "w-full rounded-[14px] bg-surface px-4 py-3.5 font-ui text-[16px] text-ink placeholder:text-soft/70 transition-colors duration-300 hover:bg-surface-2 focus:bg-white focus:outline-none";
+
+export function TestimonialForm({ onDone }: { onDone?: () => void }) {
   const router = useRouter();
   const [name, setName] = useState("");
   const [context, setContext] = useState("");
@@ -42,8 +47,34 @@ export function TestimonialForm() {
     }
   }
 
+  if (status === "success") {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-col items-start gap-5 py-6"
+      >
+        <motion.span
+          initial={{ scale: 0.4, rotate: -30 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: "spring", stiffness: 300, damping: 16, delay: 0.1 }}
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-ball text-ink"
+        >
+          <Check className="h-7 w-7" strokeWidth={2.5} />
+        </motion.span>
+        <p className="t-statement">Thank you. Your message is up.</p>
+        {onDone && (
+          <button type="button" onClick={onDone} className="btn btn-quiet">
+            Close
+          </button>
+        )}
+      </motion.div>
+    );
+  }
+
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 max-w-md">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", width: 1, height: 1, overflow: "hidden" }}>
         <label htmlFor="hp_token">Reference code</label>
         <input
@@ -57,57 +88,54 @@ export function TestimonialForm() {
         />
       </div>
 
-      <div>
-        <label htmlFor="name" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5 block">
-          Name
+      <div className="grid gap-4 sm:grid-cols-2">
+        <label className="flex flex-col gap-1.5">
+          <span className="t-small text-soft">Your name</span>
+          <input
+            required
+            maxLength={80}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            autoComplete="name"
+            className={field}
+          />
         </label>
-        <input
-          id="name"
-          required
-          maxLength={80}
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary/40 transition-all"
-        />
+        <label className="flex flex-col gap-1.5">
+          <span className="t-small text-soft">Where we played</span>
+          <input
+            required
+            maxLength={120}
+            value={context}
+            onChange={(e) => setContext(e.target.value)}
+            placeholder="Tennis at Twin Lakes"
+            className={field}
+          />
+        </label>
       </div>
 
-      <div>
-        <label htmlFor="context" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5 block">
-          Context <span className="normal-case tracking-normal text-muted-foreground/70">(e.g. &quot;Tennis · Twin Lakes&quot;)</span>
-        </label>
-        <input
-          id="context"
-          required
-          maxLength={120}
-          value={context}
-          onChange={(e) => setContext(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground focus:outline-none focus:border-primary/40 transition-all"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="quote" className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground mb-1.5 block">
-          Your message
-        </label>
+      <label className="flex flex-col gap-1.5">
+        <span className="t-small text-soft">Your message</span>
         <textarea
-          id="quote"
           required
           maxLength={600}
-          rows={4}
+          rows={5}
           value={quote}
           onChange={(e) => setQuote(e.target.value)}
-          className="w-full px-4 py-2.5 rounded-xl border border-border bg-card text-sm text-foreground leading-relaxed focus:outline-none focus:border-primary/40 transition-all resize-none"
+          aria-describedby="quote-limit"
+          className={`${field} resize-none leading-relaxed`}
         />
-      </div>
+        <span id="quote-limit" className="t-fine self-end text-soft tabular">
+          {quote.length} / 600
+        </span>
+      </label>
 
-      {status === "error" && <p className="text-sm text-red-600">{errorMessage}</p>}
-      {status === "success" && <p className="text-sm text-primary">Thanks! Your message is up.</p>}
+      {status === "error" && (
+        <p role="alert" className="t-small text-[#a2261b]">
+          {errorMessage}
+        </p>
+      )}
 
-      <button
-        type="submit"
-        disabled={status === "pending"}
-        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
-      >
+      <button type="submit" disabled={status === "pending"} className="btn btn-primary self-start disabled:opacity-60">
         {status === "pending" ? "Sending…" : "Send message"}
       </button>
     </form>

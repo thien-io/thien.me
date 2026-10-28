@@ -14,11 +14,22 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
-        sans:    ["DM Sans", "system-ui", "sans-serif"],
-        mono:    ["DM Mono", "monospace"],
-        display: ["Cormorant Garamond", "serif"],
+        sans:    ["var(--font-ui)"],
+        ui:      ["var(--font-ui)"],
+        serif:   ["var(--font-serif)"],
+        display: ["var(--font-serif)"],
+        mono:    ["var(--font-ui)"],
       },
       colors: {
+        paper:   "var(--paper)",
+        surface: { DEFAULT: "var(--surface)", 2: "var(--surface-2)" },
+        ink:     "var(--ink)",
+        soft:    "var(--muted)",
+        moss:    { DEFAULT: "var(--accent)", hover: "var(--accent-hover)" },
+        field:   { DEFAULT: "var(--field)", 2: "var(--field-2)", 3: "var(--field-3)", ink: "var(--field-ink)" },
+        ball:    "var(--ball)",
+
+        // Legacy names used by the blog, admin and media pages
         border:     "hsl(var(--border))",
         input:      "hsl(var(--input))",
         ring:       "hsl(var(--ring))",
@@ -33,11 +44,11 @@ const config: Config = {
           foreground: "hsl(var(--secondary-foreground))",
         },
         muted: {
-          DEFAULT:    "hsl(var(--muted))",
+          DEFAULT:    "hsl(var(--muted-hsl))",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT:    "hsl(var(--accent))",
+          DEFAULT:    "hsl(var(--accent-hsl))",
           foreground: "hsl(var(--accent-foreground))",
         },
         card: {
@@ -50,14 +61,9 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      keyframes: {
-        "fade-in": {
-          from: { opacity: "0", transform: "translateY(8px)" },
-          to:   { opacity: "1", transform: "translateY(0)" },
-        },
-      },
-      animation: {
-        "fade-in": "fade-in 0.5s ease forwards",
+      transitionTimingFunction: {
+        apple: "cubic-bezier(0.32, 0.72, 0, 1)",
+        expo:  "cubic-bezier(0.16, 1, 0.3, 1)",
       },
     },
   },

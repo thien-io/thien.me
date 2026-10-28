@@ -4,11 +4,11 @@ export const alt = "Thien — RSPA certified tennis & pickleball coach";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-const BG = "#f5f0e8";
-const INK = "#1f1a14";
-const MUTED = "#7a7060";
+const BG = "#e4e4df";
+const INK = "#1f201b";
+const MUTED = "#55554b";
 const FAINT = "#a09888";
-const GOLD = "#c89520";
+const GOLD = "#3f5a2a";
 const BALL = "#c8e03c";
 
 export default function OGImage() {

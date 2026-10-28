@@ -1,7 +1,20 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Source_Serif_4 } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
-import { Sidebar } from "@/components/sidebar";
-import { Footer } from "@/components/footer";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { BookingProvider } from "@/components/booking/booking-provider";
+import { Reveals } from "@/components/reveals";
+
+const serif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-source-serif",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -9,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s — Thien",
   },
   description:
-    "RSPA certified tennis and pickleball coach in Connecticut. Private lessons at Twin Lakes Beach Club and Lakeridge. All levels welcome.",
+    "RSPA certified tennis and pickleball coach in Connecticut. Private lessons at Twin Lakes Beach Club and Lakeridge, $100 an hour. All levels welcome.",
   metadataBase: new URL("https://thien.me"),
   openGraph: {
     title: "Thien — Tennis & Pickleball Coach in Connecticut",
@@ -28,33 +41,28 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: "#e4e4df",
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning className={`${serif.variable} ${GeistSans.variable} ${GeistMono.variable}`}>
       <head>
-        <style>{`
-          @keyframes scrollHint {
-            0% { transform: translateY(-100%); opacity: 0; }
-            30% { opacity: 1; }
-            100% { transform: translateY(200%); opacity: 0; }
-          }
-        `}</style>
-        {/* Clear stale theme/color localStorage keys from old theme switcher */}
-        <script dangerouslySetInnerHTML={{ __html: `
-          try {
-            localStorage.removeItem('thien-color');
-            localStorage.removeItem('theme');
-          } catch(e) {}
-        `}} />
+        {/* Opt into entrance animations only when script runs, so content never stays hidden. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js');try{localStorage.removeItem('thien-color');localStorage.removeItem('theme')}catch(e){}`,
+          }}
+        />
       </head>
       <body>
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <main className="flex-1 md:ml-56 min-h-screen flex flex-col">
-            <div className="flex-1 w-full">{children}</div>
-            <Footer />
-          </main>
-        </div>
+        <BookingProvider>
+          <SiteHeader />
+          <main id="main">{children}</main>
+          <SiteFooter />
+        </BookingProvider>
+        <Reveals />
       </body>
     </html>
   );
